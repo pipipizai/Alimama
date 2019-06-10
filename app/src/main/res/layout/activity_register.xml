@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f3f5f7"
+    tools:context="com.example.alimama.alimama.ui.activity.RegisterActivity">
+
+    <include layout="@layout/common_toolbar"></include>
+
+    <EditText
+        android:id="@+id/register_edt_username"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="40dp"
+        android:background="#ffffff"
+        android:inputType="text"
+        android:hint="Student ID"
+        android:paddingLeft="8dp"
+        android:textColorHint="#000000"/>
+    <EditText
+        android:id="@+id/register_edt_password"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="4dp"
+        android:background="#ffffff"
+        android:inputType="textWebPassword"
+        android:hint="Password"
+        android:paddingLeft="8dp"
+        android:textColorHint="#000000"/>
+    <EditText
+        android:id="@+id/register_edt_repassword"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="4dp"
+        android:background="#ffffff"
+        android:inputType="textWebPassword"
+        android:hint="Repassword"
+        android:paddingLeft="8dp"
+        android:textColorHint="#000000"/>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Button_Large_Orange"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="50dp"
+        android:text="Register"
+        android:background="#efb336"/>
+
+
+
+</LinearLayout>

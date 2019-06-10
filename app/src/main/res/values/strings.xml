@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Alimama</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_categories">Categories</string>
+    <string name="title_discover">Discover</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_me">Me</string>
+    <string name="title_activity_login">LoginActivity</string>
+</resources>

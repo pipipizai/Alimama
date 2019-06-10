@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "862164091623",
+    "firebase_url": "https://alimama-aca18.firebaseio.com",
+    "project_id": "alimama-aca18",
+    "storage_bucket": "alimama-aca18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862164091623:android:f732c417ed138d08",
+        "android_client_info": {
+          "package_name": "com.example.alimama.alimama"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862164091623-3bg5mqum29oi873phuiri1c7qgc3qgko.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alimama.alimama",
+            "certificate_hash": "fce1b89f3b7eaf9d7c38d12a336c79adb2b11435"
+          }
+        },
+        {
+          "client_id": "862164091623-1sg9ru7jhc6n6ck6n5v6tqn90k7taqst.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alimama.alimama",
+            "certificate_hash": "cd5a0c2a3143fb830fcbb58005bddbeeb9232a5a"
+          }
+        },
+        {
+          "client_id": "862164091623-v8m9v93h3geru0n92c5n23f9262ropvi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtqATC-HPDmZvegZqiAlIpQ3VXbVdRHVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862164091623-v8m9v93h3geru0n92c5n23f9262ropvi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
