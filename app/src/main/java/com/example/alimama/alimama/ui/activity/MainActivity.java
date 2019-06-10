@@ -1,24 +1,28 @@
 package com.example.alimama.alimama.ui.activity;
 
-
-//yexuangaile
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.alimama.alimama.R;
+import com.example.alimama.alimama.fragment.CartFragment;
+import com.example.alimama.alimama.fragment.CategoriesFragment;
 import com.example.alimama.alimama.fragment.DiscoverFragment;
 import com.example.alimama.alimama.fragment.HomeFragment;
 import com.example.alimama.alimama.fragment.MeFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    protected LinearLayout mMenueHome;
-    protected LinearLayout mMenueDiscover;
-    protected LinearLayout mMenueMe;
+    protected LinearLayout mMenuHome;
+    protected LinearLayout mMenuCategories;
+    protected LinearLayout mMenuDiscover;
+    protected LinearLayout mMenuCart;
+    protected LinearLayout mMenuMe;
     protected HomeFragment mHomeFragment = new HomeFragment();//HOME
+    protected CategoriesFragment mCaregoriesFragment = new CategoriesFragment();//Categories
     protected DiscoverFragment mDiscoverFragment = new DiscoverFragment();//Discover
+    protected CartFragment mCartFragment = new CartFragment();//Cart
     protected MeFragment mMeFragment = new MeFragment();//Me
 
     @Override
@@ -31,8 +35,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.getSupportFragmentManager()
                     .beginTransaction()
                 .add(R.id.container_content,mHomeFragment)
+                .add(R.id.container_content, mCaregoriesFragment)
+                .hide(mCaregoriesFragment)
                 .add(R.id.container_content,mDiscoverFragment)
                     .hide(mDiscoverFragment)
+                .add(R.id.container_content, mCartFragment)
+                .hide(mCartFragment)
                 .add(R.id.container_content,mMeFragment)
                     .hide(mMeFragment)
 
@@ -45,13 +53,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      *初始化视图
      */
     public void initView(){
-        mMenueHome = (LinearLayout)this.findViewById(R.id.menu_home);
-        mMenueDiscover = (LinearLayout)this.findViewById(R.id.menu_discover);
-        mMenueMe = (LinearLayout)this.findViewById(R.id.menu_me);
+        mMenuHome = (LinearLayout) this.findViewById(R.id.menu_home);
+        mMenuCategories = (LinearLayout) this.findViewById(R.id.menu_categories);
+        mMenuDiscover = (LinearLayout) this.findViewById(R.id.menu_discover);
+        mMenuCart = (LinearLayout) this.findViewById(R.id.menu_cart);
+        mMenuMe = (LinearLayout) this.findViewById(R.id.menu_me);
 
-        mMenueHome.setOnClickListener(this);
-        mMenueDiscover.setOnClickListener(this);
-        mMenueMe.setOnClickListener(this);
+        mMenuHome.setOnClickListener(this);
+        mMenuCategories.setOnClickListener(this);
+        mMenuDiscover.setOnClickListener(this);
+        mMenuCart.setOnClickListener(this);
+        mMenuMe.setOnClickListener(this);
     }
 
     @Override
@@ -61,7 +73,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 this.getSupportFragmentManager()
                         .beginTransaction()
                         .show(mHomeFragment)
+                        .hide(mCaregoriesFragment)
                         .hide(mDiscoverFragment)
+                        .hide(mCartFragment)
+                        .hide(mMeFragment)
+                        .commit();
+                break;
+            case R.id.menu_categories: //分类
+                this.getSupportFragmentManager()
+                        .beginTransaction()
+                        .hide(mHomeFragment)
+                        .show(mCaregoriesFragment)
+                        .hide(mDiscoverFragment)
+                        .hide(mCartFragment)
                         .hide(mMeFragment)
                         .commit();
                 break;
@@ -69,7 +93,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 this.getSupportFragmentManager()
                         .beginTransaction()
                         .hide(mHomeFragment)
+                        .hide(mCaregoriesFragment)
                         .show(mDiscoverFragment)
+                        .hide(mCartFragment)
+                        .hide(mMeFragment)
+                        .commit();
+                break;
+            case R.id.menu_cart: //购物车
+                this.getSupportFragmentManager()
+                        .beginTransaction()
+                        .hide(mHomeFragment)
+                        .hide(mCaregoriesFragment)
+                        .hide(mDiscoverFragment)
+                        .show(mCartFragment)
                         .hide(mMeFragment)
                         .commit();
                 break;
@@ -77,7 +113,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 this.getSupportFragmentManager()
                         .beginTransaction()
                         .hide(mHomeFragment)
+                        .hide(mCaregoriesFragment)
                         .hide(mDiscoverFragment)
+                        .hide(mCartFragment)
                         .show(mMeFragment)
                         .commit();
                 break;
