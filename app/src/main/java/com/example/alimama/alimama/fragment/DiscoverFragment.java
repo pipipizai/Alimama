@@ -93,7 +93,7 @@ public class DiscoverFragment extends Fragment {
 
             publish_description.setText(description);
         }
-
+//
 
     }
 
