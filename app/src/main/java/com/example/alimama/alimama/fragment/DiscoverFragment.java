@@ -141,7 +141,7 @@ public class DiscoverFragment extends Fragment {
                 holder.setItemName(model.getName());
                 holder.setItemPrice(model.getPrice());
                 holder.setItemDescription(model.getDescription());
-
+//
             }
 
             @NonNull
