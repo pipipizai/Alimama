@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:id="@+id/layout_home_header"
+        android:id="@+id/layout_main_header"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#efb336">
@@ -21,7 +21,7 @@
     </RelativeLayout>
 
     <TextView
-        android:layout_below="@+id/layout_home_header"
+        android:layout_below="@+id/layout_main_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="HOME"
