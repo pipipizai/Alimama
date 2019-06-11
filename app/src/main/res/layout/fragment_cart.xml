@@ -1,16 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.CartFragment">
+    android:orientation="vertical"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
+    //导航栏： 购物车
+    <RelativeLayout
+        android:id="@+id/rv_bottom"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cart"
-        android:textSize="36dp"
-        android:layout_gravity="center" />
+        android:background="#efb336"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        >
 
-</android.support.constraint.ConstraintLayout>
+        // 删除选中的物品
+        <Button
+            android:id="@+id/btn_del"
+            style="@style/bigRedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:minHeight="40dp"
+            android:minWidth="80dp"
+            android:text="Delete"
+            />
+
+
+
+        <TextView
+            android:id="@+id/txt_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="120dp"
+            android:layout_toRightOf="@+id/checkbox_all"
+            android:text="Shopping Cart"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        //清空购物车
+        <Button
+            android:id="@+id/btn_order"
+            style="@style/bigRedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:minHeight="40dp"
+            android:minWidth="80dp"
+            android:text="Clear"
+            />
+
+    </RelativeLayout>
+
+
+    //显示已经加入购物车的商品
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@drawable/divider_normal_bottom"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+        <CheckBox
+            android:id="@+id/checkbox_all"
+            style="@style/customCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:checked="false"
+            />
+
+        <ImageView
+            android:id="@+id/id_iv_image"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:scaleType="centerCrop"
+            android:background="@mipmap/nav_cart_normal"
+            android:src="@drawable/item_image"></ImageView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_toRightOf="@id/id_iv_image"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/id_tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="Item name"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/id_tv_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:text="product details" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/id_tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/id_iv_image"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/id_iv_image"
+            android:text="RM20"
+            android:textColor="#FD8F50" />
+
+
+
+        //加减物品的数量
+
+        <ImageView
+            android:id="@+id/id_iv_sub"
+            android:layout_width="11dp"
+            android:layout_height="20dp"
+            android:layout_alignBottom="@id/id_iv_image"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="0dp"
+            android:src="@drawable/sub" />
+
+        <TextView
+            android:id="@+id/id_tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/id_iv_image"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@id/id_iv_sub"
+            android:text="2"
+            android:textColor="#000000" />
+
+        <ImageView
+            android:id="@+id/id_iv_add"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignStart="@+id/id_tv_count"
+            android:layout_alignLeft="@+id/id_tv_count"
+            android:layout_alignBottom="@id/id_iv_image"
+            android:layout_marginStart="-24dp"
+            android:layout_marginLeft="-24dp"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@id/id_tv_count"
+            android:src="@drawable/add" />
+
+
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/rv_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:background="#efb336"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        >
+
+        //一次性全选所有商品
+
+        <CheckBox
+            android:id="@+id/checkbox_all"
+            style="@style/customCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:checked="true"
+            android:text="All"
+            />
+
+        //显示总价
+        <TextView
+            android:id="@+id/txt_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="71dp"
+            android:layout_toRightOf="@+id/checkbox_all"
+            android:text="Total: RM40"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        //付款
+        <Button
+            android:id="@+id/btn_order"
+            style="@style/bigRedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:minHeight="40dp"
+            android:minWidth="80dp"
+            android:text="Pay"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>
