@@ -7,4 +7,6 @@
     <string name="title_cart">Cart</string>
     <string name="title_me">Me</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_cart_fragment">CartFragment</string>
+    <string name="action_settings">Settings</string>
 </resources>

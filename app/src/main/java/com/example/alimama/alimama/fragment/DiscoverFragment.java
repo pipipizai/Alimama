@@ -1,5 +1,6 @@
 package com.example.alimama.alimama.fragment;
 
+import android.content.ClipData;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -25,6 +26,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.core.Context;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by LING on 6/5/2019.
@@ -33,9 +36,8 @@ import com.google.firebase.database.Query;
 public class DiscoverFragment extends Fragment {
 
     private RecyclerView mItemList;
-    private LinearLayoutManager linearLayoutManager;
-    private DatabaseReference mDatabase;
-    private FirebaseRecyclerAdapter firebaseRecyclerAdapter;
+
+    private DatabaseReference mDatabaseRef;
 
     @Nullable
     @Override
@@ -57,39 +59,79 @@ public class DiscoverFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+        FirebaseRecyclerOptions<Item> options =
+                new FirebaseRecyclerOptions.Builder<Item>()
+                        .setQuery(mDatabaseRef, Item.class)
+                        .build();
+
+        FirebaseRecyclerAdapter<Item, ItemViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Item, ItemViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull Item model) {
+
+//                Picasso.get().load(model.getImage()).into(holder.publish_image);
+//                holder.setImage(getA,model.getImage);
+                Picasso.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
+                holder.publish_name.setText(model.getName());
+                holder.publish_price.setText(model.getPrice());
+                holder.publish_description.setText(model.getDescription());
+
+            }
+
+            @NonNull
+            @Override
+            public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+                //for item_row
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_row, viewGroup, false);
+                ItemViewHolder viewHolder = new ItemViewHolder(view);
+                return viewHolder;
+            }
+        };
+
+        mItemList.setAdapter(firebaseRecyclerAdapter);
+
         firebaseRecyclerAdapter.startListening();
 
     }
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        public LinearLayout root;
-        public TextView publish_name;
-        public TextView publish_price;
-        public TextView publish_description;
+        private LinearLayout root;
+        private ImageView publish_image;
+        private TextView publish_name;
+        private TextView publish_price;
+        private TextView publish_description;
 
-        public ItemViewHolder(View itemView) {
+
+        private ItemViewHolder(View itemView) {
             super(itemView);
             root = itemView.findViewById(R.id.item_list);
+            publish_image = itemView.findViewById(R.id.item_image);
             publish_name = itemView.findViewById(R.id.item_name);
             publish_price = itemView.findViewById(R.id.item_price);
             publish_description = itemView.findViewById(R.id.item_description);
 
-//
         }
 
-        public void setItemName(String name) {
+        private void setImage(Context ctx, String image) {
+
+//            Picasso.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
+//            publish_image.setImage
+//            Picasso.with(ctx).load(image).placeholder(R.drawable.default_item_image).into(publish_image);
+
+        }
+
+        private void setName(String name) {
 
             publish_name.setText(name);
         }
 
-        public void setItemPrice(String price) {
+        private void setPrice(String price) {
 
 //            String stringPrice= Double.toString(price);
             publish_price.setText(price);
         }
 
-        public void setItemDescription(String description) {
+        private void setDescription(String description) {
 
             publish_description.setText(description);
         }
@@ -100,69 +142,12 @@ public class DiscoverFragment extends Fragment {
 
     private void initView() {
 
-        linearLayoutManager = new LinearLayoutManager(getContext());
-        mItemList = (RecyclerView) getView().findViewById(R.id.item_list);
+        mItemList = getView().findViewById(R.id.item_list);
         mItemList.setHasFixedSize(true);
-        mItemList.setLayoutManager(linearLayoutManager);
-        fetch();
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Item").child("LguTz87fGRK-gJBPase");
+        mItemList.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Item");
 
     }
-
-    //
-
-    private void fetch() {
-        Query query = (Query) FirebaseDatabase.getInstance()
-                .getReference()
-                .child("Item");
-
-        FirebaseRecyclerOptions<Item> options =
-                new FirebaseRecyclerOptions.Builder<Item>()
-                        .setQuery(query, new SnapshotParser<Item>() {
-                            @NonNull
-                            @Override
-                            public Item parseSnapshot(@NonNull DataSnapshot snapshot) {
-                                return new Item(snapshot.child("Item Image").getValue().toString(),
-                                        snapshot.child("Item Name").getValue().toString(),
-                                        snapshot.child("Item Price").getValue().toString(),
-                                        snapshot.child("Item Decription").getValue().toString());
-                            }
-                        })
-                        .build();
-
-
-        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Item, ItemViewHolder>(options) {
-            @Override
-            protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull Item model) {
-
-//                View view = LayoutInflater.from(getParentFragment().getContext())
-//                        .inflate(R.layout.item_row, getParentFragment().getContext(),false);
-
-                holder.setItemName(model.getName());
-                holder.setItemPrice(model.getPrice());
-                holder.setItemDescription(model.getDescription());
-//
-            }
-
-            @NonNull
-            @Override
-            public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-
-                View view = LayoutInflater.from(viewGroup.getContext())
-                        .inflate(R.layout.item_row, viewGroup, false);
-
-                ItemViewHolder viewHolder = new ItemViewHolder(view);
-
-
-                return viewHolder;
-
-            }
-        };
-
-
-        mItemList.setAdapter(firebaseRecyclerAdapter);
-
-    }
-
 
 }

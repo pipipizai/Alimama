@@ -12,7 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.PublishActivity"></activity>
+        <activity
+            android:name=".fragment.CartFragment"
+            android:label="@string/title_activity_cart_fragment"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".fragment.CategoriesFragment" />
+        <activity android:name=".ui.activity.PublishActivity" />
         <activity
             android:name=".ui.activity.SplashActivity"
             android:theme="@style/AppTheme_FullScreen">
