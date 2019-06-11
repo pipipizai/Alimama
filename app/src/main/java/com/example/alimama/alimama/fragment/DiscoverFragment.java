@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.bean.Item;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -70,7 +71,8 @@ public class DiscoverFragment extends Fragment {
 
 //                Picasso.get().load(model.getImage()).into(holder.publish_image);
 //                holder.setImage(getA,model.getImage);
-                Picasso.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
+//                Picasso.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
+                Glide.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
                 holder.publish_name.setText(model.getName());
                 holder.publish_price.setText(model.getPrice());
                 holder.publish_description.setText(model.getDescription());
