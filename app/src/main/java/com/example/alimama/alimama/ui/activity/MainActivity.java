@@ -9,7 +9,7 @@ import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.fragment.CartFragment;
 import com.example.alimama.alimama.fragment.CategoriesFragment;
 import com.example.alimama.alimama.fragment.DiscoverFragment;
-import com.example.alimama.alimama.fragment.HomeFragment;
+import com.example.alimama.alimama.fragment.MainFragment;
 import com.example.alimama.alimama.fragment.MeFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected LinearLayout mMenuDiscover;
     protected LinearLayout mMenuCart;
     protected LinearLayout mMenuMe;
-    protected HomeFragment mHomeFragment = new HomeFragment();//HOME
+    protected MainFragment mMainFragment = new MainFragment();//HOME
     protected CategoriesFragment mCaregoriesFragment = new CategoriesFragment();//Categories
     protected DiscoverFragment mDiscoverFragment = new DiscoverFragment();//Discover
     protected CartFragment mCartFragment = new CartFragment();//Cart
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //获取管理类
         this.getSupportFragmentManager()
                     .beginTransaction()
-                .add(R.id.container_content,mHomeFragment)
+                .add(R.id.container_content, mMainFragment)
                 .add(R.id.container_content, mCaregoriesFragment)
                 .hide(mCaregoriesFragment)
                 .add(R.id.container_content,mDiscoverFragment)
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.menu_home: //首页
                 this.getSupportFragmentManager()
                         .beginTransaction()
-                        .show(mHomeFragment)
+                        .show(mMainFragment)
                         .hide(mCaregoriesFragment)
                         .hide(mDiscoverFragment)
                         .hide(mCartFragment)
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.menu_categories: //分类
                 this.getSupportFragmentManager()
                         .beginTransaction()
-                        .hide(mHomeFragment)
+                        .hide(mMainFragment)
                         .show(mCaregoriesFragment)
                         .hide(mDiscoverFragment)
                         .hide(mCartFragment)
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.menu_discover: //发现
                 this.getSupportFragmentManager()
                         .beginTransaction()
-                        .hide(mHomeFragment)
+                        .hide(mMainFragment)
                         .hide(mCaregoriesFragment)
                         .show(mDiscoverFragment)
                         .hide(mCartFragment)
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.menu_cart: //购物车
                 this.getSupportFragmentManager()
                         .beginTransaction()
-                        .hide(mHomeFragment)
+                        .hide(mMainFragment)
                         .hide(mCaregoriesFragment)
                         .hide(mDiscoverFragment)
                         .show(mCartFragment)
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.menu_me: //我
                 this.getSupportFragmentManager()
                         .beginTransaction()
-                        .hide(mHomeFragment)
+                        .hide(mMainFragment)
                         .hide(mCaregoriesFragment)
                         .hide(mDiscoverFragment)
                         .hide(mCartFragment)

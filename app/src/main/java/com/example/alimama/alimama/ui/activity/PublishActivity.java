@@ -107,10 +107,10 @@ public class PublishActivity extends AppCompatActivity {
 ////                    newPost.child("Item Image").setValue(downloadUrl.toString());
 
                     Map<String, Object> map = new HashMap<>();
-                    map.put("Item Name", newPost.getKey());
-                    map.put("Item Price", price_value);
-                    map.put("Item Description", description_value);
-                    map.put("Item Image", downloadUrl.toString());
+                    map.put("name", name_value);
+                    map.put("price", price_value);
+                    map.put("description", description_value);
+                    map.put("image", downloadUrl.toString());
 
                     newPost.setValue(map);
 
