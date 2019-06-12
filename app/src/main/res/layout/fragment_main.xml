@@ -1,31 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/layout_main_header"
-        android:layout_width="match_parent"
+    <include
+        android:id="@+id/main_header"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:background="#efb336">
+        layout="@layout/main_header">
 
-        <Button
-            android:id="@+id/home_publish"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentRight="true"
-            android:background="@mipmap/pubulish"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="15dp"/>
+    </include>
 
-    </RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_main_header_ad"
+        android:layout_width="match_parent"
 
-    <TextView
-        android:layout_below="@+id/layout_main_header"
+        android:layout_height="140dp"
+        android:layout_below="@id/main_header">
+
+    </android.support.v4.view.ViewPager>
+
+    <ImageView
+        android:id="@+id/viewpager_main_header_ad_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HOME"
-        android:textSize="36dp"
-        android:layout_gravity="center"/>
+        android:layout_marginTop="135dp"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/nav_header_index" />
+
+    <ScrollView
+        android:layout_below="@+id/viewpager_main_header_ad_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+
+    </ScrollView>
+
+
+    <!--<LinearLayout-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:background="#efb336">-->
+
+    <!--&lt;!&ndash;消息 &ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--android:gravity="center"-->
+    <!--android:layout_marginLeft="15dp"-->
+    <!--&gt;-->
+    <!--<ImageView-->
+    <!--android:layout_marginTop="5dp"-->
+    <!--android:layout_width="40dp"-->
+    <!--android:layout_height="40dp"-->
+    <!--android:src="@mipmap/message" />-->
+
+
+    <!--</LinearLayout>-->
+
+    <!--&lt;!&ndash;搜索框 &ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="48dp"-->
+    <!--android:layout_marginRight="10dp"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@mipmap/main_header_search"-->
+    <!--android:gravity="center"-->
+    <!--&gt;-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="24dp"-->
+    <!--android:layout_height="24dp"-->
+    <!--android:src="@mipmap/search"/>-->
+    <!--<EditText-->
+    <!--android:layout_marginLeft="5dp"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:hint="search item here" />-->
+    <!--&lt;!&ndash;android:background="null"&ndash;&gt;-->
+
+    <!--</LinearLayout>-->
+
+    <!--&lt;!&ndash;发布 &ndash;&gt;-->
+    <!--<LinearLayout-->
+
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--android:gravity="center"-->
+    <!--android:layout_marginRight="15dp"-->
+    <!--&gt;-->
+    <!--<Button-->
+    <!--android:id="@+id/home_publish"-->
+    <!--android:layout_width="40dp"-->
+    <!--android:layout_height="40dp"-->
+    <!--android:layout_marginTop="5dp"-->
+    <!--android:background="@mipmap/pubulish"/>-->
+    <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
 
 </RelativeLayout>
