@@ -60,7 +60,7 @@ public class MainFragment extends Fragment {
                 Intent publish = new Intent(getActivity(), PublishActivity.class);
                 startActivity(publish);
 
-
+//
             }
         });
 
