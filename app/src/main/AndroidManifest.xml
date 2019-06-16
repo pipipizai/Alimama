@@ -12,10 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.FavoriteActivity"></activity>
+        <activity android:name=".ui.activity.ItemInformationActivity" />
         <activity
             android:name=".ui.activity.MeInfoActivity"
             android:label="@string/title_activity_me_info"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".fragment.CartFragment"
             android:label="@string/title_activity_cart_fragment"
