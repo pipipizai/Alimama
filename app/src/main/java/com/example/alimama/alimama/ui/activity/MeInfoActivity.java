@@ -29,11 +29,14 @@ public class MeInfoActivity extends BaseActvity{
 
     private void initEvent() {
 
-
-        SharedPreferences preferences=getSharedPreferences("username", Context.MODE_PRIVATE);
+        //1、获取Preferences
+        SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        //2、取出数据
         String username=preferences.getString("username", "defaultname");
+        String password=preferences.getString("password", "password");
 
         mUsername.setText(username);
+        mPassword.setText(password);
 
 
     }

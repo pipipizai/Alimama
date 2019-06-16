@@ -67,9 +67,14 @@ public class LoginActivity extends AppCompatActivity {
                             if (password.equals(user.getPassword())){
                                 Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_LONG).show();
 
-                                SharedPreferences preferences = getSharedPreferences("username", Context.MODE_PRIVATE);
+                                //1、打开Preferences，名称为setting，如果存在则打开它，否则创建新的Preferences
+                                SharedPreferences preferences = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+                                //2、让setting处于编辑状态
                                 SharedPreferences.Editor editor=preferences.edit();
+                                //3、存放数据
                                 editor.putString("username", username);
+                                editor.putString("password", password);
+                                //4、完成提交
                                 editor.commit();
 
                                 toMainActivity();
