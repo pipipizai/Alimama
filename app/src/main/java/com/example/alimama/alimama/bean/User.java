@@ -1,6 +1,6 @@
 package com.example.alimama.alimama.bean;
 
-/**
+/**test
  * Created by LING on 6/6/2019.
  */
 
