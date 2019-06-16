@@ -8,9 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.alimama.alimama.ui.activity.LoginActivity;
 import com.example.alimama.alimama.R;
+import com.example.alimama.alimama.ui.activity.MeInfoActivity;
 
 /**
  * Created by LING on 6/5/2019.
@@ -19,6 +21,7 @@ import com.example.alimama.alimama.R;
 public class MeFragment extends Fragment {
 
     protected Button mBtnLogin;
+    protected TextView mTextMeInfo;
 
     @Nullable
     @Override
@@ -29,6 +32,8 @@ public class MeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        //toLoginActivity
         mBtnLogin = (Button)getView().findViewById(R.id.btn_login);
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +41,17 @@ public class MeFragment extends Fragment {
                 //登录
                 Intent login = new Intent(getActivity(), LoginActivity.class);
                 startActivity(login);
+            }
+        });
+
+        //toMeInfoActivity
+        mTextMeInfo = (TextView) getView().findViewById(R.id.txt_me_info);
+        mTextMeInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent meInfo = new Intent(getActivity(), MeInfoActivity.class);
+                startActivity(meInfo);
             }
         });
 

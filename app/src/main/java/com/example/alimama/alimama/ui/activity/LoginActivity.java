@@ -1,6 +1,8 @@
 package com.example.alimama.alimama.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -54,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // TODO 登录成功？
 
-                String username = mEtUsername.getText().toString();
+                final String username = mEtUsername.getText().toString();
                 final String password = mEtPassword.getText().toString();
 
                 if(loginRef.child(username)!=null){
@@ -64,6 +66,12 @@ public class LoginActivity extends AppCompatActivity {
                             User user = dataSnapshot.getValue(User.class);
                             if (password.equals(user.getPassword())){
                                 Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_LONG).show();
+
+                                SharedPreferences preferences = getSharedPreferences("username", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor=preferences.edit();
+                                editor.putString("username", username);
+                                editor.commit();
+
                                 toMainActivity();
                             } else {
                                 //System.out.println("The read failed: " + databaseError.getCode());

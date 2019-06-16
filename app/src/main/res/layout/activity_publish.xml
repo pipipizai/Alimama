@@ -49,22 +49,11 @@
                 android:layout_marginTop="10dp"
                 app:srcCompat="@mipmap/add_image" />
 
-            <EditText
-                android:id="@+id/publish_item_price"
-                android:layout_below="@id/btn_publish_image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/input_outline"
-                android:padding="15dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:inputType="numberDecimal"
-                android:hint="Item Price" />
+
 
             <EditText
                 android:id="@+id/publish_item_name"
-                android:layout_below="@id/publish_item_price"
+                android:layout_below="@id/btn_publish_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_outline"
@@ -76,8 +65,21 @@
                 android:hint="Item Name" />
 
             <EditText
-                android:id="@+id/publish_item_description"
+                android:id="@+id/publish_item_price"
                 android:layout_below="@id/publish_item_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_outline"
+                android:padding="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:inputType="numberDecimal"
+                android:hint="Item Price" />
+
+            <EditText
+                android:id="@+id/publish_item_description"
+                android:layout_below="@id/publish_item_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_outline"
