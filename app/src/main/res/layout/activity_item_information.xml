@@ -1,9 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.activity.ItemInformationActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <!-- 我来组成头部! -->
+
+    <RelativeLayout
+        android:id="@+id/layout_favorite_header"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#efb336">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- 回城按钮 android:id="还没写" -->
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:minHeight="40dp"
+                android:minWidth="80dp"
+                android:text="Back"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="Item Information"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+            <!-- 编辑按钮 android:id="还没写" -->
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:minHeight="40dp"
+                android:minWidth="80dp"
+                android:text="Add"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- 组成躯干和手臂！ -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image_favorite1"
+                android:layout_width="match_parent"
+                android:layout_height="266dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/favorite_item1"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+
+                <TextView
+                    android:id="@+id/txt_favorite_info11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Apple MacBook Pro"
+                    android:textSize="30dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/txt_favorite_info12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="14-inch Retina, Touch Bar, 2.7GHz Quad-Core Intel Core i7, 8GB RAM, 256GB SSD, Space Gray (Latest Model)"
+                    android:textSize="20dp"/>
+
+                <TextView
+                    android:id="@+id/txt_favorite_info13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="RM 7000.00"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    android:textColor="#DC143C"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:minHeight="100dp"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#d8dde1">
+        </View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@mipmap/nav_me_click"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Contact\nthe Seller"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@mipmap/nav_cart_click"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Shopping\nCart"/>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#FF0000">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:text="Add into\nShopping Cart"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#FFA500">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:text="Buy Now"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#d8dde1">
+        </View>
+    </LinearLayout>
+</LinearLayout>
