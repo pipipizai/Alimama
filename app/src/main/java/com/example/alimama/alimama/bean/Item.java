@@ -7,15 +7,25 @@ public class Item {
     private String price;
     private String description;
     private String image;
+    private long userID;
 
     public Item() {
     }
 
-    public Item(String image, String name, String price, String description) {
-        this.price = price;
+    public Item(String name, String price, String description, String image, long userID) {
         this.name = name;
+        this.price = price;
         this.description = description;
         this.image = image;
+        this.userID = userID;
+    }
+
+    public long getUserID() {
+        return userID;
+    }
+
+    public void setUserID(long userID) {
+        this.userID = userID;
     }
 
     public String getPrice() {

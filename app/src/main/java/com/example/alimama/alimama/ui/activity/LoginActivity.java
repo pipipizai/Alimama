@@ -89,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                             } else {
                                 //System.out.println("The read failed: " + databaseError.getCode());
                                 Toast.makeText(LoginActivity.this, "The password is incorrect", Toast.LENGTH_LONG).show();
+                                toLoginActivity();
                             }
                         }
 
@@ -119,6 +120,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private void toMainActivity() {
         Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void toLoginActivity() {
+        Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
         finish();
     }

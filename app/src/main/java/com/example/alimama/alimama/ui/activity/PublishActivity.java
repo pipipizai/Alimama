@@ -197,6 +197,8 @@ public class PublishActivity extends AppCompatActivity {
                                   item.setPrice(price_value);
                                   item.setDescription(description_value);
                                   item.setImage(downloadUri.toString());
+                                  item.setUserID(userID);
+
                                   mDatabaseItems.child(String.valueOf(itemID+1)).setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {
 
                                     @Override
