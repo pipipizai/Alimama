@@ -2,21 +2,33 @@ package com.example.alimama.alimama.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.adapter.MainHeaderAdAdapter;
 import com.example.alimama.alimama.adapter.MainMenuAdapter;
+import com.example.alimama.alimama.bean.Item;
 import com.example.alimama.alimama.ui.activity.PublishActivity;
 import com.example.alimama.alimama.util.DataUtil;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.core.Context;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -45,6 +57,8 @@ public class MainFragment extends Fragment {
 
 //    String [] menus;
 
+    private DatabaseReference mDatabaseRef;
+    private RecyclerView mItemList; //猜你喜欢
     private StorageReference mStorage;
 
 
@@ -88,9 +102,106 @@ public class MainFragment extends Fragment {
             }
         });
 
+        initView();
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        FirebaseRecyclerOptions<Item> options =
+                new FirebaseRecyclerOptions.Builder<Item>()
+                        .setQuery(mDatabaseRef, Item.class)
+                        .build();
+
+        FirebaseRecyclerAdapter<Item, ItemViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Item, ItemViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull Item model) {
+
+//                Picasso.get().load(model.getImage()).into(holder.publish_image);
+//                holder.setImage(getA,model.getImage);
+//                Picasso.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
+                Glide.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
+                holder.publish_name.setText(model.getName());
+                holder.publish_price.setText(model.getPrice());
+                holder.publish_description.setText(model.getDescription());
+
+            }
+
+            @NonNull
+            @Override
+            public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+                //for item_row
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_row, viewGroup, false);
+                ItemViewHolder viewHolder = new ItemViewHolder(view);
+                return viewHolder;
+            }
+        };
+
+        mItemList.setAdapter(firebaseRecyclerAdapter);
+
+        firebaseRecyclerAdapter.startListening();
+
+    }
+
+    public static class ItemViewHolder extends RecyclerView.ViewHolder {
+
+        private LinearLayout root;
+        private ImageView publish_image;
+        private TextView publish_name;
+        private TextView publish_price;
+        private TextView publish_description;
+
+
+        private ItemViewHolder(View itemView) {
+            super(itemView);
+            root = itemView.findViewById(R.id.item_list);
+            publish_image = itemView.findViewById(R.id.item_image);
+            publish_name = itemView.findViewById(R.id.item_name);
+            publish_price = itemView.findViewById(R.id.item_price);
+            publish_description = itemView.findViewById(R.id.item_description);
+
+        }
+
+        private void setImage(Context ctx, String image) {
+
+//            Picasso.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
+//            publish_image.setImage
+//            Picasso.with(ctx).load(image).placeholder(R.drawable.default_item_image).into(publish_image);
+
+        }
+
+        private void setName(String name) {
+
+            publish_name.setText(name);
+        }
+
+        private void setPrice(String price) {
+
+//            String stringPrice= Double.toString(price);
+            publish_price.setText(price);
+        }
+
+        private void setDescription(String description) {
+
+            publish_description.setText(description);
+        }
+//
+
     }
 
 
+
+    private void initView() {
+
+        mItemList = getView().findViewById(R.id.item_list);
+        mItemList.setHasFixedSize(true);
+        mItemList.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Item");
+
+    }
 
 
 
