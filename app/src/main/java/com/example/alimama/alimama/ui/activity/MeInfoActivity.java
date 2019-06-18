@@ -11,6 +11,7 @@ import com.example.alimama.alimama.R;
 
 public class MeInfoActivity extends BaseActvity{
 
+    private TextView mUserID;
     private EditText mUsername;
     private EditText mPassword;
     private EditText mAddress;
@@ -32,16 +33,20 @@ public class MeInfoActivity extends BaseActvity{
         //1、获取Preferences
         SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
         //2、取出数据
+        String userID= String.valueOf(preferences.getLong("userid",0));
         String username=preferences.getString("username", "defaultname");
         String password=preferences.getString("password", "password");
 
+        mUserID.setText(userID);
         mUsername.setText(username);
         mPassword.setText(password);
+
 
 
     }
 
     private void initView() {
+        mUserID = findViewById(R.id.me_info_id);
         mUsername = (EditText)findViewById(R.id.me_info_username);
         mPassword = (EditText)findViewById(R.id.me_infor_password);
         mAddress = (EditText)findViewById(R.id.me_info_adrress);
