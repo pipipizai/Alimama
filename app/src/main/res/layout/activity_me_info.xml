@@ -11,6 +11,18 @@
 
     <include layout="@layout/common_toolbar"></include>
 
+    <TextView
+        android:id="@+id/me_info_id"
+        android:layout_below="@id/id_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_outline"
+        android:padding="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:hint="User id" />
+
     <EditText
         android:id="@+id/me_info_username"
         android:layout_below="@id/id_toolbar"
