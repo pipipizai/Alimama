@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.alimama.alimama.ui.activity.FavoriteActivity;
 import com.example.alimama.alimama.ui.activity.LoginActivity;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.ui.activity.MeInfoActivity;
@@ -22,6 +23,7 @@ public class MeFragment extends Fragment {
 
     protected Button mBtnLogin;
     protected TextView mTextMeInfo;
+    protected TextView mTextFavorite;
 
     @Nullable
     @Override
@@ -55,6 +57,16 @@ public class MeFragment extends Fragment {
             }
         });
 
+        //toFavoriteActivity
+        mTextFavorite = (TextView) getView().findViewById(R.id.txt_me_fav);
+        mTextFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent favorite = new Intent(getActivity(), FavoriteActivity.class);
+                startActivity(favorite);
+            }
+        });
 
     }
 }

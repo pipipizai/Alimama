@@ -5,49 +5,51 @@
 
     <!-- 我来组成头部! -->
 
-    <RelativeLayout
-        android:id="@+id/layout_favorite_header"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="#efb336">
+    <include layout="@layout/common_toolbar"></include>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:gravity="center">
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/layout_favorite_header"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="56dp"-->
+        <!--android:background="#efb336">-->
 
-            <!-- 回城按钮 android:id="还没写" -->
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:minHeight="40dp"
-                android:minWidth="80dp"
-                android:text="Back"/>
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:gravity="center">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="20"
-                android:gravity="center"
-                android:text="My Favorite"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
+            <!--&lt;!&ndash; 回城按钮 android:id="还没写" &ndash;&gt;-->
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:minHeight="40dp"-->
+                <!--android:minWidth="80dp"-->
+                <!--android:text="Back"/>-->
 
-            <!-- 编辑按钮 android:id="还没写" -->
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="10dp"
-                android:minHeight="40dp"
-                android:minWidth="80dp"
-                android:text="Edit"/>
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="20"-->
+                <!--android:gravity="center"-->
+                <!--android:text="My Favorite"-->
+                <!--android:textSize="20dp"-->
+                <!--android:textStyle="bold"/>-->
 
-        </LinearLayout>
-    </RelativeLayout>
+            <!--&lt;!&ndash; 编辑按钮 android:id="还没写" &ndash;&gt;-->
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:minHeight="40dp"-->
+                <!--android:minWidth="80dp"-->
+                <!--android:text="Edit"/>-->
+
+        <!--</LinearLayout>-->
+    <!--</RelativeLayout>-->
 
     <!-- 组成躯干和手臂！ -->
 
