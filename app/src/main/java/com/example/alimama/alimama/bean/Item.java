@@ -9,15 +9,26 @@ public class Item {
     private String image;
     private long userID;
 
+    public long getItemID() {
+        return itemID;
+    }
+
+    public void setItemID(long itemID) {
+        this.itemID = itemID;
+    }
+
+    private long itemID;
+
     public Item() {
     }
 
-    public Item(String name, String price, String description, String image, long userID) {
+    public Item(String name, String price, String description, String image, long userID,long itemID) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.image = image;
         this.userID = userID;
+        this.itemID=itemID;
     }
 
     public long getUserID() {

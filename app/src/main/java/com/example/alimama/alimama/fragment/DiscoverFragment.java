@@ -1,6 +1,7 @@
 package com.example.alimama.alimama.fragment;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.bean.Item;
+import com.example.alimama.alimama.ui.activity.ItemInformationActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.firebase.ui.database.SnapshotParser;
@@ -77,6 +79,30 @@ public class DiscoverFragment extends Fragment {
                 holder.publish_price.setText(model.getPrice());
                 holder.publish_description.setText(model.getDescription());
 
+                final long itemID=model.getItemID();
+                final String itemImage=model.getImage();
+                final String itemName=model.getName();
+                final String itemPrice=model.getDescription();
+                final String itemDescription=model.getDescription();
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent(getActivity(), ItemInformationActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putLong("item id",itemID);
+                        bundle.putString("image",itemImage);
+                        bundle.putString("name",itemName);
+                        bundle.putString("price",itemPrice);
+                        bundle.putString("description",itemDescription);
+                        intent.putExtras(bundle);
+
+//                        intent.putExtra((String) ItemInformationActivity.ExtraData, itemID);
+                        startActivity(intent);
+                    }
+                });
+
             }
 
             @NonNull
@@ -87,11 +113,19 @@ public class DiscoverFragment extends Fragment {
                 ItemViewHolder viewHolder = new ItemViewHolder(view);
                 return viewHolder;
             }
+
+//            public void OnItemClickListener(int position) {
+//                void onItemClick(int position);
+//            }
+
+
         };
 
         mItemList.setAdapter(firebaseRecyclerAdapter);
 
         firebaseRecyclerAdapter.startListening();
+
+//        firebaseRecyclerAdapter.set
 
     }
 
@@ -148,8 +182,15 @@ public class DiscoverFragment extends Fragment {
         mItemList.setHasFixedSize(true);
         mItemList.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Item");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Items");
 
     }
+
+//    /**
+//     * ItemView点击事件回调接口
+//     */
+//    interface OnItemClickListener {
+//        void onItemClick(int position);
+//    }
 
 }

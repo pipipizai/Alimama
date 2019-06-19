@@ -56,12 +56,6 @@ public class RegisterActivity extends BaseActvity {
                 String password = mEtPassword.getText().toString();
                 String rePassword = mEtRepassword.getText().toString();
 
-
-
-
-
-
-
                 if(password.equals(rePassword)){
 
 
