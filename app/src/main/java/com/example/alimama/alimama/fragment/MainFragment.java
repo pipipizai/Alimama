@@ -22,6 +22,7 @@ import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.adapter.MainHeaderAdAdapter;
 import com.example.alimama.alimama.adapter.MainMenuAdapter;
 import com.example.alimama.alimama.bean.Item;
+import com.example.alimama.alimama.ui.activity.ItemInformationActivity;
 import com.example.alimama.alimama.ui.activity.PublishActivity;
 import com.example.alimama.alimama.util.DataUtil;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -127,6 +128,30 @@ public class MainFragment extends Fragment {
                 holder.publish_price.setText(model.getPrice());
                 holder.publish_description.setText(model.getDescription());
 
+                final long itemID=model.getItemID();
+                final String itemImage=model.getImage();
+                final String itemName=model.getName();
+                final String itemPrice=model.getDescription();
+                final String itemDescription=model.getDescription();
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent(getActivity(), ItemInformationActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putLong("item id",itemID);
+                        bundle.putString("image",itemImage);
+                        bundle.putString("name",itemName);
+                        bundle.putString("price",itemPrice);
+                        bundle.putString("description",itemDescription);
+                        intent.putExtras(bundle);
+
+//                        intent.putExtra((String) ItemInformationActivity.ExtraData, itemID);
+                        startActivity(intent);
+                    }
+                });
+
             }
 
             @NonNull
@@ -137,6 +162,8 @@ public class MainFragment extends Fragment {
                 ItemViewHolder viewHolder = new ItemViewHolder(view);
                 return viewHolder;
             }
+
+
         };
 
         mItemList.setAdapter(firebaseRecyclerAdapter);
