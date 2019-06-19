@@ -5,11 +5,13 @@ import android.os.Bundle;
 
 import com.example.alimama.alimama.R;
 
-public class FavoriteActivity extends AppCompatActivity {
+public class FavoriteActivity extends BaseActvity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite);
+
+        setUpToolbar();
     }
 }
