@@ -62,6 +62,7 @@ public class DiscoverFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+
         FirebaseRecyclerOptions<Item> options =
                 new FirebaseRecyclerOptions.Builder<Item>()
                         .setQuery(mDatabaseRef, Item.class)
