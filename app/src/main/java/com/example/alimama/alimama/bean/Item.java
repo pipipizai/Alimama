@@ -8,6 +8,7 @@ public class Item {
     private String description;
     private String image;
     private long userID;
+    private long itemID;
 
     public long getItemID() {
         return itemID;
@@ -17,7 +18,7 @@ public class Item {
         this.itemID = itemID;
     }
 
-    private long itemID;
+
 
     public Item() {
     }

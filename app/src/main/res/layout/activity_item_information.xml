@@ -145,6 +145,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/item_info_add_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -170,7 +171,8 @@
                 android:gravity="center"
                 android:background="#FF0000">
 
-                <TextView
+                <Button
+                    android:id="@+id/item_info_add_favorite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -178,7 +180,7 @@
                     android:layout_marginRight="15dp"
                     android:textSize="18dp"
                     android:textStyle="bold"
-                    android:text="Add into\nShopping Cart"/>
+                    android:text="favorite"/>
             </RelativeLayout>
 
             <RelativeLayout

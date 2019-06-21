@@ -52,7 +52,7 @@ public class PublishActivity extends AppCompatActivity {
     private DatabaseReference mDatabaseItems;
     private DatabaseReference mDatabaseUsers;
 
-    private long itemID;
+    private long itemsNumber;
     private long publishedItemNumber;
 
     @Override
@@ -116,7 +116,7 @@ public class PublishActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    itemID = (dataSnapshot.getChildrenCount());
+                    itemsNumber = (dataSnapshot.getChildrenCount());
                 }
             }
 
@@ -198,14 +198,15 @@ public class PublishActivity extends AppCompatActivity {
                                   item.setDescription(description_value);
                                   item.setImage(downloadUri.toString());
                                   item.setUserID(userID);
+                                  item.setItemID(itemsNumber+1);
 
-                                  mDatabaseItems.child(String.valueOf(itemID+1)).setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                  mDatabaseItems.child(String.valueOf(itemsNumber+1)).setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {
 
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
 
-                                            mDatabaseUsers.child(String.valueOf("item id "+(publishedItemNumber+1))).setValue(itemID);
+                                            mDatabaseUsers.child(String.valueOf("item "+(publishedItemNumber+1)+" id ")).setValue(itemsNumber);
 
                                             Toast.makeText(PublishActivity.this, "Successfully publish!", Toast.LENGTH_LONG).show();
 

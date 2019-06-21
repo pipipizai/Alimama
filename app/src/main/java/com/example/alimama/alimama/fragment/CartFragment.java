@@ -147,7 +147,7 @@ public class CartFragment extends Fragment {
         mCartList.setHasFixedSize(true);
         mCartList.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Item");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Items");
 
     }
 
