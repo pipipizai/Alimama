@@ -20,14 +20,15 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/favorite_item1"/>
+            android:background="#ffffff"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp">
+            android:layout_marginLeft="15dp"
+            >
 
             <TextView
                 android:id="@+id/favorite_item_name"
@@ -35,7 +36,8 @@
                 android:layout_height="wrap_content"
                 android:text="MacBook Pro"
                 android:textSize="20dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                />
 
             <TextView
                 android:id="@+id/favorite_item_description"
