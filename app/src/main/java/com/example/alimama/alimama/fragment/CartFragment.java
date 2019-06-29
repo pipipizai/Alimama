@@ -1,5 +1,7 @@
 package com.example.alimama.alimama.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -37,13 +39,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.core.Context;
 import com.squareup.picasso.Picasso;
 
 
 public class CartFragment extends Fragment {
 
     private RecyclerView mCartList;
+
+    private long userID=0;
 
     private DatabaseReference mDatabaseRef;
 
@@ -147,7 +150,12 @@ public class CartFragment extends Fragment {
         mCartList.setHasFixedSize(true);
         mCartList.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Items");
+        //1、获取Preferences
+        SharedPreferences preferences=getActivity().getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        //2、取出数据
+        userID = preferences.getLong("userid",0);
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(userID)).child("cart items");
 
     }
 

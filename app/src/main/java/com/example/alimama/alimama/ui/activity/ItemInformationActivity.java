@@ -10,9 +10,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
+import com.example.alimama.alimama.bean.Item;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +37,7 @@ public class ItemInformationActivity extends BaseActvity {
 
 
     private long itemID;
+    private long itemPublishedUserID;
     private String ItemIDString;
     private String ItemImage;
     private String itemName;
@@ -58,17 +63,27 @@ public class ItemInformationActivity extends BaseActvity {
 
         displayItemInfo();
 
+        final Item item = new Item();
+        item.setName(itemName);
+        item.setPrice(itemPrice);
+        item.setDescription(itemDescription);
+        item.setImage(ItemImage);
+        item.setUserID(itemPublishedUserID);
+        item.setItemID(itemID);
+
         mItemInfoAddFavotie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDatabaseUserFavorite.child(String.valueOf("item "+(favoriteItemsNumber +1)+" id ")).setValue(itemID);
+            //    mDatabaseUserFavorite.child(String.valueOf("item "+(favoriteItemsNumber +1)+" id ")).setValue(itemID);
+                mDatabaseUserFavorite.child(String.valueOf("item "+(favoriteItemsNumber +1)+" id ")).setValue(item);
             }
         });
 
         mItemInfoAddCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDatabaseUserCart.child(String.valueOf("item "+(cartItemsNumber +1)+" id ")).setValue(itemID);
+                //mDatabaseUserCart.child(String.valueOf("item "+(cartItemsNumber +1)+" id ")).setValue(itemID);
+                mDatabaseUserCart.child(String.valueOf("item "+(cartItemsNumber +1)+" id ")).setValue(item);
             }
         });
 
@@ -97,6 +112,7 @@ public class ItemInformationActivity extends BaseActvity {
         itemName=bundle.getString("name");
         itemPrice=bundle.getString("price");
         itemDescription=bundle.getString("description");
+        itemPublishedUserID=bundle.getLong("itemPublishedUserID");
 
         //1、获取Preferences
         SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);

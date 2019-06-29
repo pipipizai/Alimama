@@ -129,6 +129,7 @@ public class MainFragment extends Fragment {
                 holder.publish_description.setText(model.getDescription());
 
                 final long itemID=model.getItemID();
+                final long itemPublishedUserID=model.getUserID();
                 final String itemImage=model.getImage();
                 final String itemName=model.getName();
                 final String itemPrice=model.getDescription();
@@ -145,6 +146,7 @@ public class MainFragment extends Fragment {
                         bundle.putString("name",itemName);
                         bundle.putString("price",itemPrice);
                         bundle.putString("description",itemDescription);
+                        bundle.putLong("itemPublishedUserID",itemPublishedUserID);
                         intent.putExtras(bundle);
 
 //                        intent.putExtra((String) ItemInformationActivity.ExtraData, itemID);
@@ -226,7 +228,7 @@ public class MainFragment extends Fragment {
         mItemList.setHasFixedSize(true);
         mItemList.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Item");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Items");
 
     }
 

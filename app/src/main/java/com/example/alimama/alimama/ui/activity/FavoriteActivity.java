@@ -1,5 +1,7 @@
 package com.example.alimama.alimama.ui.activity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +27,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class FavoriteActivity extends BaseActvity {
 
     private RecyclerView mCartList;
+
+    private long userID=0;
 
     private DatabaseReference mDatabaseRef;
 
@@ -131,7 +135,12 @@ public class FavoriteActivity extends BaseActvity {
         mCartList.setHasFixedSize(true);
         mCartList.setLayoutManager(new LinearLayoutManager(this));
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Items");
+        //1、获取Preferences
+        SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        //2、取出数据
+        userID = preferences.getLong("userid",0);
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(userID)).child("favorite items");
 
     }
 }
