@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.FavoriteActivity"></activity>
+        <activity android:name=".ui.activity.ShoppingHistoryActivity"></activity>
         <activity android:name=".ui.activity.ItemInformationActivity" />
         <activity
             android:name=".ui.activity.MeInfoActivity"
