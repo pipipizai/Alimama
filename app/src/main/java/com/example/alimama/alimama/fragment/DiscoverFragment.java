@@ -73,7 +73,6 @@ public class DiscoverFragment extends Fragment {
             protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull Item model) {
 
 //                Picasso.get().load(model.getImage()).into(holder.publish_image);
-//                holder.setImage(getA,model.getImage);
 //                Picasso.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
                 Glide.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
                 holder.publish_name.setText(model.getName());
@@ -111,25 +110,17 @@ public class DiscoverFragment extends Fragment {
             @NonNull
             @Override
             public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+
                 //for item_row
                 View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_row, viewGroup, false);
                 ItemViewHolder viewHolder = new ItemViewHolder(view);
                 return viewHolder;
             }
-
-//            public void OnItemClickListener(int position) {
-//                void onItemClick(int position);
-//            }
-
-
         };
 
         mItemList.setAdapter(firebaseRecyclerAdapter);
 
         firebaseRecyclerAdapter.startListening();
-
-//        firebaseRecyclerAdapter.set
-
     }
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {

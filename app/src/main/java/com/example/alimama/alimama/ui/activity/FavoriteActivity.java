@@ -142,5 +142,6 @@ public class FavoriteActivity extends BaseActvity {
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(userID)).child("favorite items");
 
+        setTitle("My Favorite");
     }
 }
