@@ -14,7 +14,6 @@ import com.example.alimama.alimama.ui.activity.FavoriteActivity;
 import com.example.alimama.alimama.ui.activity.LoginActivity;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.ui.activity.MeInfoActivity;
-import com.example.alimama.alimama.ui.activity.ShoppingHistoryActivity;
 
 /**
  * Created by LING on 6/5/2019.
@@ -25,7 +24,6 @@ public class MeFragment extends Fragment {
     protected Button mBtnLogin;
     protected TextView mTextMeInfo;
     protected TextView mTextFavorite;
-    protected TextView mTextShoppingHistory;
 
     @Nullable
     @Override
@@ -67,18 +65,6 @@ public class MeFragment extends Fragment {
 
                 Intent favorite = new Intent(getActivity(), FavoriteActivity.class);
                 startActivity(favorite);
-            }
-        });
-
-
-        //toShoppingHistoryActivity
-        mTextShoppingHistory = (TextView) getView().findViewById(R.id.txt_me_rec);
-        mTextShoppingHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent shoppinghistory = new Intent(getActivity(), ShoppingHistoryActivity.class);
-                startActivity(shoppinghistory);
             }
         });
 

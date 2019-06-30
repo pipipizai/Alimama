@@ -24,9 +24,9 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class FavoriteActivity extends BaseActvity {
+public class ShoppingHistoryActivity extends BaseActvity {
 
-    private RecyclerView mCartList;
+    private RecyclerView mShoppingHistoryList;
 
     private long userID=0;
 
@@ -35,7 +35,7 @@ public class FavoriteActivity extends BaseActvity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_favorite);
+        setContentView(R.layout.activity_shoppinghistory);
 
         initView();
         setUpToolbar();
@@ -65,7 +65,7 @@ public class FavoriteActivity extends BaseActvity {
 //                Picasso.get().load(model.getImage()).into(holder.publish_image);
 //                holder.setImage(getA,model.getImage);
 //                Picasso.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
-                Glide.with(FavoriteActivity.this).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.item_image);
+                Glide.with(ShoppingHistoryActivity.this).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.item_image);
                 holder.item_name.setText(model.getName());
                 holder.item_price.setText(model.getPrice());
                 holder.item_description.setText(model.getDescription());
@@ -75,13 +75,13 @@ public class FavoriteActivity extends BaseActvity {
             @Override
             public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
                 //for item_row
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.favorite_list, viewGroup, false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.shoppinghistory_list, viewGroup, false);
                 ItemViewHolder viewHolder = new ItemViewHolder(view);
                 return viewHolder;
             }
         };
 
-        mCartList.setAdapter(firebaseRecyclerAdapter);
+        mShoppingHistoryList.setAdapter(firebaseRecyclerAdapter);
 
         firebaseRecyclerAdapter.startListening();
 
@@ -98,11 +98,11 @@ public class FavoriteActivity extends BaseActvity {
 
         private ItemViewHolder(View itemView) {
             super(itemView);
-            root = itemView.findViewById(R.id.favorite_items);
-            item_image = itemView.findViewById(R.id.favorite_item_image);
-            item_name = itemView.findViewById(R.id.favorite_item_name);
-            item_price = itemView.findViewById(R.id.favorite_item_price);
-            item_description = itemView.findViewById(R.id.favorite_item_description);
+            root = itemView.findViewById(R.id.shopping_history_items);
+            item_image = itemView.findViewById(R.id.shopping_history_item_image);
+            item_name = itemView.findViewById(R.id.shopping_history_item_name);
+            item_price = itemView.findViewById(R.id.shopping_history_item_price);
+            item_description = itemView.findViewById(R.id.shopping_history_item_description);
 
         }
 
@@ -131,17 +131,17 @@ public class FavoriteActivity extends BaseActvity {
 
     private void initView() {
 
-        mCartList = this.findViewById(R.id.favorite_items);
-        mCartList.setHasFixedSize(true);
-        mCartList.setLayoutManager(new LinearLayoutManager(this));
+        mShoppingHistoryList = this.findViewById(R.id.shopping_history_items);
+        mShoppingHistoryList.setHasFixedSize(true);
+        mShoppingHistoryList.setLayoutManager(new LinearLayoutManager(this));
 
         //1、获取Preferences
         SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
         //2、取出数据
         userID = preferences.getLong("userid",0);
 
+        //改一下读取的表"shopping history"
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(userID)).child("favorite items");
 
-        setTitle("My Favorite");
     }
 }

@@ -3,33 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
-    //导航栏： 购物车  android:id="@+id/rv_bottom"
+    //导航栏： 购物车 android:id="@+id/rv_bottom"
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#efb336"
-        android:paddingBottom="5dp"
         android:paddingLeft="5dp"
-        android:paddingRight="5dp"
         android:paddingTop="5dp"
-        >
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp">
 
-        // 删除选中的物品  android:id="@+id/btn_del"
+        // 删除选中的物品 android:id="@+id/btn_del"
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:minHeight="40dp"
             android:minWidth="80dp"
-            android:text="Delete"
-            />
+            android:minHeight="40dp"
+            android:text="Delete" />
 
 
-        //android:id="@+id/txt_total"   android:layout_toRightOf="@+id/checkbox_all"
+        //android:id="@+id/txt_total" android:layout_toRightOf="@+id/checkbox_all"
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,190 +41,194 @@
             android:textStyle="bold" />
 
         //清空购物车 android:id="@+id/btn_order"
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:minHeight="40dp"
             android:minWidth="80dp"
-            android:text="Clear"
-            />
+            android:minHeight="40dp"
+            android:text="Clear" />
 
     </RelativeLayout>
 
 
     //显示已经加入购物车的商品
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="480dp"
-    android:id="@+id/layout_cart_items">
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/cart_items"
+    <ScrollView
+        android:id="@+id/layoou_cart_items"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="0dp"
-        >
+        android:layout_height="550dp">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/cart_items"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="0dp">
 
-</ScrollView>
+        </android.support.v7.widget.RecyclerView>
+
+    </ScrollView>
 
 
     <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="140dp"-->
-        <!--android:background="@drawable/divider_normal_bottom"-->
-        <!--android:layout_marginLeft="16dp"-->
-        <!--android:layout_marginRight="16dp">-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="140dp"-->
+    <!--android:background="@drawable/divider_normal_bottom"-->
+    <!--android:layout_marginLeft="16dp"-->
+    <!--android:layout_marginRight="16dp">-->
 
-        <!--// android:id="@+id/checkbox_all"-->
-        <!--<CheckBox-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentLeft="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:checked="false"-->
-            <!--/>-->
+    <!--// android:id="@+id/checkbox_all"-->
+    <!--<CheckBox-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:checked="false"-->
+    <!--/>-->
 
-        <!--<ImageView-->
-            <!--android:id="@+id/id_iv_image"-->
-            <!--android:layout_width="140dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginBottom="20dp"-->
-            <!--android:layout_marginTop="20dp"-->
-            <!--android:layout_marginLeft="30dp"-->
-            <!--android:scaleType="centerCrop"-->
-            <!--android:src="@drawable/item_image"></ImageView>-->
+    <!--<ImageView-->
+    <!--android:id="@+id/id_iv_image"-->
+    <!--android:layout_width="140dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginBottom="20dp"-->
+    <!--android:layout_marginTop="20dp"-->
+    <!--android:layout_marginLeft="30dp"-->
+    <!--android:scaleType="centerCrop"-->
+    <!--android:src="@drawable/item_image"></ImageView>-->
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="30dp"-->
-            <!--android:layout_marginLeft="8dp"-->
-            <!--android:layout_marginRight="8dp"-->
-            <!--android:layout_toRightOf="@id/id_iv_image"-->
-            <!--android:orientation="vertical">-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="30dp"-->
+    <!--android:layout_marginLeft="8dp"-->
+    <!--android:layout_marginRight="8dp"-->
+    <!--android:layout_toRightOf="@id/id_iv_image"-->
+    <!--android:orientation="vertical">-->
 
-            <!--<TextView-->
-                <!--android:id="@+id/id_tv_name"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:maxLines="1"-->
-                <!--android:text="Item name"-->
-                <!--android:textSize="18sp"-->
-                <!--android:textStyle="bold" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/id_tv_name"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:maxLines="1"-->
+    <!--android:text="Item name"-->
+    <!--android:textSize="18sp"-->
+    <!--android:textStyle="bold" />-->
 
-            <!--<TextView-->
-                <!--android:id="@+id/id_tv_label"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:maxLines="2"-->
-                <!--android:text="product details" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/id_tv_label"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:maxLines="2"-->
+    <!--android:text="product details" />-->
 
-        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
 
-        <!--<TextView-->
-            <!--android:id="@+id/id_tv_price"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignBottom="@id/id_iv_image"-->
-            <!--android:layout_marginLeft="8dp"-->
-            <!--android:layout_toRightOf="@id/id_iv_image"-->
-            <!--android:text="RM20"-->
-            <!--android:textColor="#FD8F50" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/id_tv_price"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignBottom="@id/id_iv_image"-->
+    <!--android:layout_marginLeft="8dp"-->
+    <!--android:layout_toRightOf="@id/id_iv_image"-->
+    <!--android:text="RM20"-->
+    <!--android:textColor="#FD8F50" />-->
 
 
-        <!--//加减物品的数量-->
+    <!--//加减物品的数量-->
 
-        <!--<ImageView-->
-            <!--android:id="@+id/id_iv_sub"-->
-            <!--android:layout_width="20dp"-->
-            <!--android:layout_height="20dp"-->
-            <!--android:layout_alignBottom="@id/id_iv_image"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_marginBottom="0dp"-->
-            <!--android:src="@drawable/sub" />-->
+    <!--<ImageView-->
+    <!--android:id="@+id/id_iv_sub"-->
+    <!--android:layout_width="20dp"-->
+    <!--android:layout_height="20dp"-->
+    <!--android:layout_alignBottom="@id/id_iv_image"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_marginBottom="0dp"-->
+    <!--android:src="@drawable/sub" />-->
 
-        <!--<TextView-->
-            <!--android:id="@+id/id_tv_count"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignBottom="@id/id_iv_image"-->
-            <!--android:layout_marginRight="4dp"-->
-            <!--android:layout_toLeftOf="@id/id_iv_sub"-->
-            <!--android:text="2"-->
-            <!--android:textColor="#000000" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/id_tv_count"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignBottom="@id/id_iv_image"-->
+    <!--android:layout_marginRight="4dp"-->
+    <!--android:layout_toLeftOf="@id/id_iv_sub"-->
+    <!--android:text="2"-->
+    <!--android:textColor="#000000" />-->
 
-        <!--<ImageView-->
-            <!--android:id="@+id/id_iv_add"-->
-            <!--android:layout_width="20dp"-->
-            <!--android:layout_height="20dp"-->
-            <!--android:layout_alignStart="@+id/id_tv_count"-->
-            <!--android:layout_alignLeft="@+id/id_tv_count"-->
-            <!--android:layout_alignBottom="@id/id_iv_image"-->
-            <!--android:layout_marginStart="-24dp"-->
-            <!--android:layout_marginLeft="-24dp"-->
-            <!--android:layout_marginRight="4dp"-->
-            <!--android:layout_toLeftOf="@id/id_tv_count"-->
-            <!--android:src="@drawable/add" />-->
+    <!--<ImageView-->
+    <!--android:id="@+id/id_iv_add"-->
+    <!--android:layout_width="20dp"-->
+    <!--android:layout_height="20dp"-->
+    <!--android:layout_alignStart="@+id/id_tv_count"-->
+    <!--android:layout_alignLeft="@+id/id_tv_count"-->
+    <!--android:layout_alignBottom="@id/id_iv_image"-->
+    <!--android:layout_marginStart="-24dp"-->
+    <!--android:layout_marginLeft="-24dp"-->
+    <!--android:layout_marginRight="4dp"-->
+    <!--android:layout_toLeftOf="@id/id_tv_count"-->
+    <!--android:src="@drawable/add" />-->
 
 
     <!--</RelativeLayout>-->
 
 
-    <RelativeLayout
-        android:id="@+id/rv_bottom"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_gravity="bottom"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:background="#efb336"
-        android:paddingBottom="5dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingTop="5dp"
-        >
+        android:layout_height="fill_parent">
 
-        //一次性全选所有商品
+        <RelativeLayout
+            android:id="@+id/rv_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="10dp"
+            android:background="#efb336"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp">
 
-        <CheckBox
-            android:id="@+id/checkbox_all"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:checked="true"
-            android:text="All"
-            />
+            //一次性全选所有商品
 
-        //显示总价
-        <TextView
-            android:id="@+id/txt_total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="71dp"
-            android:layout_toRightOf="@+id/checkbox_all"
-            android:text="Total: RM40"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <CheckBox
+                android:id="@+id/checkbox_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:checked="true"
+                android:text="All" />
 
-        //付款
-        <Button
-            android:id="@+id/btn_order"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:minHeight="40dp"
-            android:minWidth="80dp"
-            android:text="Pay"
-            />
+            //显示总价
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/txt_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="71dp"
+                android:layout_toRightOf="@+id/checkbox_all"
+                android:text="Total: RM40"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            //付款
+
+            <Button
+                android:id="@+id/btn_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:minWidth="80dp"
+                android:minHeight="40dp"
+                android:text="Pay" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
