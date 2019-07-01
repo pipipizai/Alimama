@@ -49,7 +49,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void toLoginActivity(){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
     }

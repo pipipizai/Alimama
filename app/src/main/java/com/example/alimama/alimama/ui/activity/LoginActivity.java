@@ -36,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
         
         initEvent();
         
-        
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 //
@@ -51,6 +50,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initEvent() {
+
+
+        clearSharedPreferences();
+
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +61,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 final String username = mEtUsername.getText().toString();
                 final String password = mEtPassword.getText().toString();
+
+//                loginRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
                 if(loginRef.child(username)!=null){
 
@@ -87,9 +92,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                 toMainActivity();
                             } else {
-                                //System.out.println("The read failed: " + databaseError.getCode());
+
                                 Toast.makeText(LoginActivity.this, "The password is incorrect", Toast.LENGTH_LONG).show();
-                                toLoginActivity();
                             }
                         }
 
@@ -100,8 +104,6 @@ public class LoginActivity extends AppCompatActivity {
                     });
                 }
 
-
-                toMainActivity();
             }
         });
 
@@ -111,6 +113,17 @@ public class LoginActivity extends AppCompatActivity {
                 toRegisterActivity();
             }
         });
+    }
+
+    private void clearSharedPreferences() {
+
+        //1、打开Preferences，名称为setting，如果存在则打开它，否则创建新的Preferences
+        SharedPreferences preferences = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        //2、让setting处于编辑状态
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.clear();
+        //4、完成提交
+        editor.commit();
     }
 
     private void toRegisterActivity() {
@@ -124,19 +137,15 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    private void toLoginActivity() {
-        Intent intent = new Intent(this,LoginActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
     private void initView() {
-        mEtUsername = (EditText)findViewById(R.id.edt_uesrname);
-        mEtPassword = (EditText)findViewById(R.id.edt_password);
-        mBtnLogin = (Button) findViewById(R.id.btn_login);
-        mBtnRegister = (Button)findViewById(R.id.btn_register);
+        mEtUsername = findViewById(R.id.edt_uesrname);
+        mEtPassword = findViewById(R.id.edt_password);
+        mBtnLogin = findViewById(R.id.btn_login);
+        mBtnRegister = findViewById(R.id.btn_register);
 
         loginRef = FirebaseDatabase.getInstance().getReference().child("Users");
+
+
     }
 
 }

@@ -29,6 +29,7 @@ public class ShoppingHistoryActivity extends BaseActvity {
     private RecyclerView mShoppingHistoryList;
 
     private long userID=0;
+    private String username;
 
     private DatabaseReference mDatabaseRef;
 
@@ -139,9 +140,10 @@ public class ShoppingHistoryActivity extends BaseActvity {
         SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
         //2、取出数据
         userID = preferences.getLong("userid",0);
+        username=preferences.getString("username", null);
 
         //改一下读取的表"shopping history"
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(userID)).child("favorite items");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("favorite items");
 
     }
 }

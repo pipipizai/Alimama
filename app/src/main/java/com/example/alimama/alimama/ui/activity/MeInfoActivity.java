@@ -34,8 +34,8 @@ public class MeInfoActivity extends BaseActvity{
         SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
         //2、取出数据
         String userID= String.valueOf(preferences.getLong("userid",0));
-        String username=preferences.getString("username", "defaultname");
-        String password=preferences.getString("password", "password");
+        String username=preferences.getString("username", "No user");
+        String password=preferences.getString("password", "No password");
 
         mUserID.setText(userID);
         mUsername.setText(username);

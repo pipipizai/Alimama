@@ -104,13 +104,14 @@ public class PublishActivity extends AppCompatActivity {
         SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
         //2、取出数据
         final long userID = preferences.getLong("userid",0);
+        final String username = preferences.getString("username",null);
 
         final String price_value = mPublishItemPrice.getText().toString().trim();
         final String name_value = mPublishItemName.getText().toString().trim();
         final String description_value = mPublishItemDscription.getText().toString().trim();
 
         mDatabaseItems = FirebaseDatabase.getInstance().getReference().child("Items");
-        mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(userID)).child("published items");
+        mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("published items");
 
         mDatabaseItems.addValueEventListener(new ValueEventListener() {
             @Override

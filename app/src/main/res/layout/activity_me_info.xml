@@ -72,7 +72,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:inputType="textPersonName"
-        android:hint="User id" />
+        android:hint="Contact" />
 
     <Button
         android:id="@+id/btn_save"

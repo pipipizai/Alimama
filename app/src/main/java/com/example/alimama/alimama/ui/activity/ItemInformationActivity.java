@@ -51,6 +51,7 @@ public class ItemInformationActivity extends BaseActvity {
     private long cartItemsNumber=0;
     private long favoriteItemsNumber=0;
     private long userID=0;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,9 +119,11 @@ public class ItemInformationActivity extends BaseActvity {
         SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
         //2、取出数据
         userID = preferences.getLong("userid",0);
+        username=preferences.getString("username", null);
 
-        mDatabaseUserFavorite = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(userID)).child("favorite items");
-        mDatabaseUserCart = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(userID)).child("cart items");
+
+        mDatabaseUserFavorite = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("favorite items");
+        mDatabaseUserCart = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("cart items");
 
         mDatabaseUserCart.addValueEventListener(new ValueEventListener() {
             @Override

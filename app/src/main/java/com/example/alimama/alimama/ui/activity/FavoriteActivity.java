@@ -29,6 +29,7 @@ public class FavoriteActivity extends BaseActvity {
     private RecyclerView mCartList;
 
     private long userID=0;
+    private String username;
 
     private DatabaseReference mDatabaseRef;
 
@@ -139,8 +140,9 @@ public class FavoriteActivity extends BaseActvity {
         SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
         //2、取出数据
         userID = preferences.getLong("userid",0);
+        username=preferences.getString("username", null);
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(userID)).child("favorite items");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("favorite items");
 
         setTitle("My Favorite");
     }

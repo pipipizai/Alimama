@@ -29,6 +29,7 @@ public class MeFragment extends Fragment {
     protected TextView mTextFavorite;
     protected TextView mTextShoppingHistory;
     protected TextView mTextPublish;
+    protected TextView mTextLogOut;
 
     @Nullable
     @Override
@@ -40,19 +41,30 @@ public class MeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        //toLoginActivity
-        mBtnLogin = (Button)getView().findViewById(R.id.btn_login);
+//        //toLoginActivity
+//        mBtnLogin = (Button)getView().findViewById(R.id.btn_login);
+//        mBtnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //登录
+//                Intent login = new Intent(getActivity(), LoginActivity.class);
+//                startActivity(login);
+//            }
+//        });
+
+        //toMeInfoActivity
+        mBtnLogin = getView().findViewById(R.id.btn_me_info);
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //登录
-                Intent login = new Intent(getActivity(), LoginActivity.class);
-                startActivity(login);
+                Intent meinfo = new Intent(getActivity(), MeInfoActivity.class);
+                startActivity(meinfo);
             }
         });
 
         //toMeInfoActivity
-        mTextMeInfo = (TextView) getView().findViewById(R.id.txt_me_info);
+        mTextMeInfo = getView().findViewById(R.id.txt_me_info);
         mTextMeInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +75,7 @@ public class MeFragment extends Fragment {
         });
 
         //toFavoriteActivity
-        mTextFavorite = (TextView) getView().findViewById(R.id.txt_me_fav);
+        mTextFavorite = getView().findViewById(R.id.txt_me_fav);
         mTextFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,7 +86,7 @@ public class MeFragment extends Fragment {
         });
 
         //toMypublishActivity
-        mTextPublish = (TextView) getView().findViewById(R.id.txt_me_his);
+        mTextPublish = getView().findViewById(R.id.txt_me_his);
         mTextPublish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,13 +97,24 @@ public class MeFragment extends Fragment {
         });
 
         //toShoppingHistoryActivity
-        mTextShoppingHistory = (TextView) getView().findViewById(R.id.txt_me_rec);
+        mTextShoppingHistory = getView().findViewById(R.id.txt_me_rec);
         mTextShoppingHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent shoppinghistory = new Intent(getActivity(), ShoppingHistoryActivity.class);
                 startActivity(shoppinghistory);
+            }
+        });
+
+        //toLogOutActivity
+        mTextLogOut =  getView().findViewById(R.id.txt_me_log_out);
+        mTextLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent logout = new Intent(getActivity(), LoginActivity.class);
+                startActivity(logout);
             }
         });
 
