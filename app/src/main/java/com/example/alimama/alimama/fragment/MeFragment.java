@@ -14,6 +14,8 @@ import com.example.alimama.alimama.ui.activity.FavoriteActivity;
 import com.example.alimama.alimama.ui.activity.LoginActivity;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.ui.activity.MeInfoActivity;
+import com.example.alimama.alimama.ui.activity.MyPublishActivity;
+import com.example.alimama.alimama.ui.activity.PublishActivity;
 import com.example.alimama.alimama.ui.activity.ShoppingHistoryActivity;
 
 /**
@@ -26,6 +28,7 @@ public class MeFragment extends Fragment {
     protected TextView mTextMeInfo;
     protected TextView mTextFavorite;
     protected TextView mTextShoppingHistory;
+    protected TextView mTextPublish;
 
     @Nullable
     @Override
@@ -67,6 +70,17 @@ public class MeFragment extends Fragment {
 
                 Intent favorite = new Intent(getActivity(), FavoriteActivity.class);
                 startActivity(favorite);
+            }
+        });
+
+        //toMypublishActivity
+        mTextPublish = (TextView) getView().findViewById(R.id.txt_me_his);
+        mTextPublish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent publish = new Intent(getActivity(), MyPublishActivity.class);
+                startActivity(publish);
             }
         });
 

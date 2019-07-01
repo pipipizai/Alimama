@@ -43,6 +43,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.activity.MainActivity" />
         <activity android:name=".ui.activity.CartActivity" />
+        <activity android:name=".ui.activity.MyPublishActivity" />
         <activity android:name=".ui.activity.RegisterActivity" />
     </application>
 
