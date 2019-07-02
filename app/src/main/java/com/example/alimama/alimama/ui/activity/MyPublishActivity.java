@@ -139,7 +139,7 @@ public class MyPublishActivity extends BaseActvity {
         userID = preferences.getLong("userid",0);
         username=preferences.getString("username", null);
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(username)).child("favorite items");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(username)).child("published items");
 
         setTitle("My published");
     }

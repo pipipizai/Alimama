@@ -185,14 +185,6 @@ public class PublishActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Uri downloadUri = task.getResult();
 
-                                //fill in the information to the User class
-//                                user = new User();
-//                                user.setUsername(username);
-//                                user.setPassword(password);
-//                                user.setId(maxid+1);
-//
-//                                userRef.child(String.valueOf(maxid+1)).setValue(user).addOnCompleteListener
-
                                   item = new Item();
                                   item.setName(name_value);
                                   item.setPrice(price_value);
@@ -207,7 +199,7 @@ public class PublishActivity extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
 
-                                            mDatabaseUsers.child(String.valueOf("item "+(publishedItemNumber+1)+" id ")).setValue(itemsNumber);
+                                            mDatabaseUsers.child(String.valueOf(publishedItemNumber+1)).setValue(item);
 
                                             Toast.makeText(PublishActivity.this, "Successfully publish!", Toast.LENGTH_LONG).show();
 
@@ -218,21 +210,7 @@ public class PublishActivity extends AppCompatActivity {
                                     }
                                 });
 
-//                                DatabaseReference newPost = mDatabaseItems.push();
-//
-//                                Map<String, Object> map = new HashMap<>();
-//                                map.put("name", name_value);
-//                                map.put("price", price_value);
-//                                map.put("description", description_value);
-//                                //map.put("image", downloadUrl.toString());
-//                                map.put("image", downloadUri.toString());
-//                                map.put("userID",userID);
-//
-//                                newPost.setValue(map);
 
-//                                mDatabaseUsers.child(String.valueOf(userID)).child("Items").setValue(itemID+1);
-//
-//                                Toast.makeText(PublishActivity.this, "Successfully publish!", Toast.LENGTH_LONG).show();
 
                             } else {
                                 // Handle failures
@@ -241,24 +219,6 @@ public class PublishActivity extends AppCompatActivity {
                         }
                     });
 
-
-//                    DatabaseReference newPost = mDatabase.push();
-
-//                    newPost.child("Item Price").setValue(price_value);
-////                    newPost.child("Item Name").setValue(name_value);
-////                    newPost.child("Item Description").setValue(description_value);
-////                    newPost.child("Item Image").setValue(downloadUrl.toString());
-
-//                    Map<String, Object> map = new HashMap<>();
-//                    map.put("name", name_value);
-//                    map.put("price", price_value);
-//                    map.put("description", description_value);
-
-                    //map.put("image", downloadUrl.toString());
-
-//                    map.put("image", urlTask.toString());
-//
-//                    newPost.setValue(map);
 
                     Toast.makeText(PublishActivity.this, "Successfully publish!", Toast.LENGTH_LONG).show();
 
@@ -290,3 +250,39 @@ public class PublishActivity extends AppCompatActivity {
     }
 
 }
+
+
+
+//                    DatabaseReference newPost = mDatabase.push();
+
+//                    newPost.child("Item Price").setValue(price_value);
+////                    newPost.child("Item Name").setValue(name_value);
+////                    newPost.child("Item Description").setValue(description_value);
+////                    newPost.child("Item Image").setValue(downloadUrl.toString());
+
+//                    Map<String, Object> map = new HashMap<>();
+//                    map.put("name", name_value);
+//                    map.put("price", price_value);
+//                    map.put("description", description_value);
+
+//map.put("image", downloadUrl.toString());
+
+//                    map.put("image", urlTask.toString());
+//
+//                    newPost.setValue(map);
+
+//                                DatabaseReference newPost = mDatabaseItems.push();
+//
+//                                Map<String, Object> map = new HashMap<>();
+//                                map.put("name", name_value);
+//                                map.put("price", price_value);
+//                                map.put("description", description_value);
+//                                //map.put("image", downloadUrl.toString());
+//                                map.put("image", downloadUri.toString());
+//                                map.put("userID",userID);
+//
+//                                newPost.setValue(map);
+
+//                                mDatabaseUsers.child(String.valueOf(userID)).child("Items").setValue(itemID+1);
+//
+//                                Toast.makeText(PublishActivity.this, "Successfully publish!", Toast.LENGTH_LONG).show();

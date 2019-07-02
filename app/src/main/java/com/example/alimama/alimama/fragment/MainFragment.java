@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ import com.example.alimama.alimama.adapter.MainMenuAdapter;
 import com.example.alimama.alimama.bean.Item;
 import com.example.alimama.alimama.ui.activity.ItemInformationActivity;
 import com.example.alimama.alimama.ui.activity.PublishActivity;
+import com.example.alimama.alimama.ui.activity.SearchActivity;
 import com.example.alimama.alimama.util.DataUtil;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -42,6 +44,9 @@ public class MainFragment extends Fragment {
 
     public static final int GALLERY_INTENT = 2;
     private Button mPublishButton;
+    private Button mSearchButton;
+
+    private EditText mEditTextseachContent;
 
     //main fragment header icon
     protected int[] icons = {R.mipmap.header_pic_ad1,
@@ -76,22 +81,24 @@ public class MainFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-//        menus=this.getActivity().getResources();
-
-        mVPagerHeaderAd = (ViewPager) getView().findViewById(R.id.viewpager_main_header_ad);
-        mRecycleViewMenu = (RecyclerView) getView().findViewById(R.id.recycleview_main_menu);
+        initView();
 
         MainHeaderAdAdapter adapter = new MainHeaderAdAdapter(getActivity(), DataUtil.getHeaderAdInfo(getActivity(), icons));
         mVPagerHeaderAd.setAdapter(adapter);
 
         //菜单
         //布局样式
+        /**
+         * SET MENU ICON
+         */
         mRecycleViewMenu.setLayoutManager(new GridLayoutManager(getActivity(), 4));
         MainMenuAdapter mainMenuAdapter = new MainMenuAdapter(getActivity(), DataUtil.getMainMenu(menuIcons));
         mRecycleViewMenu.setAdapter(mainMenuAdapter);
 
-        //publish item
-        mPublishButton = (Button)getView().findViewById(R.id.home_publish);
+        /**
+         * PUBLISH ITEMS FUNCTION
+         */
+        mPublishButton = getView().findViewById(R.id.home_publish);
         mStorage = FirebaseStorage.getInstance().getReference();
         mPublishButton.setOnClickListener(new View.OnClickListener( ) {
             @Override
@@ -103,7 +110,32 @@ public class MainFragment extends Fragment {
             }
         });
 
-        initView();
+        /**
+         * SEARCH FUNCTION
+         */
+        //set listener for search button
+        //if user click search button, the function will be called
+        mSearchButton.setOnClickListener(new View.OnClickListener( ) {
+            @Override
+            public void onClick(View view) {
+
+                //get the content of EditTextView(search content is in it)
+                final String searchContent = mEditTextseachContent.getText().toString();
+
+
+                Intent search = new Intent(getActivity(), SearchActivity.class);
+
+                //the data need to transfer to search activity
+                Bundle bundle = new Bundle();
+                bundle.putString("searchContent",searchContent);
+                search.putExtras(bundle);
+
+                startActivity(search);
+
+            }
+        });
+
+
 
     }
 
@@ -221,12 +253,22 @@ public class MainFragment extends Fragment {
     }
 
 
-
+    /**
+     * initialize the view
+     */
     private void initView() {
+
+        mVPagerHeaderAd = (ViewPager) getView().findViewById(R.id.viewpager_main_header_ad);
+        mRecycleViewMenu = (RecyclerView) getView().findViewById(R.id.recycleview_main_menu);
 
         mItemList = getView().findViewById(R.id.item_list);
         mItemList.setHasFixedSize(true);
         mItemList.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+
+        //initialize searchButton & EditText(search content is in it)
+        //R.id.button_search button_search is id of mSearchButton in fragment_main layout
+        mSearchButton = getView().findViewById(R.id.button_search);
+        mEditTextseachContent = getView().findViewById(R.id.main_search_content);
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Items");
 

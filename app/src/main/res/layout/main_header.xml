@@ -34,12 +34,14 @@
         android:background="@mipmap/main_header_search"
         android:gravity="center">
 
-        <ImageView
+        <Button
+            android:id="@+id/button_search"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@mipmap/search" />
+            android:background="@mipmap/search"/>
 
         <EditText
+            android:id="@+id/main_search_content"
             android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

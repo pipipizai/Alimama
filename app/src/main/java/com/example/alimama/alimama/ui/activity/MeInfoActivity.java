@@ -22,10 +22,12 @@ public class MeInfoActivity extends BaseActvity{
         setContentView(R.layout.activity_me_info);
 
         setUpToolbar();
+        setTitle("Personal Information");
+
         initView();
         initEvent();
 
-        setTitle("Personal Information");
+
     }
 
     private void initEvent() {
@@ -47,8 +49,8 @@ public class MeInfoActivity extends BaseActvity{
 
     private void initView() {
         mUserID = findViewById(R.id.me_info_id);
-        mUsername = (EditText)findViewById(R.id.me_info_username);
-        mPassword = (EditText)findViewById(R.id.me_infor_password);
-        mAddress = (EditText)findViewById(R.id.me_info_adrress);
+        mUsername = findViewById(R.id.me_info_username);
+        mPassword = findViewById(R.id.me_infor_password);
+        mAddress = findViewById(R.id.me_info_adrress);
     }
 }

@@ -30,7 +30,7 @@ public class RegisterActivity extends BaseActvity {
 //    private FirebaseAuth mAuth;
     private DatabaseReference userRef;
     private User user;
-    long maxid=0;
+    long totlaNumberUsers=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +63,7 @@ public class RegisterActivity extends BaseActvity {
                     user = new User();
                     user.setUsername(username);
                     user.setPassword(password);
-                    user.setId(maxid+1);
+                    user.setId(totlaNumberUsers+1);
 
                     userRef.child(username).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -98,7 +98,9 @@ public class RegisterActivity extends BaseActvity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    maxid = (dataSnapshot.getChildrenCount());
+
+                    //get total number of users in database
+                    totlaNumberUsers = (dataSnapshot.getChildrenCount());
                 }
             }
 
