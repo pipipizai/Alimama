@@ -30,7 +30,7 @@ public class RegisterActivity extends BaseActvity {
 //    private FirebaseAuth mAuth;
     private DatabaseReference userRef;
     private User user;
-    long maxid=0;
+    long totlaNumberUsers=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,14 +63,15 @@ public class RegisterActivity extends BaseActvity {
                     user = new User();
                     user.setUsername(username);
                     user.setPassword(password);
-                    user.setId(maxid+1);
+                    user.setId(totlaNumberUsers+1);
 
-                    userRef.child(String.valueOf(maxid+1)).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    userRef.child(username).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
                                 Toast.makeText(RegisterActivity.this, "User created successfully", Toast.LENGTH_LONG).show();
                                 toLoginActivity();
+                                finish();
                             }else{
                                 Toast.makeText(RegisterActivity.this, "User created failed", Toast.LENGTH_LONG).show();
                             }
@@ -86,10 +87,10 @@ public class RegisterActivity extends BaseActvity {
     }
 
     private void initView() {
-        mEtUsername = (EditText)findViewById(R.id.register_edt_username);
-        mEtPassword = (EditText)findViewById(R.id.register_edt_password);
-        mEtRepassword = (EditText)findViewById(R.id.register_edt_repassword);
-        mBtnRegister = (Button) findViewById(R.id.btn_register);
+        mEtUsername = findViewById(R.id.register_edt_username);
+        mEtPassword = findViewById(R.id.register_edt_password);
+        mEtRepassword = findViewById(R.id.register_edt_repassword);
+        mBtnRegister = findViewById(R.id.btn_register);
 //        mAuth = FirebaseAuth.getInstance();
         userRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
@@ -97,7 +98,9 @@ public class RegisterActivity extends BaseActvity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    maxid = (dataSnapshot.getChildrenCount());
+
+                    //get total number of users in database
+                    totlaNumberUsers = (dataSnapshot.getChildrenCount());
                 }
             }
 

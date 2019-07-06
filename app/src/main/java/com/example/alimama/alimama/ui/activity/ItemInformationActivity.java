@@ -48,9 +48,10 @@ public class ItemInformationActivity extends BaseActvity {
     private DatabaseReference mDatabaseUserFavorite;
     private DatabaseReference mDatabaseItems;
 
-    private long cartItemsNumber=0;
-    private long favoriteItemsNumber=0;
+    private long cartItemsAmount=0;
+    private long favoriteItemsAmount=0;
     private long userID=0;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +62,11 @@ public class ItemInformationActivity extends BaseActvity {
 
         getItemInformation();
 
-        displayItemInfo();
+        displayItemInfomation();
 
+        //create a item object
         final Item item = new Item();
+        //set value in this item object(more detail look into Class Item)
         item.setName(itemName);
         item.setPrice(itemPrice);
         item.setDescription(itemDescription);
@@ -71,19 +74,30 @@ public class ItemInformationActivity extends BaseActvity {
         item.setUserID(itemPublishedUserID);
         item.setItemID(itemID);
 
+        /**
+         * add item to my favotite
+         */
         mItemInfoAddFavotie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            //    mDatabaseUserFavorite.child(String.valueOf("item "+(favoriteItemsNumber +1)+" id ")).setValue(itemID);
-                mDatabaseUserFavorite.child(String.valueOf("item "+(favoriteItemsNumber +1)+" id ")).setValue(item);
+                //这两个语句你可以分别屏蔽运行程序看看是什么效果
+
+                //这是把itemid（不是对象）放进数据库
+            //  ①  mDatabaseUserFavorite.child(String.valueOf(itemID)).setValue(itemID);
+
+                //这是把整个item对象放进数据库
+                mDatabaseUserFavorite.child(String.valueOf(itemID)).setValue(item);
             }
         });
 
+        /**
+         * add item to my cart
+         */
         mItemInfoAddCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //mDatabaseUserCart.child(String.valueOf("item "+(cartItemsNumber +1)+" id ")).setValue(itemID);
-                mDatabaseUserCart.child(String.valueOf("item "+(cartItemsNumber +1)+" id ")).setValue(item);
+                mDatabaseUserCart.child(String.valueOf(itemID)).setValue(item);
             }
         });
 
@@ -91,7 +105,7 @@ public class ItemInformationActivity extends BaseActvity {
 
     }
 
-    private void displayItemInfo() {
+    private void displayItemInfomation() {
 
         Glide.with(this).load(ItemImage).placeholder(R.drawable.default_item_image).into(mItemImage);
         mItemName.setText(itemName);
@@ -101,6 +115,7 @@ public class ItemInformationActivity extends BaseActvity {
 
     private void getItemInformation() {
 
+        //get the transffered data
         Bundle bundle = this.getIntent().getExtras();
         if (bundle != null){ //防止直接启动MainActivity时空指针闪退
 
@@ -115,18 +130,25 @@ public class ItemInformationActivity extends BaseActvity {
         itemPublishedUserID=bundle.getLong("itemPublishedUserID");
 
         //1、获取Preferences
+        // 相当于本地缓存: userinfo里面有用户名/密码/用户id （地址和contact直接从数据库读取就好）
         SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
-        //2、取出数据
+
+        //2、取出数据 用户id和用户名
         userID = preferences.getLong("userid",0);
+        username=preferences.getString("username", null);
 
-        mDatabaseUserFavorite = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(userID)).child("favorite items");
-        mDatabaseUserCart = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(userID)).child("cart items");
+        //get database reference
+        mDatabaseUserFavorite = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("favorite items");
+        mDatabaseUserCart = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("cart items");
 
+        /**
+         * Get total number of cart items
+         */
         mDatabaseUserCart.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    cartItemsNumber = (dataSnapshot.getChildrenCount());
+                    cartItemsAmount = (dataSnapshot.getChildrenCount());
                 }
             }
 
@@ -136,11 +158,14 @@ public class ItemInformationActivity extends BaseActvity {
             }
         });
 
+        /**
+         * Get total number of favorite items
+         */
         mDatabaseUserFavorite.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    favoriteItemsNumber = (dataSnapshot.getChildrenCount());
+                    favoriteItemsAmount = (dataSnapshot.getChildrenCount());
                 }
             }
 

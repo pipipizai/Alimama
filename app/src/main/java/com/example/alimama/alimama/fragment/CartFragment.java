@@ -47,6 +47,7 @@ public class CartFragment extends Fragment {
     private RecyclerView mCartList;
 
     private long userID=0;
+    private String username;
 
     private DatabaseReference mDatabaseRef;
 
@@ -154,8 +155,9 @@ public class CartFragment extends Fragment {
         SharedPreferences preferences=getActivity().getSharedPreferences("userinfo", Context.MODE_PRIVATE);
         //2、取出数据
         userID = preferences.getLong("userid",0);
+        username=preferences.getString("username", null);
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(userID)).child("cart items");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("cart items");
 
     }
 

@@ -1,5 +1,8 @@
 package com.example.alimama.alimama.ui.activity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,23 +33,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initView();
         //获取管理类
         this.getSupportFragmentManager()
-                    .beginTransaction()
+                .beginTransaction()
                 .add(R.id.container_content, mMainFragment)
                 .add(R.id.container_content, mCaregoriesFragment)
                 .hide(mCaregoriesFragment)
                 .add(R.id.container_content,mDiscoverFragment)
-                    .hide(mDiscoverFragment)
+                .hide(mDiscoverFragment)
                 .add(R.id.container_content, mCartFragment)
                 .hide(mCartFragment)
                 .add(R.id.container_content,mMeFragment)
-                    .hide(mMeFragment)
+                .hide(mMeFragment)
 
-        //事物添加 默认：显示首页 其他页面隐藏
-        //提交
-        .commit();
+                //事物添加 默认：显示首页 其他页面隐藏
+                //提交
+                .commit();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if(!isLogin()){
+            Intent login = new Intent(this, LoginActivity.class);
+            startActivity(login);
+        }else{
+            initView();
+        }
+
+
+
+    }
+
+    private boolean isLogin() {
+
+        boolean isLogin;
+        //1、获取Preferences
+        SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        //2、取出数据
+        String username=preferences.getString("username", null);
+        String password=preferences.getString("password", null);
+
+        if(username==null&&password==null){
+            isLogin=false;
+        }else {
+            isLogin=true;
+        }
+
+        return isLogin;
     }
 
     /*

@@ -22,10 +22,12 @@ public class MeInfoActivity extends BaseActvity{
         setContentView(R.layout.activity_me_info);
 
         setUpToolbar();
+        setTitle("Personal Information");
+
         initView();
         initEvent();
 
-        setTitle("Personal Information");
+
     }
 
     private void initEvent() {
@@ -34,8 +36,8 @@ public class MeInfoActivity extends BaseActvity{
         SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
         //2、取出数据
         String userID= String.valueOf(preferences.getLong("userid",0));
-        String username=preferences.getString("username", "defaultname");
-        String password=preferences.getString("password", "password");
+        String username=preferences.getString("username", "No user");
+        String password=preferences.getString("password", "No password");
 
         mUserID.setText(userID);
         mUsername.setText(username);
@@ -47,8 +49,8 @@ public class MeInfoActivity extends BaseActvity{
 
     private void initView() {
         mUserID = findViewById(R.id.me_info_id);
-        mUsername = (EditText)findViewById(R.id.me_info_username);
-        mPassword = (EditText)findViewById(R.id.me_infor_password);
-        mAddress = (EditText)findViewById(R.id.me_info_adrress);
+        mUsername = findViewById(R.id.me_info_username);
+        mPassword = findViewById(R.id.me_infor_password);
+        mAddress = findViewById(R.id.me_info_adrress);
     }
 }
