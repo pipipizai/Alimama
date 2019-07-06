@@ -15,7 +15,6 @@ import com.example.alimama.alimama.ui.activity.LoginActivity;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.ui.activity.MeInfoActivity;
 import com.example.alimama.alimama.ui.activity.ShoppingHistoryActivity;
-
 /**
  * Created by LING on 6/5/2019.
  */
@@ -80,6 +79,7 @@ public class MeFragment extends Fragment {
                 startActivity(shoppinghistory);
             }
         });
+
 
     }
 }
