@@ -80,9 +80,9 @@ public class MainFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        
         initView();
-
+        
         MainHeaderAdAdapter adapter = new MainHeaderAdAdapter(getActivity(), DataUtil.getHeaderAdInfo(getActivity(), icons));
         mVPagerHeaderAd.setAdapter(adapter);
 
@@ -121,10 +121,10 @@ public class MainFragment extends Fragment {
 
                 //get the content of EditTextView(search content is in it)
                 final String searchContent = mEditTextseachContent.getText().toString();
-
-
+                
+                
                 Intent search = new Intent(getActivity(), SearchActivity.class);
-
+               
                 //the data need to transfer to search activity
                 Bundle bundle = new Bundle();
                 bundle.putString("searchContent",searchContent);
@@ -135,7 +135,7 @@ public class MainFragment extends Fragment {
             }
         });
 
-
+       
 
     }
 
