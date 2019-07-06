@@ -15,6 +15,7 @@ public class MeInfoActivity extends BaseActvity{
     private EditText mUsername;
     private EditText mPassword;
     private EditText mAddress;
+    private EditText mContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

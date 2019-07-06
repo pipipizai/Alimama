@@ -37,15 +37,15 @@ public class MeFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         //toLoginActivity
-        mBtnLogin = (Button)getView().findViewById(R.id.btn_login);
-        mBtnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //登录
-                Intent login = new Intent(getActivity(), LoginActivity.class);
-                startActivity(login);
-            }
-        });
+//        mBtnLogin = (Button)getView().findViewById(R.id.btn_login);
+//        mBtnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //登录
+//                Intent login = new Intent(getActivity(), LoginActivity.class);
+//                startActivity(login);
+//            }
+//        });
 
         //toMeInfoActivity
         mTextMeInfo = (TextView) getView().findViewById(R.id.txt_me_info);
