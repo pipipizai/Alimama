@@ -83,7 +83,7 @@ public class ItemInformationActivity extends BaseActvity {
                 //这两个语句你可以分别屏蔽运行程序看看是什么效果
 
                 //这是把itemid（不是对象）放进数据库
-            //  ①  mDatabaseUserFavorite.child(String.valueOf(itemID)).setValue(itemID);
+//               mDatabaseUserFavorite.child(String.valueOf(itemID)).setValue(itemID);
 
                 //这是把整个item对象放进数据库
                 mDatabaseUserFavorite.child(String.valueOf(itemID)).setValue(item);
