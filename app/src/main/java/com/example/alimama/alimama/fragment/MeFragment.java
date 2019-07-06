@@ -53,17 +53,6 @@ public class MeFragment extends Fragment {
 //        });
 
         //toMeInfoActivity
-        mBtnLogin = getView().findViewById(R.id.btn_me_info);
-        mBtnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //登录
-                Intent meinfo = new Intent(getActivity(), MeInfoActivity.class);
-                startActivity(meinfo);
-            }
-        });
-
-        //toMeInfoActivity
         mTextMeInfo = getView().findViewById(R.id.txt_me_info);
         mTextMeInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,8 +101,6 @@ public class MeFragment extends Fragment {
         mTextLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
 
                 Intent logout = new Intent(getActivity(), LoginActivity.class);
                 startActivity(logout);
