@@ -192,7 +192,6 @@ public class ItemInformationActivity extends BaseActvity {
 
 
 
-
     private void initView() {
 
         setUpToolbar();
