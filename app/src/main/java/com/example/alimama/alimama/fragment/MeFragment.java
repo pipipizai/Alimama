@@ -14,10 +14,7 @@ import com.example.alimama.alimama.ui.activity.FavoriteActivity;
 import com.example.alimama.alimama.ui.activity.LoginActivity;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.ui.activity.MeInfoActivity;
-import com.example.alimama.alimama.ui.activity.MyPublishActivity;
-import com.example.alimama.alimama.ui.activity.PublishActivity;
 import com.example.alimama.alimama.ui.activity.ShoppingHistoryActivity;
-
 /**
  * Created by LING on 6/5/2019.
  */
@@ -28,8 +25,6 @@ public class MeFragment extends Fragment {
     protected TextView mTextMeInfo;
     protected TextView mTextFavorite;
     protected TextView mTextShoppingHistory;
-    protected TextView mTextPublish;
-    protected TextView mTextLogOut;
 
     @Nullable
     @Override
@@ -41,7 +36,7 @@ public class MeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-//        //toLoginActivity
+        //toLoginActivity
 //        mBtnLogin = (Button)getView().findViewById(R.id.btn_login);
 //        mBtnLogin.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -53,18 +48,7 @@ public class MeFragment extends Fragment {
 //        });
 
         //toMeInfoActivity
-        mBtnLogin = getView().findViewById(R.id.btn_me_info);
-        mBtnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //登录
-                Intent meinfo = new Intent(getActivity(), MeInfoActivity.class);
-                startActivity(meinfo);
-            }
-        });
-
-        //toMeInfoActivity
-        mTextMeInfo = getView().findViewById(R.id.txt_me_info);
+        mTextMeInfo = (TextView) getView().findViewById(R.id.txt_me_info);
         mTextMeInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,7 +59,7 @@ public class MeFragment extends Fragment {
         });
 
         //toFavoriteActivity
-        mTextFavorite = getView().findViewById(R.id.txt_me_fav);
+        mTextFavorite = (TextView) getView().findViewById(R.id.txt_me_fav);
         mTextFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,19 +69,8 @@ public class MeFragment extends Fragment {
             }
         });
 
-        //toMypublishActivity
-        mTextPublish = getView().findViewById(R.id.txt_me_his);
-        mTextPublish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent publish = new Intent(getActivity(), MyPublishActivity.class);
-                startActivity(publish);
-            }
-        });
-
         //toShoppingHistoryActivity
-        mTextShoppingHistory = getView().findViewById(R.id.txt_me_rec);
+        mTextShoppingHistory = (TextView) getView().findViewById(R.id.txt_me_rec);
         mTextShoppingHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,16 +80,6 @@ public class MeFragment extends Fragment {
             }
         });
 
-        //toLogOutActivity
-        mTextLogOut =  getView().findViewById(R.id.txt_me_log_out);
-        mTextLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent logout = new Intent(getActivity(), LoginActivity.class);
-                startActivity(logout);
-            }
-        });
 
     }
 }

@@ -105,6 +105,12 @@ public class ItemInformationActivity extends BaseActvity {
 
     }
 
+
+
+
+
+
+
     private void displayItemInfomation() {
 
         Glide.with(this).load(ItemImage).placeholder(R.drawable.default_item_image).into(mItemImage);
@@ -112,6 +118,11 @@ public class ItemInformationActivity extends BaseActvity {
         mItemPrice.setText(itemPrice);
         mItemDescription.setText(itemDescription);
     }
+
+
+
+
+
 
     private void getItemInformation() {
 
@@ -176,6 +187,11 @@ public class ItemInformationActivity extends BaseActvity {
         });
 
     }
+
+
+
+
+
 
     private void initView() {
 
