@@ -1,54 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <!-- 我来组成头部! -->
 
     <include layout="@layout/common_toolbar"></include>
 
     <!--<RelativeLayout-->
-        <!--android:id="@+id/layout_favorite_header"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="56dp"-->
-        <!--android:background="#efb336">-->
+    <!--android:id="@+id/layout_favorite_header"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="56dp"-->
+    <!--android:background="#efb336">-->
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:gravity="center">-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:gravity="center">-->
 
-            <!--&lt;!&ndash; 回城按钮 android:id="还没写" &ndash;&gt;-->
-            <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginLeft="10dp"-->
-                <!--android:layout_weight="1"-->
-                <!--android:minHeight="40dp"-->
-                <!--android:minWidth="80dp"-->
-                <!--android:text="Back"/>-->
+    <!--&lt;!&ndash; 回城按钮 android:id="还没写" &ndash;&gt;-->
+    <!--<Button-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:minHeight="40dp"-->
+    <!--android:minWidth="80dp"-->
+    <!--android:text="Back"/>-->
 
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="20"-->
-                <!--android:gravity="center"-->
-                <!--android:text="Item Information"-->
-                <!--android:textSize="20dp"-->
-                <!--android:textStyle="bold"/>-->
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="20"-->
+    <!--android:gravity="center"-->
+    <!--android:text="Item Information"-->
+    <!--android:textSize="20dp"-->
+    <!--android:textStyle="bold"/>-->
 
-            <!--&lt;!&ndash; 编辑按钮 android:id="还没写" &ndash;&gt;-->
-            <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:layout_marginRight="10dp"-->
-                <!--android:minHeight="40dp"-->
-                <!--android:minWidth="80dp"-->
-                <!--android:text="Add"/>-->
+    <!--&lt;!&ndash; 编辑按钮 android:id="还没写" &ndash;&gt;-->
+    <!--<Button-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:layout_marginRight="10dp"-->
+    <!--android:minHeight="40dp"-->
+    <!--android:minWidth="80dp"-->
+    <!--android:text="Add"/>-->
 
-        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
     <!--</RelativeLayout>-->
 
     <!-- 组成躯干和手臂！ -->
@@ -56,6 +57,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,11 +74,11 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp">
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/item_info_Name"
@@ -84,14 +86,14 @@
                     android:layout_height="wrap_content"
                     android:text="Apple MacBook Pro"
                     android:textSize="30dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/item_info_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="14-inch Retina, Touch Bar, 2.7GHz Quad-Core Intel Core i7, 8GB RAM, 256GB SSD, Space Gray (Latest Model)"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/item_info_price"
@@ -99,9 +101,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:text="RM 7000.00"
+                    android:textColor="#DC143C"
                     android:textSize="30dp"
-                    android:textStyle="bold"
-                    android:textColor="#DC143C"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </LinearLayout>
@@ -117,8 +119,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#d8dde1">
-        </View>
+            android:background="#d8dde1"></View>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -129,19 +130,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@mipmap/nav_me_click"/>
+                    android:background="@mipmap/nav_me_click" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Contact\nthe Seller"/>
+                    android:text="Contact\nthe Seller" />
             </LinearLayout>
 
             <LinearLayout
@@ -149,19 +150,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@mipmap/nav_cart_click"/>
+                    android:background="@mipmap/nav_cart_click" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Shopping\nCart"/>
+                    android:text="Shopping\nCart" />
             </LinearLayout>
 
             <RelativeLayout
@@ -174,37 +175,37 @@
                     android:id="@+id/item_info_add_favorite"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:background="#FFA500"
                     android:layout_gravity="center"
-                    android:text="favorite"/>
+
+                    android:background="#FFA500"
+                    android:gravity="center"
+                    android:text="favorite"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:background="#FFA500">
+                android:background="#FFA500"
+                android:gravity="center">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
+                    android:gravity="center"
+                    android:text="Comments"
                     android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:text="Comments"/>
+                    android:textStyle="bold" />
             </RelativeLayout>
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#d8dde1">
-        </View>
+            android:background="#d8dde1"></View>
     </LinearLayout>
 </LinearLayout>
