@@ -95,15 +95,32 @@
                     android:text="14-inch Retina, Touch Bar, 2.7GHz Quad-Core Intel Core i7, 8GB RAM, 256GB SSD, Space Gray (Latest Model)"
                     android:textSize="20dp" />
 
-                <TextView
-                    android:id="@+id/item_info_price"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="RM 7000.00"
-                    android:textColor="#DC143C"
-                    android:textSize="30dp"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="RM"
+                        android:textColor="#DC143C"
+                        android:textSize="30dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/item_info_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="7000.00"
+                        android:textColor="#DC143C"
+                        android:textSize="30dp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>
@@ -129,6 +146,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -139,31 +158,14 @@
                     android:background="@mipmap/nav_me_click" />
 
                 <TextView
+                    android:id="@+id/conncet_seller"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Contact\nthe Seller" />
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/item_info_add_cart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@mipmap/nav_cart_click" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Shopping\nCart" />
-            </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="120dp"
@@ -176,30 +178,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-
-                    android:background="#FFA500"
+                    android:background="#fc7474"
                     android:gravity="center"
-                    android:text="favorite"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:text="Favorite"
+                    android:textAllCaps="false"
+                    android:textSize="25dp" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#FFA500"
                 android:gravity="center">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
+                <Button
+                    android:id="@+id/item_info_add_cart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Comments"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:background="#FFA500"
+                    android:text="Add to Cart"
+                    android:textAllCaps="false"
+                    android:textSize="25dp" />
             </RelativeLayout>
         </LinearLayout>
 

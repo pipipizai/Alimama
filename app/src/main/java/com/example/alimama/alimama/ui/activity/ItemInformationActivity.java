@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.graphics.Typeface;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
@@ -33,7 +34,7 @@ public class ItemInformationActivity extends BaseActvity {
     private TextView mItemPrice;
     private TextView mItemDescription;
     private Button mItemInfoAddFavotie;
-    private LinearLayout mItemInfoAddCart;
+    private Button mItemInfoAddCart;
 
 
     private long itemID;
@@ -63,6 +64,18 @@ public class ItemInformationActivity extends BaseActvity {
         getItemInformation();
 
         displayItemInfomation();
+
+        setUpToolbar();
+        setTitle("Item Info");
+
+        //字体
+        TextView textView1 = findViewById(R.id.item_info_add_favorite);
+        TextView textView2 = findViewById(R.id.item_info_add_cart);
+        TextView textView3 = findViewById(R.id.conncet_seller);
+        Typeface tf1= Typeface.createFromAsset(getAssets(), "againts.otf");
+        textView1.setTypeface(tf1);
+        textView2.setTypeface(tf1);
+        textView3.setTypeface(tf1);
 
         //create a item object
         final Item item = new Item();

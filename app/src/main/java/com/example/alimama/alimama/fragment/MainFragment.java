@@ -175,7 +175,7 @@ public class MainFragment extends Fragment {
                 final long itemPublishedUserID=model.getUserID();
                 final String itemImage=model.getImage();
                 final String itemName=model.getName();
-                final String itemPrice=model.getDescription();
+                final String itemPrice=model.getPrice();
                 final String itemDescription=model.getDescription();
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
