@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.graphics.Typeface;
 
 import com.example.alimama.alimama.R;
 
@@ -19,6 +20,10 @@ public class SearchActivity extends BaseActvity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        TextView textView = findViewById(R.id.activity_search_content);
+        Typeface tf= Typeface.createFromAsset(getAssets(), "againts.otf");
+        textView.setTypeface(tf);
 
 
         //display header

@@ -19,7 +19,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
-        android:hint="search content" />
+        android:textSize="20dp"
+        android:hint="Search Content" />
 
     <ScrollView
         android:id="@+id/layout_search_items"
