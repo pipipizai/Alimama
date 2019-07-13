@@ -79,10 +79,10 @@ public class LoginActivity extends AppCompatActivity {
                 final String username = mEtUsername.getText().toString();
                 final String password = mEtPassword.getText().toString();
 
+
 //                loginRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
                 if(loginRef.child(username)!=null){
-
                     loginRef.child(username).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -161,8 +161,6 @@ public class LoginActivity extends AppCompatActivity {
         mBtnRegister = findViewById(R.id.btn_register);
 
         loginRef = FirebaseDatabase.getInstance().getReference().child("Users");
-
-
     }
 
 }

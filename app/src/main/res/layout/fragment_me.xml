@@ -12,8 +12,8 @@
         android:layout_height="180dp"
         android:background="@drawable/head_background">
 
-        <Button
-            android:id="@+id/btn_me_info"
+        <ImageView
+            android:id="@+id/me_icon"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_centerHorizontal="true"

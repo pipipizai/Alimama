@@ -1,38 +1,54 @@
 package com.example.alimama.alimama.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.TextView;
 import android.graphics.Typeface;
 
 import com.example.alimama.alimama.R;
+import com.example.alimama.alimama.bean.Item;
 import com.example.alimama.alimama.bean.User;
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 //import com.google.firebase.auth.AuthResult;
 //import com.google.firebase.auth.FirebaseAuth;
 //import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends BaseActvity {
 
+    public static final int GALLERY_REQUEST = 1;
     private EditText mEtUsername;
     private EditText mEtPassword;
     private EditText mEtRepassword;
     private Button mBtnRegister;
 //    private FirebaseAuth mAuth;
     private DatabaseReference userRef;
+    private StorageReference mStorage;
+    private Uri mImageUri = null;
     private User user;
     long totlaNumberUsers=0;
+    private ImageButton mUserIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,53 +76,132 @@ public class RegisterActivity extends BaseActvity {
 
     }
 
-
-
     private void initEvent() {
+        mUserIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                galleryIntent.setType("image/*");
+                startActivityForResult(galleryIntent, GALLERY_REQUEST);
+
+            }
+        });
+
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username = mEtUsername.getText().toString();
-                String password = mEtPassword.getText().toString();
-                String rePassword = mEtRepassword.getText().toString();
-
-                if(password.equals(rePassword)){
-
-
-                    //fill in the information to the User class
-                    user = new User();
-                    user.setUsername(username);
-                    user.setPassword(password);
-                    user.setId(totlaNumberUsers+1);
-
-                    userRef.child(username).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(RegisterActivity.this, "User created successfully", Toast.LENGTH_LONG).show();
-                                toLoginActivity();
-                                finish();
-                            }else{
-                                Toast.makeText(RegisterActivity.this, "User created failed", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                    });
-
-                }else{
-                    Toast.makeText(RegisterActivity.this, "Password should be same as repassword", Toast.LENGTH_LONG).show();
-                }
+                userRegister();
 
             }
         });
     }
+
+    private void userRegister() {
+
+        final String username = mEtUsername.getText().toString();
+        final String password = mEtPassword.getText().toString();
+        String rePassword = mEtRepassword.getText().toString();
+        final StorageReference filePath = mStorage.child("User_Icons").child(mImageUri.getLastPathSegment());
+        final UploadTask uploadTask = filePath.putFile(mImageUri);
+
+
+                if(password.equals(rePassword)){
+
+                    uploadTask.addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+
+                            // Handle unsuccessful uploads
+                            Toast.makeText(RegisterActivity.this, "Publish Failed!", Toast.LENGTH_LONG).show();
+
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                            Uri downloadUrl = taskSnapshot.getUploadSessionUri();
+
+                            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                                @Override
+                                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                                    if (!task.isSuccessful()) {
+                                        throw task.getException();
+                                    }
+
+                                    // Continue with the task to get the download URL
+                                    return filePath.getDownloadUrl();
+                                }
+                            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Uri> task) {
+                                    if (task.isSuccessful()) {
+                                        Uri downloadUri = task.getResult();
+
+                                        //fill in the information to the User class
+                                        user = new User();
+                                        user.setUsername(username);
+                                        user.setPassword(password);
+                                        user.setId(totlaNumberUsers+1);
+                                        user.setIcon(downloadUri.toString());
+
+                                        userRef.child(username).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if(task.isSuccessful()){
+
+                                                    Toast.makeText(RegisterActivity.this, "User created successfully", Toast.LENGTH_LONG).show();
+                                                    toLoginActivity();
+                                                    finish();
+                                                }else{
+                                                    Toast.makeText(RegisterActivity.this, "User created failed", Toast.LENGTH_LONG).show();
+                                                }
+                                            }
+                                        });
+
+                                    } else {
+                                        // Handle failures
+                                        // ...
+                                    }
+                                }
+                            });
+
+                            Toast.makeText(RegisterActivity.this, "Successfully register!", Toast.LENGTH_LONG).show();
+
+                            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+
+                        }
+                    });
+
+        }
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == GALLERY_REQUEST) {
+
+            mImageUri = data.getData();
+
+            mUserIcon.setImageURI(mImageUri);
+        }
+    }
+
+
 
     private void initView() {
         mEtUsername = findViewById(R.id.register_edt_username);
         mEtPassword = findViewById(R.id.register_edt_password);
         mEtRepassword = findViewById(R.id.register_edt_repassword);
         mBtnRegister = findViewById(R.id.btn_register);
+        mUserIcon = findViewById(R.id.btn_user_icon);
 //        mAuth = FirebaseAuth.getInstance();
+
         userRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        mStorage = FirebaseStorage.getInstance().getReference();
 
         userRef.addValueEventListener(new ValueEventListener() {
             @Override

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Size;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.graphics.Typeface;
 
@@ -18,6 +19,7 @@ public class MeInfoActivity extends BaseActvity{
     private EditText mPassword;
     private EditText mAddress;
     private EditText mContact;
+    private ImageView mUserIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,5 +73,6 @@ public class MeInfoActivity extends BaseActvity{
         mUsername = findViewById(R.id.me_info_username);
         mPassword = findViewById(R.id.me_infor_password);
         mAddress = findViewById(R.id.me_info_adrress);
+//        mUserIcon = findViewById(R.id.me_info_icon);
     }
 }

@@ -9,10 +9,10 @@ public class User {
     private long id;
     private String password;
     private String username;
-    private int icon;
+    private String icon;
 
 
-    public User(long id, String password, String username, int icon) {
+    public User(long id, String password, String username, String icon) {
         this.id = id;
         this.password = password;
         this.username = username;
@@ -51,11 +51,11 @@ public class User {
         this.username = username;
     }
 
-    public int getIcon() {
+    public String getIcon() {
         return icon;
     }
 
-    public void setIcon(int icon) {
+    public void setIcon(String icon) {
         this.icon = icon;
     }
 }
