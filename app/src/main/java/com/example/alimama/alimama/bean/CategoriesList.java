@@ -1,6 +1,8 @@
 package com.example.alimama.alimama.bean;
 
 import java.util.ArrayList;
+import android.widget.TextView;
+import android.graphics.Typeface;
 
 public class CategoriesList {
 
@@ -8,9 +10,12 @@ public class CategoriesList {
 
     private String categoriesName;
 
+
     public CategoriesList() {
 
+
     }
+
 
     public CategoriesList(String categoriesName) {
         this.categoriesName = categoriesName;
