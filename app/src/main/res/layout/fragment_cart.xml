@@ -9,12 +9,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#efb336"
-        android:paddingLeft="5dp"
-        android:paddingTop="5dp"
-        android:paddingRight="5dp"
-        android:paddingBottom="5dp">
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="#efb336">
 
         <!--// 删除选中的物品 android:id="@+id/btn_del"-->
 
@@ -31,14 +28,13 @@
         //android:id="@+id/txt_total" android:layout_toRightOf="@+id/checkbox_all"
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/cart_head"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="120dp"
-
+            android:gravity="center"
             android:text="Shopping Cart"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
 
         <!--//清空购物车 android:id="@+id/btn_order"-->
 

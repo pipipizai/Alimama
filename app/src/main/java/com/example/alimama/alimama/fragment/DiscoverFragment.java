@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.graphics.Typeface;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
@@ -55,6 +56,11 @@ public class DiscoverFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         initView();
+
+        //字体
+        TextView textView1 = getView().findViewById(R.id.discover_head);
+        Typeface tf= Typeface.createFromAsset(getContext().getAssets(), "againts.otf");
+        textView1.setTypeface(tf);
 
     }
 

@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.content.Context;
+import android.graphics.Typeface;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
@@ -31,7 +33,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.core.Context;
+
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -85,6 +87,15 @@ public class MainFragment extends Fragment {
         
         MainHeaderAdAdapter adapter = new MainHeaderAdAdapter(getActivity(), DataUtil.getHeaderAdInfo(getActivity(), icons));
         mVPagerHeaderAd.setAdapter(adapter);
+
+
+        //字体
+        TextView textView1 = getView().findViewById(R.id.txt_guess_you_like);
+        TextView textView2= getView().findViewById(R.id.main_search_content);
+        Typeface tf1= Typeface.createFromAsset(getContext().getAssets(), "againts.otf");
+        Typeface tf2= Typeface.createFromAsset(getContext().getAssets(), "HandWrite.ttf");
+        textView1.setTypeface(tf2);
+        textView2.setTypeface(tf1);
 
         //菜单
         //布局样式
@@ -274,7 +285,9 @@ public class MainFragment extends Fragment {
 
     }
 
+    private void font(){
 
 
+    }
 
 }

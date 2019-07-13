@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+import android.widget.TextView;
+import android.graphics.Typeface;
 
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.bean.Item;
@@ -34,7 +36,7 @@ import com.google.firebase.storage.UploadTask;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PublishActivity extends AppCompatActivity {
+public class PublishActivity extends BaseActvity {
 
     public static final int GALLERY_REQUEST = 1;
 
@@ -60,8 +62,22 @@ public class PublishActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish);
 
+        setUpToolbar();
+        setTitle("Publish Item");
+
         initView();
         initEvent();
+
+        TextView textView1 = findViewById(R.id.publish_item_name);
+        TextView textView2 = findViewById(R.id.publish_item_price);
+        TextView textView3 = findViewById(R.id.publish_item_description);
+        TextView textView4 = findViewById(R.id.btn_publish);
+        Typeface tf1= Typeface.createFromAsset(getAssets(), "dry_brush.ttf");
+        Typeface tf2= Typeface.createFromAsset(getAssets(), "againts.otf");
+        textView1.setTypeface(tf1);
+        textView2.setTypeface(tf1);
+        textView3.setTypeface(tf1);
+        textView4.setTypeface(tf2);
     }
 
     private void initEvent() {

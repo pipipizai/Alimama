@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.graphics.Typeface;
+
 import com.example.alimama.alimama.R;
 
 import android.content.ClipData;
@@ -64,6 +66,11 @@ public class CartFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         initView();
+
+        //字体
+        TextView textView1 = getView().findViewById(R.id.cart_head);
+        Typeface tf= Typeface.createFromAsset(getContext().getAssets(), "againts.otf");
+        textView1.setTypeface(tf);
 
     }
 

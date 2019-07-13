@@ -65,7 +65,8 @@
                 android:layout_marginTop="15dp"
                 android:layout_below="@id/recycleview_main_menu"
                 android:text="Guess you like"
-                android:textSize="30sp"
+                android:textSize="50dp"
+                android:textStyle="bold"
                 android:gravity="center_horizontal"/>
 
             <android.support.v7.widget.RecyclerView

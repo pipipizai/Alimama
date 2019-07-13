@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.graphics.Typeface;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
@@ -45,6 +46,11 @@ public class CategoriesFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         initView();
+
+        //字体
+        TextView textView1 = getView().findViewById(R.id.categories_head);
+        Typeface tf= Typeface.createFromAsset(getContext().getAssets(), "againts.otf");
+        textView1.setTypeface(tf);
 
     }
 

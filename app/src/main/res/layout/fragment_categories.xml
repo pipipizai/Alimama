@@ -12,14 +12,14 @@
         android:id="@+id/layout_categories_header"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:gravity="center"
         android:background="#efb336">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/categories_head"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="130dp"
-            android:layout_marginBottom="7dp"
+            android:gravity="center"
             android:text="Categories"
             android:textColor="#ffffff"
             android:textSize="30sp" />

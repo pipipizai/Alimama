@@ -81,8 +81,9 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="100dp"
         android:layout_marginLeft="100dp"
+        android:textAllCaps="false"
         android:text="Save"
         android:textSize="25sp"
-        android:background="@color/colorPrimary" />
+        android:background="#f4f5f7" />
 
 </LinearLayout>

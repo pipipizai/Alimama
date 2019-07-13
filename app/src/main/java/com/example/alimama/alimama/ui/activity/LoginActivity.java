@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.TextView;
+import android.content.Context;
+import android.graphics.Typeface;
 
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.bean.User;
@@ -31,11 +34,25 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        
+
         initView();
         
         initEvent();
-        
+
+        //字体
+        TextView textView1 = findViewById(R.id.login_head);
+        TextView textView2 = findViewById(R.id.edt_uesrname);
+        TextView textView3 = findViewById(R.id.edt_password);
+        TextView textView4 = findViewById(R.id.btn_login);
+        TextView textView5 = findViewById(R.id.btn_register);
+        Typeface tf1= Typeface.createFromAsset(getAssets(), "againts.otf");
+        Typeface tf2= Typeface.createFromAsset(getAssets(), "dry_brush.ttf");
+        textView1.setTypeface(tf1);
+        textView2.setTypeface(tf2);
+        textView3.setTypeface(tf2);
+        textView4.setTypeface(tf1);
+        textView5.setTypeface(tf1);
+
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 //

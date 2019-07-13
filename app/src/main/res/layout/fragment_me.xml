@@ -1,95 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <!-- 顶部模块 -->
 
     <RelativeLayout
         android:id="@+id/layout_me_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#efb336">
+        android:layout_height="180dp"
+        android:background="@drawable/head_background">
 
         <Button
             android:id="@+id/btn_me_info"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@mipmap/login_btn"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:layout_marginBottom="40dp"/>
+            android:layout_marginBottom="50dp"
+            android:background="@mipmap/login_btn" />
 
         <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:layout_below="@id/btn_login"-->
-            <!--android:layout_marginTop="40dp"-->
-            <!--android:layout_marginBottom="10dp">-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_below="@id/btn_login"-->
+        <!--android:layout_marginTop="40dp"-->
+        <!--android:layout_marginBottom="10dp">-->
 
-            <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:orientation="vertical"-->
-                <!--android:layout_weight="1"-->
-                <!--android:gravity="center">-->
-                <!--<ImageView-->
-                    <!--android:layout_width="50dp"-->
-                    <!--android:layout_height="50dp"-->
-                    <!--android:background="@mipmap/me_cart"-->
-                    <!--android:layout_gravity="center" />-->
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Wait for\nPayment"/>-->
-            <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center">-->
+        <!--<ImageView-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:background="@mipmap/me_cart"-->
+        <!--android:layout_gravity="center" />-->
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:text="Wait for\nPayment"/>-->
+        <!--</LinearLayout>-->
 
-            <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:orientation="vertical"-->
-                <!--android:layout_weight="1"-->
-                <!--android:gravity="center">-->
-                <!--<ImageView-->
-                    <!--android:layout_width="50dp"-->
-                    <!--android:layout_height="50dp"-->
-                    <!--android:background="@mipmap/nav_cart_normal"-->
-                    <!--android:layout_gravity="center" />-->
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Wait for\nDelivery"/>-->
-            <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center">-->
+        <!--<ImageView-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:background="@mipmap/nav_cart_normal"-->
+        <!--android:layout_gravity="center" />-->
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:text="Wait for\nDelivery"/>-->
+        <!--</LinearLayout>-->
 
-            <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:orientation="vertical"-->
-                <!--android:layout_weight="1"-->
-                <!--android:gravity="center">-->
-                <!--<ImageView-->
-                    <!--android:layout_width="50dp"-->
-                    <!--android:layout_height="50dp"-->
-                    <!--android:background="@mipmap/nav_cart_normal"-->
-                    <!--android:layout_gravity="center" />-->
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Wait for\nEvaluation"/>-->
-            <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center">-->
+        <!--<ImageView-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:background="@mipmap/nav_cart_normal"-->
+        <!--android:layout_gravity="center" />-->
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:text="Wait for\nEvaluation"/>-->
+        <!--</LinearLayout>-->
         <!--</LinearLayout>-->
     </RelativeLayout>
 
     <!-- 滚动列表 -->
 
     <ScrollView
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,179 +100,179 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@mipmap/nav_me_click"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="15dp"
-                    android:layout_marginLeft="15dp"/>
+                    android:background="@mipmap/nav_me_click" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginLeft="10dp">
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center">
+
                     <TextView
                         android:id="@+id/txt_me_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="My Information"
-                        android:textSize="25sp"
+                        android:paddingLeft="6dp"
                         android:paddingTop="8dp"
-                        android:paddingLeft="6dp"/>
+                        android:text="My Information"
+                        android:textSize="25sp" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#ffffff"
                         android:layout_below="@id/txt_me_info"
                         android:layout_marginTop="8dp"
-                        android:layout_marginRight="10dp">
-                    </View>
+                        android:layout_marginRight="10dp"
+                        android:background="#ffffff"></View>
                 </RelativeLayout>
             </LinearLayout>
 
             <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="horizontal"-->
-                <!--android:gravity="center">-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:gravity="center">-->
 
-                <!--<ImageView-->
-                    <!--android:layout_width="40dp"-->
-                    <!--android:layout_height="40dp"-->
-                    <!--android:background="@mipmap/nav_me_click"-->
-                    <!--android:layout_marginTop="15dp"-->
-                    <!--android:layout_marginBottom="15dp"-->
-                    <!--android:layout_marginLeft="15dp"/>-->
+            <!--<ImageView-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:background="@mipmap/nav_me_click"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:layout_marginBottom="15dp"-->
+            <!--android:layout_marginLeft="15dp"/>-->
 
-                <!--<RelativeLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:layout_marginLeft="10dp">-->
-                    <!--<TextView-->
-                        <!--android:id="@+id/txt_me_add"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="My Delivery Address"-->
-                        <!--android:textSize="25sp"-->
-                        <!--android:paddingTop="8dp"-->
-                        <!--android:paddingLeft="6dp"/>-->
-                    <!--<View-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="1dp"-->
-                        <!--android:background="#ffffff"-->
-                        <!--android:layout_below="@id/txt_me_add"-->
-                        <!--android:layout_marginTop="8dp"-->
-                        <!--android:layout_marginRight="10dp">-->
-                    <!--</View>-->
-                <!--</RelativeLayout>-->
+            <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_marginLeft="10dp">-->
+            <!--<TextView-->
+            <!--android:id="@+id/txt_me_add"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="My Delivery Address"-->
+            <!--android:textSize="25sp"-->
+            <!--android:paddingTop="8dp"-->
+            <!--android:paddingLeft="6dp"/>-->
+            <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="#ffffff"-->
+            <!--android:layout_below="@id/txt_me_add"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:layout_marginRight="10dp">-->
+            <!--</View>-->
+            <!--</RelativeLayout>-->
             <!--</LinearLayout>-->
 
             <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="horizontal"-->
-                <!--android:gravity="center">-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:gravity="center">-->
 
-                <!--<ImageView-->
-                    <!--android:layout_width="46dp"-->
-                    <!--android:layout_height="46dp"-->
-                    <!--android:background="@mipmap/nav_cart_click"-->
-                    <!--android:layout_marginTop="12dp"-->
-                    <!--android:layout_marginBottom="12dp"-->
-                    <!--android:layout_marginLeft="13dp"/>-->
+            <!--<ImageView-->
+            <!--android:layout_width="46dp"-->
+            <!--android:layout_height="46dp"-->
+            <!--android:background="@mipmap/nav_cart_click"-->
+            <!--android:layout_marginTop="12dp"-->
+            <!--android:layout_marginBottom="12dp"-->
+            <!--android:layout_marginLeft="13dp"/>-->
 
-                <!--<RelativeLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:layout_marginLeft="10dp">-->
+            <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_marginLeft="10dp">-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/txt_me_cart"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="Shopping Cart"-->
-                        <!--android:textSize="25sp"-->
-                        <!--android:paddingTop="8dp"/>-->
-                    <!--<View-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="1dp"-->
-                        <!--android:background="#ffffff"-->
-                        <!--android:layout_below="@id/txt_me_cart"-->
-                        <!--android:layout_marginTop="8dp"-->
-                        <!--android:layout_marginRight="10dp">-->
-                    <!--</View>-->
-                <!--</RelativeLayout>-->
+            <!--<TextView-->
+            <!--android:id="@+id/txt_me_cart"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Shopping Cart"-->
+            <!--android:textSize="25sp"-->
+            <!--android:paddingTop="8dp"/>-->
+            <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="#ffffff"-->
+            <!--android:layout_below="@id/txt_me_cart"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:layout_marginRight="10dp">-->
+            <!--</View>-->
+            <!--</RelativeLayout>-->
             <!--</LinearLayout>-->
-
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="46dp"
                     android:layout_height="46dp"
-                    android:background="@mipmap/nav_cart_click"
+                    android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="13dp"/>
+                    android:background="@mipmap/nav_cart_click" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginLeft="10dp">
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/txt_me_fav"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
                         android:text="My Favorite"
-                        android:textSize="25sp"
-                        android:paddingTop="8dp"/>
+                        android:textSize="25sp" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#ffffff"
                         android:layout_below="@id/txt_me_fav"
                         android:layout_marginTop="8dp"
-                        android:layout_marginRight="10dp">
-                    </View>
+                        android:layout_marginRight="10dp"
+                        android:background="#ffffff"></View>
                 </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="46dp"
                     android:layout_height="46dp"
-                    android:background="@mipmap/nav_cart_click"
+                    android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="13dp"/>
+                    android:background="@mipmap/nav_cart_click" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginLeft="10dp">
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center">
 
                     <TextView
-                        android:id="@+id/txt_me_his"
+                        android:id="@+id/txt_me_pub"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -278,139 +280,137 @@
                         android:paddingTop="8dp"
                         android:text="My Published"
                         android:textSize="25sp" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#ffffff"
-                        android:layout_below="@id/txt_me_his"
+                        android:layout_below="@id/txt_me_pub"
                         android:layout_marginTop="8dp"
-                        android:layout_marginRight="10dp">
-                    </View>
+                        android:layout_marginRight="10dp"
+                        android:background="#ffffff"></View>
                 </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="46dp"
                     android:layout_height="46dp"
-                    android:background="@mipmap/nav_cart_click"
+                    android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="13dp"/>
+                    android:background="@mipmap/nav_cart_click" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginLeft="10dp">
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/txt_me_rec"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
                         android:text="Order Record"
-                        android:textSize="25sp"
-                        android:paddingTop="8dp"/>
+                        android:textSize="25sp" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#ffffff"
                         android:layout_below="@id/txt_me_rec"
                         android:layout_marginTop="8dp"
-                        android:layout_marginRight="10dp">
-                    </View>
+                        android:layout_marginRight="10dp"
+                        android:background="#ffffff"></View>
                 </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="46dp"
                     android:layout_height="46dp"
-                    android:background="@mipmap/nav_cart_click"
+                    android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="13dp"/>
+                    android:background="@mipmap/nav_cart_click" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginLeft="10dp">
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/txt_me_ser"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
                         android:text="After Sale Service"
-                        android:textSize="25sp"
-                        android:paddingTop="8dp"/>
+                        android:textSize="25sp" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#ffffff"
                         android:layout_below="@id/txt_me_ser"
                         android:layout_marginTop="8dp"
-                        android:layout_marginRight="10dp">
-                    </View>
+                        android:layout_marginRight="10dp"
+                        android:background="#ffffff"></View>
                 </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="46dp"
                     android:layout_height="46dp"
-                    android:background="@mipmap/nav_cart_click"
+                    android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="13dp"/>
+                    android:background="@mipmap/nav_cart_click" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginLeft="10dp">
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/txt_me_log_out"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
                         android:text="Log out"
-                        android:textSize="25sp"
-                        android:paddingTop="8dp"/>
+                        android:textSize="25sp" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#ffffff"
                         android:layout_below="@id/txt_me_log_out"
                         android:layout_marginTop="8dp"
-                        android:layout_marginRight="10dp">
-                    </View>
+                        android:layout_marginRight="10dp"
+                        android:background="#ffffff"></View>
                 </RelativeLayout>
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="#d8dde1"
                 android:layout_below="@id/txt_me_log_out"
                 android:layout_marginTop="8dp"
-                >
-            </View>
+                android:background="#d8dde1"></View>
         </LinearLayout>
 
     </ScrollView>

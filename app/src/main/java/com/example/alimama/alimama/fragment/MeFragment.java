@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.graphics.Typeface;
 
 import com.example.alimama.alimama.ui.activity.FavoriteActivity;
 import com.example.alimama.alimama.ui.activity.LoginActivity;
@@ -52,6 +53,21 @@ public class MeFragment extends Fragment {
 //            }
 //        });
 
+        //字体
+        TextView textView1 = getView().findViewById(R.id.txt_me_fav);
+        TextView textView2 = getView().findViewById(R.id.txt_me_pub);
+        TextView textView3 = getView().findViewById(R.id.txt_me_info);
+        TextView textView4 = getView().findViewById(R.id.txt_me_log_out);
+        TextView textView5 = getView().findViewById(R.id.txt_me_rec);
+        TextView textView6 = getView().findViewById(R.id.txt_me_ser);
+        Typeface tf= Typeface.createFromAsset(getContext().getAssets(), "againts.otf");
+        textView1.setTypeface(tf);
+        textView2.setTypeface(tf);
+        textView3.setTypeface(tf);
+        textView4.setTypeface(tf);
+        textView5.setTypeface(tf);
+        textView6.setTypeface(tf);
+
         //toMeInfoActivity
         mTextMeInfo = getView().findViewById(R.id.txt_me_info);
         mTextMeInfo.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +91,7 @@ public class MeFragment extends Fragment {
         });
 
         //toMypublishActivity
-        mTextPublish = getView().findViewById(R.id.txt_me_his);
+        mTextPublish = getView().findViewById(R.id.txt_me_pub);
         mTextPublish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
