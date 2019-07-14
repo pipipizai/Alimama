@@ -18,12 +18,12 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.bean.User;
+
+import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.ui.activity.FavoriteActivity;
 import com.example.alimama.alimama.ui.activity.LoginActivity;
-import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.ui.activity.MeInfoActivity;
 import com.example.alimama.alimama.ui.activity.MyPublishActivity;
-import com.example.alimama.alimama.ui.activity.PublishActivity;
 import com.example.alimama.alimama.ui.activity.ShoppingHistoryActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -85,6 +85,14 @@ public class MeFragment extends Fragment {
         textView4.setTypeface(tf);
         textView5.setTypeface(tf);
         textView6.setTypeface(tf);
+
+        //1、获取Preferences
+        SharedPreferences preferences=getActivity().getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        //2、取出数据
+        userID = preferences.getLong("userid",0);
+        username=preferences.getString("username", null);
+        userIcon=preferences.getString("userIcon", null);
+
 
         mUserIcon = getView().findViewById(R.id.me_icon);
 
@@ -151,32 +159,10 @@ public class MeFragment extends Fragment {
 
     public void displayUserIcon(){
 
-        //1、获取Preferences
-        SharedPreferences preferences=getActivity().getSharedPreferences("userinfo", Context.MODE_PRIVATE);
-        //2、取出数据
-        userID = preferences.getLong("userid",0);
-        username=preferences.getString("username", null);
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(username);
 
-        mDatabaseRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                userIcon = user.getIcon();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
         Glide.with(this).load(userIcon).placeholder(R.drawable.default_item_image).into(mUserIcon);
-
-
-
-
 
     }
 }
