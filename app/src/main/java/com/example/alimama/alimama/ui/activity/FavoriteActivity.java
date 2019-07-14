@@ -1,6 +1,7 @@
 package com.example.alimama.alimama.ui.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,12 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
@@ -59,7 +62,7 @@ public class FavoriteActivity extends BaseActvity {
                         .setQuery(mDatabaseRef, Item.class)
                         .build();
 
-        FirebaseRecyclerAdapter<Item, ItemViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Item, ItemViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Item, ItemViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Item, ItemViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull Item model) {
 
@@ -78,15 +81,64 @@ public class FavoriteActivity extends BaseActvity {
                 //for item_row
                 View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.favorite_list, viewGroup, false);
                 ItemViewHolder viewHolder = new ItemViewHolder(view);
+
+
+
                 return viewHolder;
             }
+//
+//            public String getKey(int position) {
+//                return getSnapshots().getItem(position).getKey();
+//            }
+//
+//            @Override
+//            public void onItemLongClick() {
+//                onItemLongClick(, );
+//            }
+
+
+
+//            public void deleteItem(int position){
+//                getSnapshots().getSnapshot(position).getRef().removeValue();
+//            }
+
         };
+
+
 
         mCartList.setAdapter(firebaseRecyclerAdapter);
 
+        ItemTouchHelper.SimpleCallback simpleItemCallback =
+        new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+//                firebaseRecyclerAdapter.deleteItem(viewHolder.getAdapterPosition());
+                Toast.makeText(FavoriteActivity.this, "on Swiped ", Toast.LENGTH_SHORT).show();
+                //Remove swiped item from list and notify the RecyclerView
+                final int position = viewHolder.getAdapterPosition();
+
+                //final DatabaseReference itemRef = data.getRef(position);
+//                getSnapshot(position).getRef().removeValue();
+                //firebaseRecyclerAdapter.notifyItemRemoved(position);
+                firebaseRecyclerAdapter.getRef(position).removeValue();
+                toFavoriteActivity();
+
+            }
+        };
+
         firebaseRecyclerAdapter.startListening();
 
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemCallback);
+        itemTouchHelper.attachToRecyclerView(mCartList);
+
     }
+
+
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
 
@@ -95,7 +147,6 @@ public class FavoriteActivity extends BaseActvity {
         private TextView item_name;
         private TextView item_price;
         private TextView item_description;
-
 
         private ItemViewHolder(View itemView) {
             super(itemView);
@@ -106,27 +157,6 @@ public class FavoriteActivity extends BaseActvity {
             item_description = itemView.findViewById(R.id.favorite_item_description);
 
         }
-
-//        private void setImage(Context ctx, String image) {
-//
-////            Picasso.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
-////            publish_image.setImage
-////            Picasso.with(ctx).load(image).placeholder(R.drawable.default_item_image).into(publish_image);
-//
-//        }
-//
-//        private void setName(String name) {
-//
-//            item_name.setText(name);
-//        }
-//
-//        private void setPrice(String price) {
-//
-////            String stringPrice= Double.toString(price);
-//            item_price.setText(price);
-//        }
-
-
     }
 
 
@@ -145,5 +175,10 @@ public class FavoriteActivity extends BaseActvity {
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("favorite items");
 
         setTitle("My Favorite");
+    }
+
+    private void toFavoriteActivity() {
+        Intent intent = new Intent(this,FavoriteActivity.class);
+        startActivity(intent);
     }
 }

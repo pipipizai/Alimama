@@ -110,6 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.commit();
 
                                 toMainActivity();
+                                finish();
                             } else {
 
                                 Toast.makeText(LoginActivity.this, "The password is incorrect", Toast.LENGTH_LONG).show();
