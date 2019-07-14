@@ -206,7 +206,7 @@ public class PublishActivity extends BaseActvity {
                                   item.setPrice(price_value);
                                   item.setDescription(description_value);
                                   item.setImage(downloadUri.toString());
-                                  item.setUserID(userID);
+                                  item.setUserName(username);
                                   item.setItemID(itemsNumber+1);
 
                                   mDatabaseItems.child(String.valueOf(itemsNumber+1)).setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {

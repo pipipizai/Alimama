@@ -1,6 +1,7 @@
 package com.example.alimama.alimama.ui.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -35,10 +36,11 @@ public class ItemInformationActivity extends BaseActvity {
     private TextView mItemDescription;
     private Button mItemInfoAddFavotie;
     private Button mItemInfoAddCart;
+    private Button mUserContactButton;
 
 
     private long itemID;
-    private long itemPublishedUserID;
+    private String itemPublishedUserName;
     private String ItemIDString;
     private String ItemImage;
     private String itemName;
@@ -84,7 +86,7 @@ public class ItemInformationActivity extends BaseActvity {
         item.setPrice(itemPrice);
         item.setDescription(itemDescription);
         item.setImage(ItemImage);
-        item.setUserID(itemPublishedUserID);
+        item.setUserName(itemPublishedUserName);
         item.setItemID(itemID);
 
         /**
@@ -114,15 +116,25 @@ public class ItemInformationActivity extends BaseActvity {
             }
         });
 
+        /**
+         * chat with seller
+         */
+        mUserContactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(ItemInformationActivity.this,MessageActivity.class);
+                intent.putExtra("itemPublishedUserName",itemPublishedUserName);
+                intent.putExtra("username",username);
+                startActivity(intent);
+            }
+        });
+    }
+
+   private void toMessageActivity() {
 
 
     }
-
-
-
-
-
-
 
     private void displayItemInfomation() {
 
@@ -131,11 +143,6 @@ public class ItemInformationActivity extends BaseActvity {
         mItemPrice.setText(itemPrice);
         mItemDescription.setText(itemDescription);
     }
-
-
-
-
-
 
     private void getItemInformation() {
 
@@ -151,7 +158,7 @@ public class ItemInformationActivity extends BaseActvity {
         itemName=bundle.getString("name");
         itemPrice=bundle.getString("price");
         itemDescription=bundle.getString("description");
-        itemPublishedUserID=bundle.getLong("itemPublishedUserID");
+        itemPublishedUserName=bundle.getString("itemPublishedUserName");
 
         //1、获取Preferences
         // 相当于本地缓存: userinfo里面有用户名/密码/用户id （地址和contact直接从数据库读取就好）
@@ -201,11 +208,6 @@ public class ItemInformationActivity extends BaseActvity {
 
     }
 
-
-
-
-
-
     private void initView() {
 
         setUpToolbar();
@@ -215,6 +217,7 @@ public class ItemInformationActivity extends BaseActvity {
         mItemDescription = findViewById(R.id.item_info_description);
         mItemInfoAddCart = findViewById(R.id.item_info_add_cart);
         mItemInfoAddFavotie = findViewById(R.id.item_info_add_favorite);
+        mUserContactButton = findViewById(R.id.image_contact_user);
     }
 
 

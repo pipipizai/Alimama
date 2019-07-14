@@ -172,7 +172,7 @@ public class MainFragment extends Fragment {
                 holder.publish_description.setText(model.getDescription());
 
                 final long itemID=model.getItemID();
-                final long itemPublishedUserID=model.getUserID();
+                final String itemPublishedUserName=model.getUserName();
                 final String itemImage=model.getImage();
                 final String itemName=model.getName();
                 final String itemPrice=model.getPrice();
@@ -189,7 +189,7 @@ public class MainFragment extends Fragment {
                         bundle.putString("name",itemName);
                         bundle.putString("price",itemPrice);
                         bundle.putString("description",itemDescription);
-                        bundle.putLong("itemPublishedUserID",itemPublishedUserID);
+                        bundle.putString("itemPublishedUserName",itemPublishedUserName);
                         intent.putExtras(bundle);
 
 //                        intent.putExtra((String) ItemInformationActivity.ExtraData, itemID);

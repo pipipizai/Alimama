@@ -7,7 +7,7 @@ public class Item {
     private String price;
     private String description;
     private String image;
-    private long userID;
+    private String userName;
     private long itemID;
 
     public long getItemID() {
@@ -23,21 +23,21 @@ public class Item {
     public Item() {
     }
 
-    public Item(String name, String price, String description, String image, long userID,long itemID) {
+    public Item(String name, String price, String description, String image, String userName,long itemID) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.image = image;
-        this.userID = userID;
+        this.userName = userName;
         this.itemID=itemID;
     }
 
-    public long getUserID() {
-        return userID;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUserID(long userID) {
-        this.userID = userID;
+    public void setUserName(String userName) {
+        this.userName= userName;
     }
 
     public String getPrice() {
