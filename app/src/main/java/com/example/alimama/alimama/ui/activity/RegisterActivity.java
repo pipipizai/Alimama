@@ -142,7 +142,7 @@ public class RegisterActivity extends BaseActvity {
                                         user = new User();
                                         user.setUsername(username);
                                         user.setPassword(password);
-                                        user.setId(totlaNumberUsers+1);
+                                  //      user.setId(totlaNumberUsers+1);
                                         user.setIcon(downloadUri.toString());
 
                                         userRef.child(username).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {

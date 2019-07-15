@@ -6,14 +6,14 @@ package com.example.alimama.alimama.bean;
 
 public class User {
 
-    private long id;
+   // private long id;
     private String password;
     private String username;
     private String icon;
 
 
-    public User(long id, String password, String username, String icon) {
-        this.id = id;
+    public User(String password, String username, String icon) {
+       // this.id = id;
         this.password = password;
         this.username = username;
         this.icon = icon;
@@ -27,13 +27,13 @@ public class User {
     public User() {
     }
 
-    public long getId() {
-        return id;
-    }
+//    public long getId() {
+//        return id;
+//    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+//    public void setId(long id) {
+//        this.id = id;
+//    }
 
     public String getPassword() {
         return password;

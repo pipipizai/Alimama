@@ -57,10 +57,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         holder.show_message.setText(chat.getMessage());
 
         if(imageurl.equals("default")){
-            holder.profile_message.setImageResource(R.mipmap.ic_launcher);
+            holder.profile_image.setImageResource(R.mipmap.ic_launcher);
         }else {
 
-            Glide.with(mContext).load(imageurl).into(holder.profile_message);
+            Glide.with(mContext).load(imageurl).into(holder.profile_image);
         }
 
 
@@ -69,13 +69,13 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView show_message;
-        public ImageView profile_message;
+        public ImageView profile_image;
 
         public ViewHolder(View itemView){
             super(itemView);
 
             show_message = itemView.findViewById(R.id.show_message);
-            profile_message = itemView.findViewById(R.id.profile_image);
+            profile_image = itemView.findViewById(R.id.profile_image);
 
         }
     }

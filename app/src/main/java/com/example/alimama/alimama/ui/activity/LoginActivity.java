@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             User user = dataSnapshot.getValue(User.class);
-                            long userid = user.getId();
+                         //   long userid = user.getId();
                             String userIcon = user.getIcon();
 
                             if (password.equals(user.getPassword())){
@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                                 //3、存放数据
                                 editor.putString("username", username);
                                 editor.putString("password", password);
-                                editor.putLong("userid",userid);
+                               // editor.putLong("userid",userid);
                                 editor.putString("userIcon",userIcon);
 
                                 //4、完成提交
