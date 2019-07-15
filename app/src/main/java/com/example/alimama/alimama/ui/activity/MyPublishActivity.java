@@ -127,6 +127,7 @@ public class MyPublishActivity extends BaseActvity {
     }
 
 
+
     private void initView() {
 
         mCartList = this.findViewById(R.id.publish_items);

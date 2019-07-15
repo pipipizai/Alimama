@@ -1,15 +1,18 @@
 package com.example.alimama.alimama.ui.activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -18,7 +21,11 @@ import android.widget.TextView;
 import android.graphics.Typeface;
 
 import com.example.alimama.alimama.R;
+import com.example.alimama.alimama.adapter.UserAdapter;
+import com.example.alimama.alimama.bean.CategoriesName;
+import com.example.alimama.alimama.bean.Chat;
 import com.example.alimama.alimama.bean.Item;
+import com.example.alimama.alimama.bean.User;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -33,7 +40,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PublishActivity extends BaseActvity {
@@ -44,6 +53,7 @@ public class PublishActivity extends BaseActvity {
     private EditText mPublishItemPrice;
     private EditText mPublishItemName;
     private EditText mPublishItemDscription;
+    private TextView mPublishCategories;
     private Button mPublishButton;
 
     private Uri mImageUri = null;
@@ -53,9 +63,14 @@ public class PublishActivity extends BaseActvity {
     private StorageReference mStorage;
     private DatabaseReference mDatabaseItems;
     private DatabaseReference mDatabaseUsers;
+    private DatabaseReference mDatabaseCategoriesName;
+    private DatabaseReference mDatabaseCategories;
 
     private long itemsNumber;
     private long publishedItemNumber;
+    private long categoriesItemNumber;
+    private List<String> categoriesList;
+    private String catrgory=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +114,60 @@ public class PublishActivity extends BaseActvity {
             }
         });
 
+        mPublishCategories.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectCatrgoryDialog();
+
+            }
+
+        });
+
+    }
+
+    private void selectCatrgoryDialog(){
+        //List<String> categoriesList;
+        //String[] categories =
+
+        categoriesList = new ArrayList<>();
+
+        mDatabaseCategoriesName.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                categoriesList.clear();
+
+                for (DataSnapshot snapshot:dataSnapshot.getChildren()){
+
+                    CategoriesName categoriesName = snapshot.getValue(CategoriesName.class);
+
+                    categoriesList.add(categoriesName.getCategoriesName());
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,categoriesList);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                                        .setTitle("Please select categoty")
+                                        .setAdapter(adapter, new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                catrgory = null;
+                                                catrgory = categoriesList.get(which);
+                                                mPublishCategories.setText(catrgory);
+                                                Toast.makeText(PublishActivity.this, catrgory, Toast.LENGTH_LONG).show();
+                                                dialog.dismiss();
+                                            }
+                                        });
+        builder.show();
+
+
     }
 
     private void initView() {
@@ -108,8 +177,11 @@ public class PublishActivity extends BaseActvity {
         mPublishItemName = (EditText) findViewById(R.id.publish_item_name);
         mPublishItemDscription = (EditText) findViewById(R.id.publish_item_description);
         mPublishButton = (Button) findViewById(R.id.btn_publish);
+        mPublishCategories = findViewById(R.id.publish_item_categories);
 
         mStorage = FirebaseStorage.getInstance().getReference();
+        mDatabaseCategoriesName = FirebaseDatabase.getInstance().getReference().child("CategoriesName");
+        mDatabaseCategories = FirebaseDatabase.getInstance().getReference().child("Categories");
 
 
     }
@@ -142,6 +214,8 @@ public class PublishActivity extends BaseActvity {
 
             }
         });
+
+
 
         mDatabaseUsers.addValueEventListener(new ValueEventListener() {
             @Override
@@ -209,14 +283,29 @@ public class PublishActivity extends BaseActvity {
                                   item.setUserName(username);
                                   item.setItemID(itemsNumber+1);
 
+                                mDatabaseCategories.child(catrgory).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        if(dataSnapshot.exists()){
+                                            categoriesItemNumber = (dataSnapshot.getChildrenCount());
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+
                                   mDatabaseItems.child(String.valueOf(itemsNumber+1)).setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {
 
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
 
-                                            mDatabaseUsers.child(String.valueOf(publishedItemNumber+1)).setValue(item);
 
+                                            mDatabaseUsers.child(String.valueOf(publishedItemNumber+1)).setValue(item);
+                                            mDatabaseCategories.child(catrgory).child(String.valueOf(categoriesItemNumber+1)).setValue(item);
                                             Toast.makeText(PublishActivity.this, "Successfully publish!", Toast.LENGTH_LONG).show();
 
                                             toMainActivity();
@@ -246,6 +335,8 @@ public class PublishActivity extends BaseActvity {
         }
 
     }
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
