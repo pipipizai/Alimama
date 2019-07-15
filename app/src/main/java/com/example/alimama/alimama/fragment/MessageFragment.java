@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class MessageFragment extends Fragment {
@@ -102,9 +103,14 @@ public class MessageFragment extends Fragment {
 
                     for(String userNameInList:usersList){
                         if (user.getUsername().equals(userNameInList)){
+//                    for(int j=0;j<usersList.size();j++){
+//                        if (user.getUsername().equals(usersList.get(j))){
                             if(mUsers.size()!=0){
                                 for(User userInmUsers:mUsers){
                                     if(!user.getUsername().equals(userInmUsers.getUsername())){
+//                                for(Iterator<User> iterator= mUsers.iterator();(iterator.hasNext();){
+//                                for(int i=0;i<mUsers.size();i++){
+//                                    if(!user.getUsername().equals(mUsers.get(i).getUsername())){
                                         mUsers.add(user);
                                     }
                                 }

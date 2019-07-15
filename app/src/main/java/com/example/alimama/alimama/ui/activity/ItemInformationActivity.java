@@ -128,10 +128,15 @@ public class ItemInformationActivity extends BaseActvity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(ItemInformationActivity.this,MessageActivity.class);
-                intent.putExtra("itemPublishedUserName",itemPublishedUserName);
-                intent.putExtra("username",username);
-                startActivity(intent);
+                if(itemPublishedUserName.equals(username)) {
+                    Toast.makeText(ItemInformationActivity.this, "You can not talk to yourself", Toast.LENGTH_LONG).show();
+                }else {
+                    Intent intent = new Intent(ItemInformationActivity.this, MessageActivity.class);
+                    intent.putExtra("itemPublishedUserName", itemPublishedUserName);
+                    intent.putExtra("username", username);
+                    startActivity(intent);
+
+                }
             }
         });
 
