@@ -8,52 +8,6 @@
 
     <include layout="@layout/common_toolbar"></include>
 
-    <!--<RelativeLayout-->
-    <!--android:id="@+id/layout_favorite_header"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="56dp"-->
-    <!--android:background="#efb336">-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:orientation="horizontal"-->
-    <!--android:gravity="center">-->
-
-    <!--&lt;!&ndash; 回城按钮 android:id="还没写" &ndash;&gt;-->
-    <!--<Button-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginLeft="10dp"-->
-    <!--android:layout_weight="1"-->
-    <!--android:minHeight="40dp"-->
-    <!--android:minWidth="80dp"-->
-    <!--android:text="Back"/>-->
-
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_weight="20"-->
-    <!--android:gravity="center"-->
-    <!--android:text="Item Information"-->
-    <!--android:textSize="20dp"-->
-    <!--android:textStyle="bold"/>-->
-
-    <!--&lt;!&ndash; 编辑按钮 android:id="还没写" &ndash;&gt;-->
-    <!--<Button-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_weight="1"-->
-    <!--android:layout_marginRight="10dp"-->
-    <!--android:minHeight="40dp"-->
-    <!--android:minWidth="80dp"-->
-    <!--android:text="Add"/>-->
-
-    <!--</LinearLayout>-->
-    <!--</RelativeLayout>-->
-
-    <!-- 组成躯干和手臂！ -->
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
