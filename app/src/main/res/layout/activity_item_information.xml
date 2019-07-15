@@ -204,6 +204,8 @@
                     android:textAllCaps="false"
                     android:textSize="25dp" />
             </RelativeLayout>
+
+
             <RelativeLayout
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
@@ -211,7 +213,7 @@
                 android:gravity="center">
 
                 <Button
-                    android:id="@+id/item_info_pay"
+                    android:id="@+id/item_info_payment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -220,6 +222,8 @@
                     android:textAllCaps="false"
                     android:textSize="25dp" />
             </RelativeLayout>
+
+
         </LinearLayout>
 
         <View
