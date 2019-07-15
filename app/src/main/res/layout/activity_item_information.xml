@@ -142,22 +142,22 @@
                     android:textSize="25dp" />
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center">
+            <!--<RelativeLayout-->
+                <!--android:layout_width="120dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center">-->
 
-                <Button
-                    android:id="@+id/item_info_add_cart"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:background="#FFA500"
-                    android:text="Add to Cart"
-                    android:textAllCaps="false"
-                    android:textSize="25dp" />
-            </RelativeLayout>
+                <!--<Button-->
+                    <!--android:id="@+id/item_info_add_cart"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:gravity="center"-->
+                    <!--android:background="#FFA500"-->
+                    <!--android:text="Add to Cart"-->
+                    <!--android:textAllCaps="false"-->
+                    <!--android:textSize="25dp" />-->
+            <!--</RelativeLayout>-->
 
 
             <RelativeLayout

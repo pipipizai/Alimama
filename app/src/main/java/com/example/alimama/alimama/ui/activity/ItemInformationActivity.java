@@ -74,13 +74,13 @@ public class ItemInformationActivity extends BaseActvity {
 
         //字体
         TextView textView1 = findViewById(R.id.item_info_add_favorite);
-        TextView textView2 = findViewById(R.id.item_info_add_cart);
+     //   TextView textView2 = findViewById(R.id.item_info_add_cart);
         TextView textView3 = findViewById(R.id.conncet_seller);
         TextView textView4 = findViewById(R.id.item_info_payment);
 
         Typeface tf1= Typeface.createFromAsset(getAssets(), "againts.otf");
         textView1.setTypeface(tf1);
-        textView2.setTypeface(tf1);
+    //    textView2.setTypeface(tf1);
         textView3.setTypeface(tf1);
         textView4.setTypeface(tf1);
 
@@ -106,20 +106,24 @@ public class ItemInformationActivity extends BaseActvity {
 //               mDatabaseUserFavorite.child(String.valueOf(itemID)).setValue(itemID);
 
                 //这是把整个item对象放进数据库
-                mDatabaseUserFavorite.child(String.valueOf(itemID)).setValue(item);
+                if(itemPublishedUserName.equals(username)) {
+                    Toast.makeText(ItemInformationActivity.this, "Can not save your item", Toast.LENGTH_LONG).show();
+                }else {
+                    mDatabaseUserFavorite.child(String.valueOf(itemID)).setValue(item);
+                }
             }
         });
 
         /**
          * add item to my cart
          */
-        mItemInfoAddCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //mDatabaseUserCart.child(String.valueOf("item "+(cartItemsNumber +1)+" id ")).setValue(itemID);
-                mDatabaseUserCart.child(String.valueOf(itemID)).setValue(item);
-            }
-        });
+//        mItemInfoAddCart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //mDatabaseUserCart.child(String.valueOf("item "+(cartItemsNumber +1)+" id ")).setValue(itemID);
+//                mDatabaseUserCart.child(String.valueOf(itemID)).setValue(item);
+//            }
+//        });
 
         /**
          * chat with seller
@@ -147,15 +151,20 @@ public class ItemInformationActivity extends BaseActvity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(ItemInformationActivity.this,PaymentActivity.class);
-                intent.putExtra("itemID",itemID);
-                intent.putExtra("itemName",itemName);
-                intent.putExtra("itemPrice",itemPrice);
-                intent.putExtra("ItemImage",ItemImage);
-                intent.putExtra("itemDescription",itemDescription);
-                intent.putExtra("itemPublishedUserName",itemPublishedUserName);
 
-                startActivity(intent);
+                if(itemPublishedUserName.equals(username)) {
+                    Toast.makeText(ItemInformationActivity.this, "Can not buy yourself item", Toast.LENGTH_LONG).show();
+                }else {
+                    Intent intent = new Intent(ItemInformationActivity.this, PaymentActivity.class);
+                    intent.putExtra("itemID", itemID);
+                    intent.putExtra("itemName", itemName);
+                    intent.putExtra("itemPrice", itemPrice);
+                    intent.putExtra("ItemImage", ItemImage);
+                    intent.putExtra("itemDescription", itemDescription);
+                    intent.putExtra("itemPublishedUserName", itemPublishedUserName);
+
+                    startActivity(intent);
+                }
 
             }
         });
@@ -248,7 +257,7 @@ public class ItemInformationActivity extends BaseActvity {
         mItemName = findViewById(R.id.item_info_Name);
         mItemPrice = findViewById(R.id.item_info_price);
         mItemDescription = findViewById(R.id.item_info_description);
-        mItemInfoAddCart = findViewById(R.id.item_info_add_cart);
+      //  mItemInfoAddCart = findViewById(R.id.item_info_add_cart);
         mItemInfoAddFavotie = findViewById(R.id.item_info_add_favorite);
         mUserContactButton = findViewById(R.id.image_contact_user);
         mItemInfoPayment = findViewById(R.id.item_info_payment);
