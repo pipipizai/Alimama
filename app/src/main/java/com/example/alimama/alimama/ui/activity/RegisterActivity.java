@@ -170,14 +170,11 @@ public class RegisterActivity extends BaseActvity {
                                     } else {
                                         // Handle failures
                                         // ...
+                                        Toast.makeText(RegisterActivity.this, "Register failed", Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
 
-                            Toast.makeText(RegisterActivity.this, "Successfully register!", Toast.LENGTH_LONG).show();
-
-                            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-                            finish();
 
                         }
                     });
