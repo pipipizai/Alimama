@@ -109,17 +109,17 @@ public class MainFragment extends Fragment {
         /**
          * PUBLISH ITEMS FUNCTION
          */
-        mPublishButton = getView().findViewById(R.id.home_publish);
+//        mPublishButton = getView().findViewById(R.id.home_publish);
         mStorage = FirebaseStorage.getInstance().getReference();
-        mPublishButton.setOnClickListener(new View.OnClickListener( ) {
-            @Override
-            public void onClick(View view) {
-
-                Intent publish = new Intent(getActivity(), PublishActivity.class);
-                startActivity(publish);
-
-            }
-        });
+//        mPublishButton.setOnClickListener(new View.OnClickListener( ) {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent publish = new Intent(getActivity(), PublishActivity.class);
+//                startActivity(publish);
+//
+//            }
+//        });
 
         /**
          * SEARCH FUNCTION

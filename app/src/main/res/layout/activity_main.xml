@@ -17,13 +17,14 @@
     <LinearLayout
         android:id="@+id/container_menu"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:orientation="horizontal"
         android:background="#ffffff"
         android:layout_alignParentBottom="true">
 
         <LinearLayout
             android:id="@+id/menu_home"
+            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -38,6 +39,7 @@
             android:id="@+id/menu_categories"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:gravity="center">
             <ImageView
@@ -46,20 +48,33 @@
                 android:background="@drawable/menu_categories_icon_selector"/>
         </LinearLayout>
 
+        <!--<LinearLayout-->
+            <!--android:id="@+id/menu_discover"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center">-->
+            <!--<ImageView-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:background="@drawable/menu_discover_icon_selector"/>-->
+        <!--</LinearLayout>-->
+
         <LinearLayout
-            android:id="@+id/menu_discover"
+            android:id="@+id/menu_publish"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center">
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/menu_discover_icon_selector"/>
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@mipmap/pubulish"/>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/menu_cart"
+            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -72,6 +87,7 @@
 
         <LinearLayout
             android:id="@+id/menu_me"
+            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"

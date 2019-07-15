@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.example.alimama.alimama.R;
@@ -14,6 +15,7 @@ import com.example.alimama.alimama.fragment.CategoriesFragment;
 import com.example.alimama.alimama.fragment.DiscoverFragment;
 import com.example.alimama.alimama.fragment.MainFragment;
 import com.example.alimama.alimama.fragment.MeFragment;
+import com.example.alimama.alimama.fragment.MessageFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -22,11 +24,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected LinearLayout mMenuDiscover;
     protected LinearLayout mMenuCart;
     protected LinearLayout mMenuMe;
+    protected LinearLayout mMenuPublish;
     protected MainFragment mMainFragment = new MainFragment();//HOME
     protected CategoriesFragment mCaregoriesFragment = new CategoriesFragment();//Categories
     protected DiscoverFragment mDiscoverFragment = new DiscoverFragment();//Discover
     protected CartFragment mCartFragment = new CartFragment();//Cart
+    protected MessageFragment mMessageFragment = new MessageFragment();//Me
     protected MeFragment mMeFragment = new MeFragment();//Me
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +45,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .add(R.id.container_content, mMainFragment)
                 .add(R.id.container_content, mCaregoriesFragment)
                 .hide(mCaregoriesFragment)
-                .add(R.id.container_content,mDiscoverFragment)
-                .hide(mDiscoverFragment)
-                .add(R.id.container_content, mCartFragment)
-                .hide(mCartFragment)
+                .add(R.id.container_content, mMessageFragment)
+                .hide(mMessageFragment)
                 .add(R.id.container_content,mMeFragment)
                 .hide(mMeFragment)
 
@@ -63,6 +67,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             initView();
         }
 
+        mMenuPublish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toPublishActivity();
+            }
+        });
 
 
     }
@@ -91,15 +101,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void initView(){
         mMenuHome = (LinearLayout) this.findViewById(R.id.menu_home);
         mMenuCategories = (LinearLayout) this.findViewById(R.id.menu_categories);
-        mMenuDiscover = (LinearLayout) this.findViewById(R.id.menu_discover);
+//        mMenuDiscover = (LinearLayout) this.findViewById(R.id.menu_discover);
         mMenuCart = (LinearLayout) this.findViewById(R.id.menu_cart);
         mMenuMe = (LinearLayout) this.findViewById(R.id.menu_me);
+        mMenuPublish = (LinearLayout)findViewById(R.id.menu_publish);
 
         mMenuHome.setOnClickListener(this);
         mMenuCategories.setOnClickListener(this);
-        mMenuDiscover.setOnClickListener(this);
+//        mMenuDiscover.setOnClickListener(this);
         mMenuCart.setOnClickListener(this);
         mMenuMe.setOnClickListener(this);
+        mMenuPublish.setOnClickListener(this);
+
     }
 
     @Override
@@ -110,8 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .beginTransaction()
                         .show(mMainFragment)
                         .hide(mCaregoriesFragment)
-                        .hide(mDiscoverFragment)
-                        .hide(mCartFragment)
+                        .hide(mMessageFragment)
                         .hide(mMeFragment)
                         .commit();
                 break;
@@ -120,28 +132,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .beginTransaction()
                         .hide(mMainFragment)
                         .show(mCaregoriesFragment)
-                        .hide(mDiscoverFragment)
-                        .hide(mCartFragment)
+                        .hide(mMessageFragment)
                         .hide(mMeFragment)
                         .commit();
                 break;
-            case R.id.menu_discover: //发现
-                this.getSupportFragmentManager()
-                        .beginTransaction()
-                        .hide(mMainFragment)
-                        .hide(mCaregoriesFragment)
-                        .show(mDiscoverFragment)
-                        .hide(mCartFragment)
-                        .hide(mMeFragment)
-                        .commit();
-                break;
+//            case R.id.menu_discover: //发现
+//                this.getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .hide(mMainFragment)
+//                        .hide(mCaregoriesFragment)
+//                        .show(mDiscoverFragment)
+//                        .hide(mCartFragment)
+//                        .hide(mMeFragment)
+//                        .commit();
+//                break;
+
+//            case R.id.menu_publish: //publish item
+//                toPublishActivity();
+//                this.getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .show(mMainFragment)
+//                        .hide(mCaregoriesFragment)
+//                        .hide(mCartFragment)
+//                        .hide(mMeFragment)
+//                        .commit();
+//                break;
+
+
             case R.id.menu_cart: //购物车
                 this.getSupportFragmentManager()
                         .beginTransaction()
                         .hide(mMainFragment)
                         .hide(mCaregoriesFragment)
-                        .hide(mDiscoverFragment)
-                        .show(mCartFragment)
+//                        .hide(mDiscoverFragment)
+                        .show(mMessageFragment)
                         .hide(mMeFragment)
                         .commit();
                 break;
@@ -150,12 +174,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .beginTransaction()
                         .hide(mMainFragment)
                         .hide(mCaregoriesFragment)
-                        .hide(mDiscoverFragment)
-                        .hide(mCartFragment)
+//                        .hide(mDiscoverFragment)
+                        .hide(mMessageFragment)
                         .show(mMeFragment)
                         .commit();
                 break;
         }
+    }
+
+    private void toPublishActivity() {
+        Intent intent = new Intent(this,PublishActivity.class);
+        startActivity(intent);
     }
 }
 
