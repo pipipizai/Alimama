@@ -37,6 +37,7 @@ public class ItemInformationActivity extends BaseActvity {
     private Button mItemInfoAddFavotie;
     private Button mItemInfoAddCart;
     private Button mUserContactButton;
+    private Button mItemInfoPayment;
 
 
     private long itemID;
@@ -50,6 +51,7 @@ public class ItemInformationActivity extends BaseActvity {
     private DatabaseReference mDatabaseUserCart;
     private DatabaseReference mDatabaseUserFavorite;
     private DatabaseReference mDatabaseItems;
+    private DatabaseReference mDatabaseUserPayment;
 
     private long cartItemsAmount=0;
     private long favoriteItemsAmount=0;
@@ -74,10 +76,13 @@ public class ItemInformationActivity extends BaseActvity {
         TextView textView1 = findViewById(R.id.item_info_add_favorite);
         TextView textView2 = findViewById(R.id.item_info_add_cart);
         TextView textView3 = findViewById(R.id.conncet_seller);
+        TextView textView4 = findViewById(R.id.item_info_payment);
+
         Typeface tf1= Typeface.createFromAsset(getAssets(), "againts.otf");
         textView1.setTypeface(tf1);
         textView2.setTypeface(tf1);
         textView3.setTypeface(tf1);
+        textView4.setTypeface(tf1);
 
         //create a item object
         final Item item = new Item();
@@ -129,7 +134,29 @@ public class ItemInformationActivity extends BaseActvity {
                 startActivity(intent);
             }
         });
+
+        /**
+         * payment
+         */
+        mItemInfoPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(ItemInformationActivity.this,PaymentActivity.class);
+                intent.putExtra("itemID",itemID);
+                intent.putExtra("itemName",itemName);
+                intent.putExtra("itemPrice",itemPrice);
+                intent.putExtra("ItemImage",ItemImage);
+                intent.putExtra("itemDescription",itemDescription);
+                intent.putExtra("itemPublishedUserName",itemPublishedUserName);
+
+                startActivity(intent);
+
+            }
+        });
     }
+
+
 
    private void toMessageActivity() {
 
@@ -171,6 +198,7 @@ public class ItemInformationActivity extends BaseActvity {
         //get database reference
         mDatabaseUserFavorite = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("favorite items");
         mDatabaseUserCart = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("cart items");
+//        mDatabaseUserPayment = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("shopping history");
 
         /**
          * Get total number of cart items
@@ -218,6 +246,8 @@ public class ItemInformationActivity extends BaseActvity {
         mItemInfoAddCart = findViewById(R.id.item_info_add_cart);
         mItemInfoAddFavotie = findViewById(R.id.item_info_add_favorite);
         mUserContactButton = findViewById(R.id.image_contact_user);
+        mItemInfoPayment = findViewById(R.id.item_info_payment);
+
     }
 
 
