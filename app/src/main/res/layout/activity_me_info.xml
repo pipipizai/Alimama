@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,8 +10,26 @@
     android:orientation="vertical"
     tools:context=".ui.activity.MeInfoActivity">
 
-
     <include layout="@layout/common_toolbar"></include>
+
+
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+
+        <ImageButton
+        android:id="@+id/user_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="150dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        app:srcCompat="@mipmap/add_image"
+       />
+
 
     <TextView
         android:id="@+id/me_info_id"
@@ -63,7 +83,7 @@
         android:hint="Address" />
 
     <EditText
-        android:id="@+id/user_id"
+        android:id="@+id/me_info_contact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/input_outline"
@@ -85,5 +105,8 @@
         android:text="Save"
         android:textSize="25sp"
         android:background="#f4f5f7" />
+
+
+<!--</ScrollView>-->
 
 </LinearLayout>

@@ -107,6 +107,7 @@ public class RegisterActivity extends BaseActvity {
         final String username = mEtUsername.getText().toString();
         final String password = mEtPassword.getText().toString();
         String rePassword = mEtRepassword.getText().toString();
+
         final StorageReference filePath = mStorage.child("User_Icons").child(mImageUri.getLastPathSegment());
         final UploadTask uploadTask = filePath.putFile(mImageUri);
 
