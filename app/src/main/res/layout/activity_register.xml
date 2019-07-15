@@ -10,59 +10,69 @@
 
     <include layout="@layout/common_toolbar"></include>
 
-
-
-    <ImageButton
-        android:id="@+id/btn_user_icon"
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        app:srcCompat="@mipmap/add_image" />
+        android:orientation="vertical">
+        <ImageButton
+            android:id="@+id/btn_user_icon"
 
-    <EditText
-        android:id="@+id/register_edt_username"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="40dp"
-        android:background="#ffffff"
-        android:inputType="text"
-        android:hint="Student ID"
-        android:paddingLeft="8dp"
-        android:textColorHint="#000000"/>
-    <EditText
-        android:id="@+id/register_edt_password"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="4dp"
-        android:background="#ffffff"
-        android:inputType="textWebPassword"
-        android:hint="Password"
-        android:paddingLeft="8dp"
-        android:textColorHint="#000000"/>
-    <EditText
-        android:id="@+id/register_edt_repassword"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="4dp"
-        android:background="#ffffff"
-        android:inputType="textWebPassword"
-        android:hint="Repassword"
-        android:paddingLeft="8dp"
-        android:textColorHint="#000000"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@mipmap/add_image" />
 
-    <Button
-        android:id="@+id/btn_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginLeft="100dp"
-        android:textAllCaps="false"
-        android:text="Register"
-        android:textSize="25sp"
-        android:background="#f4f5f7" />
+        <EditText
+            android:id="@+id/register_edt_username"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="40dp"
+            android:background="#ffffff"
+            android:inputType="text"
+            android:hint="Student ID"
+            android:paddingLeft="8dp"
+            android:textColorHint="#000000"/>
+        <EditText
+            android:id="@+id/register_edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="4dp"
+            android:background="#ffffff"
+            android:inputType="textWebPassword"
+            android:hint="Password"
+            android:paddingLeft="8dp"
+            android:textColorHint="#000000"/>
+        <EditText
+            android:id="@+id/register_edt_repassword"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="4dp"
+            android:background="#ffffff"
+            android:inputType="textWebPassword"
+            android:hint="Repassword"
+            android:paddingLeft="8dp"
+            android:textColorHint="#000000"/>
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginLeft="100dp"
+            android:textAllCaps="false"
+            android:text="Register"
+            android:textSize="25sp"
+            android:background="#f4f5f7" />
+
+    </LinearLayout>
+
+</ScrollView>
+
 
 </LinearLayout>

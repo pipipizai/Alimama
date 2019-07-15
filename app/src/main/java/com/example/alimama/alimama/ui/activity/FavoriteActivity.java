@@ -66,9 +66,6 @@ public class FavoriteActivity extends BaseActvity {
             @Override
             protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull Item model) {
 
-//                Picasso.get().load(model.getImage()).into(holder.publish_image);
-//                holder.setImage(getA,model.getImage);
-//                Picasso.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
                 Glide.with(FavoriteActivity.this).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.item_image);
                 holder.item_name.setText(model.getName());
                 holder.item_price.setText(model.getPrice());
@@ -81,30 +78,9 @@ public class FavoriteActivity extends BaseActvity {
                 //for item_row
                 View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.favorite_list, viewGroup, false);
                 ItemViewHolder viewHolder = new ItemViewHolder(view);
-
-
-
                 return viewHolder;
             }
-//
-//            public String getKey(int position) {
-//                return getSnapshots().getItem(position).getKey();
-//            }
-//
-//            @Override
-//            public void onItemLongClick() {
-//                onItemLongClick(, );
-//            }
-
-
-
-//            public void deleteItem(int position){
-//                getSnapshots().getSnapshot(position).getRef().removeValue();
-//            }
-
         };
-
-
 
         mCartList.setAdapter(firebaseRecyclerAdapter);
 
@@ -117,14 +93,11 @@ public class FavoriteActivity extends BaseActvity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-//                firebaseRecyclerAdapter.deleteItem(viewHolder.getAdapterPosition());
-                Toast.makeText(FavoriteActivity.this, "on Swiped ", Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(FavoriteActivity.this, "Deleted ", Toast.LENGTH_SHORT).show();
                 //Remove swiped item from list and notify the RecyclerView
                 final int position = viewHolder.getAdapterPosition();
 
-                //final DatabaseReference itemRef = data.getRef(position);
-//                getSnapshot(position).getRef().removeValue();
-                //firebaseRecyclerAdapter.notifyItemRemoved(position);
                 firebaseRecyclerAdapter.getRef(position).removeValue();
                 toFavoriteActivity();
 

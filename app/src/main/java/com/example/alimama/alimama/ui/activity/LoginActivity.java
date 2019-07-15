@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
 //                loginRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
                 if(loginRef.child(username)!=null){
-                    loginRef.child(username).addValueEventListener(new ValueEventListener() {
+                    loginRef.child(username).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             User user = dataSnapshot.getValue(User.class);

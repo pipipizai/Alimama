@@ -91,7 +91,12 @@ public class RegisterActivity extends BaseActvity {
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userRegister();
+                if(mImageUri==null){
+                    Toast.makeText(RegisterActivity.this, "Please add profile image", Toast.LENGTH_LONG).show();
+                }else {
+                    userRegister();
+                }
+
 
             }
         });
@@ -104,6 +109,8 @@ public class RegisterActivity extends BaseActvity {
         String rePassword = mEtRepassword.getText().toString();
         final StorageReference filePath = mStorage.child("User_Icons").child(mImageUri.getLastPathSegment());
         final UploadTask uploadTask = filePath.putFile(mImageUri);
+
+
 
 
                 if(password.equals(rePassword)){
@@ -151,11 +158,11 @@ public class RegisterActivity extends BaseActvity {
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()){
 
-                                                    Toast.makeText(RegisterActivity.this, "User created successfully", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(RegisterActivity.this, "Register successfully", Toast.LENGTH_LONG).show();
                                                     toLoginActivity();
                                                     finish();
                                                 }else{
-                                                    Toast.makeText(RegisterActivity.this, "User created failed", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(RegisterActivity.this, "Register failed", Toast.LENGTH_LONG).show();
                                                 }
                                             }
                                         });
@@ -170,9 +177,13 @@ public class RegisterActivity extends BaseActvity {
                             Toast.makeText(RegisterActivity.this, "Successfully register!", Toast.LENGTH_LONG).show();
 
                             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                            finish();
 
                         }
                     });
+
+        }else{
+            Toast.makeText(RegisterActivity.this, "Repassword should equal to password ", Toast.LENGTH_LONG).show();
 
         }
 
@@ -182,7 +193,7 @@ public class RegisterActivity extends BaseActvity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == GALLERY_REQUEST) {
+        if (requestCode == GALLERY_REQUEST&&data.getData()!=null) {
 
             mImageUri = data.getData();
 
