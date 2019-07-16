@@ -2,24 +2,26 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
+    android:layout_margin="7dp"
     android:id="@+id/cart_list">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="350dp"
         android:background="@drawable/list_background"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <ImageView
             android:id="@+id/categories_item_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/item_image" />
+            android:src="@drawable/logo"
+            />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -28,22 +30,53 @@
             android:layout_marginTop="15dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/categories_item_name"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLines="2"
-                android:text="MacBook Pro"
-                android:textSize="15dp"
-                android:textStyle="bold" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/categories_item_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:text="SWE1609022"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="150dp"
+                    android:text="RM"
+                    android:textColor="#FF0000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="1800"
+                    android:textColor="#FF0000"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/categories_item_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
-                android:text="14-inch, Early 2018"
-                android:textSize="15dp" />
+                android:text="Ipad 2018 9.7inch 280g today is a goo day and this "
+                android:textSize="15dp"
+                android:layout_marginTop="20dp"
+                android:maxLength="50"
+                />
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="200dp"
+                android:background="@drawable/ipad"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,24 +84,6 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="RM"
-                    android:textColor="#DC143C"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/categories_item_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="20"
-                    android:textColor="#DC143C"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
 
             </LinearLayout>
 
