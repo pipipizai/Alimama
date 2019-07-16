@@ -49,6 +49,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
 
 
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -59,7 +60,9 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         public ViewHolder(View itemView){
             super(itemView);
 
-            show_message = itemView.findViewById(R.id.show_message);
+
+            show_message = itemView.findViewById(R.id.notification_show_message);
+            //show_message.setSingleLine(false);
            // profile_image = itemView.findViewById(R.id.profile_image);
 
         }

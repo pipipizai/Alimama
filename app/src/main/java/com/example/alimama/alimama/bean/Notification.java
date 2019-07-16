@@ -31,7 +31,7 @@ public class Notification {
     }
 
     public void setMessage(String message) {
-        message = message;
+        this.message = message;
     }
 
     public String getPublishedItemUsername() {
@@ -47,6 +47,6 @@ public class Notification {
     }
 
     public void setItemName(String itemName) {
-        itemName = itemName;
+        this.itemName = itemName;
     }
 }

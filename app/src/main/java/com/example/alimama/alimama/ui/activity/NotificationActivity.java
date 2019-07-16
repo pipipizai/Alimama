@@ -1,6 +1,8 @@
 package com.example.alimama.alimama.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
@@ -43,7 +45,7 @@ public class NotificationActivity extends BaseActvity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
 
-        getChattingInformation();
+       // getChattingInformation();
         initView();
 
         readMessage();
@@ -77,27 +79,23 @@ public class NotificationActivity extends BaseActvity {
     }
 
 
-    private void getChattingInformation() {
-
-        Intent getIntent = getIntent();
-        // itemPublishedUserName = getIntent.getStringExtra("itemPublishedUserName");
-        username = getIntent.getStringExtra("username");
-
-    }
+//    private void getChattingInformation() {
+//
+//        Intent getIntent = getIntent();
+//        // itemPublishedUserName = getIntent.getStringExtra("itemPublishedUserName");
+//        username = getIntent.getStringExtra("username");
+//
+//    }
 
     private void initView() {
         setUpToolbar();
         setTitle("NOTIFICATION");
 
+        SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
 
-      //  itemPublishedUserNameReference = FirebaseDatabase.getInstance().getReference().child("Users").child(itemPublishedUserName);
+        username=preferences.getString("username", null);
+
         notificationReference = FirebaseDatabase.getInstance().getReference().child("Notifications");
-
-        //  profle_image = findViewById(R.id.profile_image);
-
-//        mUserMessageRecyclerView = getView().findViewById(R.id.recyclerview_user_message);
-//        mUserMessageRecyclerView.setHasFixedSize(true);
-//        mUserMessageRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mNotificationRecyclerView = findViewById(R.id.notificationMessage);
         mNotificationRecyclerView.setHasFixedSize(true);
@@ -106,12 +104,6 @@ public class NotificationActivity extends BaseActvity {
         mNotificationRecyclerView.setLayoutManager(linearLayoutManager);
 
 
-//        mMessageRecyclerView = findViewById(R.id.message);
-//        mMessageRecyclerView.setHasFixedSize(true);
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-//        linearLayoutManager.setStackFromEnd(true);
-//        mMessageRecyclerView.setLayoutManager(linearLayoutManager);
-//
 
 
     }
