@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.bean.Item;
 import com.example.alimama.alimama.fragment.CartFragment;
+import com.example.alimama.alimama.util.DeleteDialog;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -30,9 +31,11 @@ import com.google.firebase.database.FirebaseDatabase;
 public class FavoriteActivity extends BaseActvity {
 
     private RecyclerView mCartList;
+    private DeleteDialog deleteDialog;
 
     private long userID=0;
     private String username;
+    private boolean deleteConfirm=false;
 
     private DatabaseReference mDatabaseRef;
 
@@ -92,14 +95,56 @@ public class FavoriteActivity extends BaseActvity {
             }
 
             @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+            public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int i) {
+                // public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
 
-                Toast.makeText(FavoriteActivity.this, "Deleted ", Toast.LENGTH_SHORT).show();
-                //Remove swiped item from list and notify the RecyclerView
-                final int position = viewHolder.getAdapterPosition();
+//                confirmDelete();
+//                if(deleteConfirm){
+//                    Toast.makeText(FavoriteActivity.this, "Deleted ", Toast.LENGTH_SHORT).show();
+//                    //Remove swiped item from list and notify the RecyclerView
+//                    final int position = viewHolder.getAdapterPosition();
+//
+//                    firebaseRecyclerAdapter.getRef(position).removeValue();
+//                    toFavoriteActivity();
+//                }else{
+//                    toFavoriteActivity();
+//                }
+                deleteDialog = new DeleteDialog(FavoriteActivity.this);
 
-                firebaseRecyclerAdapter.getRef(position).removeValue();
-                toFavoriteActivity();
+                deleteDialog.setTitle("Alert");
+                deleteDialog.setMessage("Are you sure to delete");
+                deleteDialog.setYesOnclickListener("YES", new DeleteDialog.onYesOnclickListener() {
+                    @Override
+                    public void onYesClick() {
+
+                    Toast.makeText(FavoriteActivity.this, "Deleted ", Toast.LENGTH_SHORT).show();
+                    //Remove swiped item from list and notify the RecyclerView
+                    final int position = viewHolder.getAdapterPosition();
+
+                    firebaseRecyclerAdapter.getRef(position).removeValue();
+
+                    deleteDialog.dismiss();
+
+                    finish();
+                    Intent intent = new Intent(FavoriteActivity.this,FavoriteActivity.class);
+                    startActivity(intent);
+
+                    //    onCreate(null);
+                    }
+                });
+                deleteDialog.setNoOnclickListener("NO", new DeleteDialog.onNoOnclickListener() {
+                    @Override
+                    public void onNoClick() {
+
+                        deleteDialog.dismiss();
+                        finish();
+                        Intent intent = new Intent(FavoriteActivity.this,FavoriteActivity.class);
+                        startActivity(intent);
+                       // onCreate(null);
+                    }
+                });
+
+                deleteDialog.show();
 
             }
         };
@@ -111,6 +156,29 @@ public class FavoriteActivity extends BaseActvity {
 
     }
 
+    private void confirmDelete() {
+
+        deleteDialog = new DeleteDialog(FavoriteActivity.this);
+
+        deleteDialog.setTitle("Alert");
+        deleteDialog.setMessage("Are you sure to delete");
+        deleteDialog.setYesOnclickListener("YES", new DeleteDialog.onYesOnclickListener() {
+            @Override
+            public void onYesClick() {
+                deleteConfirm=true;
+            }
+        });
+        deleteDialog.setNoOnclickListener("NO", new DeleteDialog.onNoOnclickListener() {
+            @Override
+            public void onNoClick() {
+                deleteConfirm=false;
+            }
+        });
+
+        deleteDialog.show();
+
+
+    }
 
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
