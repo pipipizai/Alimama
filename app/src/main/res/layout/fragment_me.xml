@@ -10,7 +10,7 @@
         android:id="@+id/layout_me_header"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:background="@drawable/head_background">
+        android:background="@drawable/primary_color">
 
         <ImageView
             android:id="@+id/me_icon"
@@ -109,7 +109,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@drawable/setting_icon" />
+                    android:background="@drawable/personal" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -226,7 +226,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@drawable/favorite_icon" />
+                    android:background="@drawable/like" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -265,7 +265,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@drawable/publish_icon" />
+                    android:background="@drawable/publish" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -304,7 +304,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@drawable/record_icon" />
+                    android:background="@drawable/order" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -343,7 +343,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@drawable/service_icon" />
+                    android:background="@drawable/service" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -377,12 +377,12 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="46dp"
-                    android:layout_height="46dp"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@drawable/logout_icon" />
+                    android:background="@drawable/logout4" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
