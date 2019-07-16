@@ -24,6 +24,7 @@ import com.example.alimama.alimama.ui.activity.FavoriteActivity;
 import com.example.alimama.alimama.ui.activity.LoginActivity;
 import com.example.alimama.alimama.ui.activity.MeInfoActivity;
 import com.example.alimama.alimama.ui.activity.MyPublishActivity;
+import com.example.alimama.alimama.ui.activity.ShoppingCartActivity;
 import com.example.alimama.alimama.ui.activity.ShoppingHistoryActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -43,6 +44,8 @@ public class MeFragment extends Fragment {
     protected TextView mTextShoppingHistory;
     protected TextView mTextPublish;
     protected TextView mTextLogOut;
+    protected TextView mTextShoppingCart;
+    protected TextView mTextItemSold;
     private ImageView mUserIcon;
     private long userID=0;
     private String username;
@@ -77,14 +80,16 @@ public class MeFragment extends Fragment {
         TextView textView3 = getView().findViewById(R.id.txt_me_info);
         TextView textView4 = getView().findViewById(R.id.txt_me_log_out);
         TextView textView5 = getView().findViewById(R.id.txt_me_rec);
-      //  TextView textView6 = getView().findViewById(R.id.txt_me_ser);
+        TextView textView6 = getView().findViewById(R.id.txt_shopping_cart);
+//        TextView textView7 = getView().findViewById(R.id.txt_me_sold);
         Typeface tf= Typeface.createFromAsset(getContext().getAssets(), "againts.otf");
         textView1.setTypeface(tf);
         textView2.setTypeface(tf);
         textView3.setTypeface(tf);
         textView4.setTypeface(tf);
         textView5.setTypeface(tf);
-     //   textView6.setTypeface(tf);
+        textView6.setTypeface(tf);
+//        textView7.setTypeface(tf);
 
         //1、获取Preferences
         SharedPreferences preferences=getActivity().getSharedPreferences("userinfo", Context.MODE_PRIVATE);
@@ -110,6 +115,30 @@ public class MeFragment extends Fragment {
                 startActivity(meInfo);
             }
         });
+
+
+        //toShoppingCartActivity
+        mTextMeInfo = getView().findViewById(R.id.txt_shopping_cart);
+        mTextMeInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent meInfo = new Intent(getActivity(), ShoppingCartActivity.class);
+                startActivity(meInfo);
+            }
+        });
+
+
+//        //toItemSoldActivity
+//        mTextMeInfo = getView().findViewById(R.id.txt_me_info);
+//        mTextMeInfo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent meInfo = new Intent(getActivity(), MeInfoActivity.class);
+//                startActivity(meInfo);
+//            }
+//        });
 
         //toFavoriteActivity
         mTextFavorite = getView().findViewById(R.id.txt_me_fav);
@@ -156,6 +185,10 @@ public class MeFragment extends Fragment {
         });
 
     }
+
+
+
+
 
     public void displayUserIcon(){
 
