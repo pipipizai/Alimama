@@ -25,6 +25,7 @@ import com.example.alimama.alimama.ui.activity.ItemSoldActivity;
 import com.example.alimama.alimama.ui.activity.LoginActivity;
 import com.example.alimama.alimama.ui.activity.MeInfoActivity;
 import com.example.alimama.alimama.ui.activity.MyPublishActivity;
+import com.example.alimama.alimama.ui.activity.ShoppingCartActivity;
 import com.example.alimama.alimama.ui.activity.ShoppingHistoryActivity;
 import com.example.alimama.alimama.ui.activity.ShoppingHistoryActivity;
 import com.google.firebase.database.DataSnapshot;
@@ -81,9 +82,9 @@ public class MeFragment extends Fragment {
         TextView textView3 = getView().findViewById(R.id.txt_me_info);
         TextView textView4 = getView().findViewById(R.id.txt_me_log_out);
         TextView textView5 = getView().findViewById(R.id.txt_me_rec);
-        TextView textView6 = getView().findViewById(R.id.txt_shopping_cart);
+        TextView textView6 = getView().findViewById(R.id.txt_cart);
         TextView textView7 = getView().findViewById(R.id.txt_me_sold);
-        Typeface tf= Typeface.createFromAsset(getContext().getAssets(), "againts.otf");
+        Typeface tf= Typeface.createFromAsset(getContext().getAssets(), "PTSans-Regular.ttf");
         textView1.setTypeface(tf);
         textView2.setTypeface(tf);
         textView3.setTypeface(tf);
@@ -118,12 +119,12 @@ public class MeFragment extends Fragment {
 
 
         //toShoppingCartActivity
-        mTextMeInfo = getView().findViewById(R.id.txt_shopping_cart);
+        mTextMeInfo = getView().findViewById(R.id.txt_cart);
         mTextMeInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent meInfo = new Intent(getActivity(), ShoppingHistoryActivity.class);
+                Intent meInfo = new Intent(getActivity(), ShoppingCartActivity.class);
                 startActivity(meInfo);
             }
         });

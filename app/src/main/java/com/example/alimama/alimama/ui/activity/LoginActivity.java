@@ -45,11 +45,10 @@ public class LoginActivity extends AppCompatActivity {
         TextView textView3 = findViewById(R.id.edt_password);
         TextView textView4 = findViewById(R.id.btn_login);
         TextView textView5 = findViewById(R.id.btn_register);
-        Typeface tf1= Typeface.createFromAsset(getAssets(), "againts.otf");
-        Typeface tf2= Typeface.createFromAsset(getAssets(), "dry_brush.ttf");
+        Typeface tf1= Typeface.createFromAsset(getAssets(), "PTSans-Regular.ttf");
         textView1.setTypeface(tf1);
-        textView2.setTypeface(tf2);
-        textView3.setTypeface(tf2);
+        textView2.setTypeface(tf1);
+        textView3.setTypeface(tf1);
         textView4.setTypeface(tf1);
         textView5.setTypeface(tf1);
 

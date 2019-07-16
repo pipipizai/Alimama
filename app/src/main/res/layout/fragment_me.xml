@@ -18,8 +18,8 @@
             android:layout_height="80dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:layout_marginBottom="50dp"
-            android:background="@mipmap/login_btn" />
+            android:layout_marginBottom="50dp" />
+        <!--android:background="@mipmap/login_btn"-->
 
     </RelativeLayout>
 
@@ -87,7 +87,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@mipmap/nav_cart_click" />
+                    android:background="@drawable/cart_icon" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -96,7 +96,7 @@
                     android:gravity="center">
 
                     <TextView
-                        android:id="@+id/txt_shopping_cart"
+                        android:id="@+id/txt_cart"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
@@ -107,7 +107,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_below="@id/txt_shopping_cart"
+                        android:layout_below="@id/txt_cart"
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="10dp"
                         android:background="#ffffff"></View>
@@ -206,7 +206,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@mipmap/nav_me_click" />
+                    android:background="@drawable/sold_icon" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"

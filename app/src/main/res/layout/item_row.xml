@@ -47,23 +47,23 @@
             android:layout_marginBottom="20dp"
             android:orientation="horizontal">
 
-            <TextView
+            <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="RM"
                 android:textColor="#DC143C"
                 android:textSize="30dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"/>-->
 
             <TextView
                 android:id="@+id/item_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="price"
+                android:text="Price"
                 android:textColor="#DC143C"
                 android:textSize="30dp"
                 android:textStyle="bold" />
+            <!--android:layout_marginLeft="5dp"-->
 
         </LinearLayout>
 

@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,9 +35,9 @@ public class ItemInformationActivity extends BaseActvity {
     private TextView mItemName;
     private TextView mItemPrice;
     private TextView mItemDescription;
-    private Button mItemInfoAddFavotie;
+    private ImageButton mItemInfoAddFavotie;
     private Button mItemInfoAddCart;
-    private Button mUserContactButton;
+    private ImageButton mUserContactButton;
     private Button mItemInfoPayment;
 
 
@@ -74,12 +75,12 @@ public class ItemInformationActivity extends BaseActvity {
         setTitle("Item Info");
 
         //字体
-        TextView textView1 = findViewById(R.id.item_info_add_favorite);
+        TextView textView1 = findViewById(R.id.txt_add_favorite);
      //   TextView textView2 = findViewById(R.id.item_info_add_cart);
         TextView textView3 = findViewById(R.id.conncet_seller);
         TextView textView4 = findViewById(R.id.item_info_payment);
 
-        Typeface tf1= Typeface.createFromAsset(getAssets(), "againts.otf");
+        Typeface tf1= Typeface.createFromAsset(getAssets(), "PTSans-Regular.ttf");
         textView1.setTypeface(tf1);
     //    textView2.setTypeface(tf1);
         textView3.setTypeface(tf1);

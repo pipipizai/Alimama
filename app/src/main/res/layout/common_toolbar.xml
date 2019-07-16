@@ -4,9 +4,9 @@
     xmlns:anpp="http://schemas.android.com/apk/res-auto"
     android:id="@+id/id_toolbar"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="50dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#efb336"
     app:navigationIcon="@mipmap/back"
     app:titleTextColor="#ffffff"
-    android:theme="@style/ToolbarTheme"/>
+    android:theme="@style/font"/>

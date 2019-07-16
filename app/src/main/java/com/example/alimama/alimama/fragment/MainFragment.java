@@ -97,10 +97,10 @@ public class MainFragment extends Fragment {
         //字体
         TextView textView1 = getView().findViewById(R.id.txt_guess_you_like);
         TextView textView2= getView().findViewById(R.id.main_search_content);
-        Typeface tf1= Typeface.createFromAsset(getContext().getAssets(), "againts.otf");
-        Typeface tf2= Typeface.createFromAsset(getContext().getAssets(), "HandWrite.ttf");
-        textView1.setTypeface(tf2);
-        textView2.setTypeface(tf1);
+        Typeface tf1= Typeface.createFromAsset(getContext().getAssets(), "HandWrite.ttf");
+        Typeface tf2= Typeface.createFromAsset(getContext().getAssets(), "PTSans-Regular.ttf");
+        textView1.setTypeface(tf1);
+        textView2.setTypeface(tf2);
 
         //菜单
         //布局样式

@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.graphics.Typeface;
 
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.adapter.UserAdapter;
@@ -52,10 +53,6 @@ public class MessageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_message,container,false);
 
-//        //字体
-//        TextView textView1 = getView().findViewById(R.id.cart_head);
-//        Typeface tf= Typeface.createFromAsset(getContext().getAssets(), "againts.otf");
-//        textView1.setTypeface(tf);
 
     }
 
@@ -64,6 +61,13 @@ public class MessageFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         initView();
+
+        //字体
+        TextView textView1 = getView().findViewById(R.id.cart_head);
+        TextView textView2 = getView().findViewById(R.id.message_notification);
+        Typeface tf= Typeface.createFromAsset(getContext().getAssets(), "PTSans-Regular.ttf");
+        textView1.setTypeface(tf);
+        textView2.setTypeface(tf);
 
         mDatabaseChatsReference.addValueEventListener(new ValueEventListener() {
             @Override

@@ -20,12 +20,12 @@
 
             <ImageButton
                 android:id="@+id/btn_publish_image"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="40dp"
+                android:background="#ffffff"
                 app:srcCompat="@mipmap/add_image" />
 
 
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_outline"
                 android:padding="15dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:inputType="textPersonName"
@@ -67,7 +67,7 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:inputType="textMultiLine"
-                android:hint="Item Description...." />
+                android:hint="Item Description" />
 
             <TextView
                 android:id="@+id/publish_item_categories"

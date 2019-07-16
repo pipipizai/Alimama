@@ -80,8 +80,8 @@
             android:layout_weight="1"
             android:gravity="center">
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
                 android:background="@drawable/menu_cart_icon_selector"/>
         </LinearLayout>
 
@@ -93,8 +93,8 @@
             android:layout_weight="1"
             android:gravity="center">
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:background="@drawable/menu_me_icon_selector"/>
         </LinearLayout>
 

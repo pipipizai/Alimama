@@ -64,12 +64,11 @@ public class RegisterActivity extends BaseActvity {
         TextView textView2 = findViewById(R.id.register_edt_password);
         TextView textView3 = findViewById(R.id.register_edt_repassword);
         TextView textView4 = findViewById(R.id.btn_register);
-        Typeface tf1= Typeface.createFromAsset(getAssets(), "dry_brush.ttf");
-        Typeface tf2= Typeface.createFromAsset(getAssets(), "againts.otf");
+        Typeface tf1= Typeface.createFromAsset(getAssets(), "PTSans-Regular.ttf");
         textView1.setTypeface(tf1);
         textView2.setTypeface(tf1);
         textView3.setTypeface(tf1);
-        textView4.setTypeface(tf2);
+        textView4.setTypeface(tf1);
 
         setTitle("Register");
 

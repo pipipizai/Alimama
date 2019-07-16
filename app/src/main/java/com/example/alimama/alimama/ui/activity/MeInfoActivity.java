@@ -71,21 +71,20 @@ public class MeInfoActivity extends BaseActvity{
 
         getMeInformation();
         displayMeInfomation();
-//
-//        TextView textView1 = findViewById(R.id.me_info_id);
-//        TextView textView2 = findViewById(R.id.me_info_username);
-//        TextView textView3 = findViewById(R.id.me_infor_password);
-//        TextView textView4 = findViewById(R.id.me_info_adrress);
-//        TextView textView5 = findViewById(R.id.user_id);
-//        TextView textView6 = findViewById(R.id.btn_save);
-//        Typeface tf1= Typeface.createFromAsset(getAssets(), "dry_brush.ttf");
-//        Typeface tf2= Typeface.createFromAsset(getAssets(), "againts.otf");
-//        textView1.setTypeface(tf1);
-//        textView2.setTypeface(tf1);
-//        textView3.setTypeface(tf1);
-//        textView4.setTypeface(tf1);
-//        textView5.setTypeface(tf1);
-//        textView6.setTypeface(tf2);
+
+        TextView textView1 = findViewById(R.id.me_info_id);
+        TextView textView2 = findViewById(R.id.me_info_username);
+        TextView textView3 = findViewById(R.id.me_infor_password);
+        TextView textView4 = findViewById(R.id.me_info_adrress);
+        TextView textView5 = findViewById(R.id.me_info_contact);
+        TextView textView6 = findViewById(R.id.btn_save);
+        Typeface tf1= Typeface.createFromAsset(getAssets(), "PTSans-Regular.ttf");
+        textView1.setTypeface(tf1);
+        textView2.setTypeface(tf1);
+        textView3.setTypeface(tf1);
+        textView4.setTypeface(tf1);
+        textView5.setTypeface(tf1);
+        textView6.setTypeface(tf1);
 
 
 

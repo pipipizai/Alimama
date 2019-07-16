@@ -50,7 +50,7 @@ public class CategoriesFragment extends Fragment {
 
         //字体
         TextView textView1 = getView().findViewById(R.id.categories_head);
-        Typeface tf= Typeface.createFromAsset(getContext().getAssets(), "againts.otf");
+        Typeface tf= Typeface.createFromAsset(getContext().getAssets(), "PTSans-Regular.ttf");
         textView1.setTypeface(tf);
 
     }

@@ -52,23 +52,23 @@
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
-                <TextView
+                <!--<TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="RM"
                     android:textColor="#DC143C"
                     android:textSize="20sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"/>-->
 
                 <TextView
                     android:id="@+id/favorite_item_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="20"
+                    android:text="RM20"
                     android:textColor="#DC143C"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
+                <!--android:layout_marginLeft="5dp"-->
 
             </LinearLayout>
 

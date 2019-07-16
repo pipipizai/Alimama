@@ -89,7 +89,7 @@ public class NotificationActivity extends BaseActvity {
 
     private void initView() {
         setUpToolbar();
-        setTitle("NOTIFICATION");
+        setTitle("Notification");
 
         SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
 

@@ -40,12 +40,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+    <style name="categoriesTheme" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:fontFamily">@font/againts</item>
     </style>
 
-    <style name="categoriesTheme" parent="ThemeOverlay.AppCompat.Light">
-        <item name="android:fontFamily">@font/againts</item>
+    <style name="font" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">@assets/PTSans-Regular</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

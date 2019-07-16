@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,99 +13,97 @@
 
 
     <!--<ScrollView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
 
 
-        <ImageButton
+    <ImageButton
         android:id="@+id/user_icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="150dp"
-        android:layout_marginRight="10dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="30dp"
-        app:srcCompat="@mipmap/add_image"
-       />
+        android:background="#ffffff"/>
+    <!--app:srcCompat="@mipmap/add_image"-->
 
 
     <TextView
         android:id="@+id/me_info_id"
-        android:layout_below="@id/id_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/input_outline"
-        android:padding="15dp"
+        android:layout_below="@id/id_toolbar"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:hint="User id" />
+        android:background="@drawable/input_outline"
+        android:hint="User id"
+        android:padding="15dp" />
 
     <EditText
         android:id="@+id/me_info_username"
-        android:layout_below="@id/id_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/input_outline"
-        android:padding="15dp"
+        android:layout_below="@id/id_toolbar"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
+        android:background="@drawable/input_outline"
+        android:hint="User Name"
         android:inputType="textPersonName"
-        android:hint="User Name" />
+        android:padding="15dp" />
 
     <EditText
         android:id="@+id/me_infor_password"
-        android:layout_below="@id/me_info_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/input_outline"
-        android:padding="15dp"
+        android:layout_below="@id/me_info_username"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
+        android:background="@drawable/input_outline"
+        android:hint="Password"
         android:inputType="textWebPassword"
-        android:hint="Password" />
+        android:padding="15dp" />
 
     <EditText
         android:id="@+id/me_info_adrress"
-        android:layout_below="@id/me_infor_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/input_outline"
-        android:padding="15dp"
+        android:layout_below="@id/me_infor_password"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
+        android:background="@drawable/input_outline"
+        android:hint="Address"
         android:inputType="textMultiLine"
-        android:hint="Address" />
+        android:padding="15dp" />
 
     <EditText
         android:id="@+id/me_info_contact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/input_outline"
-        android:padding="15dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
+        android:background="@drawable/input_outline"
+        android:hint="Contact"
         android:inputType="textPersonName"
-        android:hint="Contact" />
+        android:padding="15dp" />
 
     <Button
         android:id="@+id/btn_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="100dp"
         android:layout_marginLeft="100dp"
-        android:textAllCaps="false"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="100dp"
+        android:background="#f4f5f7"
         android:text="Save"
-        android:textSize="25sp"
-        android:background="#f4f5f7" />
+        android:textAllCaps="false"
+        android:textSize="25sp" />
 
 
-<!--</ScrollView>-->
+    <!--</ScrollView>-->
 
 </LinearLayout>

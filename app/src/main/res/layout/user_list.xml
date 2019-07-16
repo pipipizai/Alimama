@@ -1,54 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:myxmlns="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="10dp"
     android:background="#FFFFFF"
-   >
+    android:paddingTop="10dp">
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:layout_marginTop="70dp"
-        android:background="#90909090"
-        />
+        android:background="#90909090" />
 
     <ImageView
         android:id="@+id/message_profile_image"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:src="@drawable/logo"
         android:layout_marginLeft="15dp"
-        />
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/message_username"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="SWE1609022"
-    android:textSize="17dp"
-    android:textStyle="bold"
-    android:layout_toRightOf="@id/message_profile_image"
-    android:layout_marginLeft="25dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@id/message_profile_image"
+        android:text="SWE1609022"
+        android:textSize="17dp"
+        android:textStyle="bold"/>
 
     <!--<TextView-->
-        <!--android:id="@+id/message_username"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_toRightOf="@+id/message_profile_image"-->
-        <!--android:layout_marginLeft="5dp"-->
-        <!--android:text="Hello, I want to buy this thing"-->
-        <!--android:textSize="12sp"-->
-        <!--android:padding="8dp"-->
-        <!--android:background="@drawable/background_left"-->
-        <!--android:singleLine="true"-->
-        <!--android:layout_marginTop="15dp"-->
-        <!--android:maxLength="40"-->
-        <!--/>-->
+    <!--android:id="@+id/message_username"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_toRightOf="@+id/message_profile_image"-->
+    <!--android:layout_marginLeft="5dp"-->
+    <!--android:text="Hello, I want to buy this thing"-->
+    <!--android:textSize="12sp"-->
+    <!--android:padding="8dp"-->
+    <!--android:background="@drawable/background_left"-->
+    <!--android:singleLine="true"-->
+    <!--android:layout_marginTop="15dp"-->
+    <!--android:maxLength="40"-->
+    <!--/>-->
 
 </RelativeLayout>

@@ -223,6 +223,6 @@ public class MyPublishActivity extends BaseActvity {
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(String.valueOf(username)).child("published items");
 
-        setTitle("My published");
+        setTitle("My Published");
     }
 }

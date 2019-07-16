@@ -123,7 +123,7 @@ public class SearchActivity extends BaseActvity {
         textViewSeachContent = findViewById(R.id.activity_search_content);
 
      //   TextView textView = findViewById(R.id.activity_search_content);
-        Typeface tf= Typeface.createFromAsset(getAssets(), "againts.otf");
+        Typeface tf= Typeface.createFromAsset(getAssets(), "PTSans-Regular.ttf");
         textViewSeachContent.setTypeface(tf);
         //show the transferred data
         textViewSeachContent.setText("Search result"+searchContent);
