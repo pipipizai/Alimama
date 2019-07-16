@@ -77,14 +77,14 @@ public class MeFragment extends Fragment {
         TextView textView3 = getView().findViewById(R.id.txt_me_info);
         TextView textView4 = getView().findViewById(R.id.txt_me_log_out);
         TextView textView5 = getView().findViewById(R.id.txt_me_rec);
-        TextView textView6 = getView().findViewById(R.id.txt_me_ser);
+      //  TextView textView6 = getView().findViewById(R.id.txt_me_ser);
         Typeface tf= Typeface.createFromAsset(getContext().getAssets(), "againts.otf");
         textView1.setTypeface(tf);
         textView2.setTypeface(tf);
         textView3.setTypeface(tf);
         textView4.setTypeface(tf);
         textView5.setTypeface(tf);
-        textView6.setTypeface(tf);
+     //   textView6.setTypeface(tf);
 
         //1、获取Preferences
         SharedPreferences preferences=getActivity().getSharedPreferences("userinfo", Context.MODE_PRIVATE);
