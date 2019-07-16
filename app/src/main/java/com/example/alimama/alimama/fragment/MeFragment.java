@@ -21,6 +21,7 @@ import com.example.alimama.alimama.bean.User;
 
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.ui.activity.FavoriteActivity;
+import com.example.alimama.alimama.ui.activity.ItemSoldActivity;
 import com.example.alimama.alimama.ui.activity.LoginActivity;
 import com.example.alimama.alimama.ui.activity.MeInfoActivity;
 import com.example.alimama.alimama.ui.activity.MyPublishActivity;
@@ -81,7 +82,7 @@ public class MeFragment extends Fragment {
         TextView textView4 = getView().findViewById(R.id.txt_me_log_out);
         TextView textView5 = getView().findViewById(R.id.txt_me_rec);
         TextView textView6 = getView().findViewById(R.id.txt_shopping_cart);
-//        TextView textView7 = getView().findViewById(R.id.txt_me_sold);
+        TextView textView7 = getView().findViewById(R.id.txt_me_sold);
         Typeface tf= Typeface.createFromAsset(getContext().getAssets(), "againts.otf");
         textView1.setTypeface(tf);
         textView2.setTypeface(tf);
@@ -89,7 +90,7 @@ public class MeFragment extends Fragment {
         textView4.setTypeface(tf);
         textView5.setTypeface(tf);
         textView6.setTypeface(tf);
-//        textView7.setTypeface(tf);
+        textView7.setTypeface(tf);
 
         //1、获取Preferences
         SharedPreferences preferences=getActivity().getSharedPreferences("userinfo", Context.MODE_PRIVATE);
@@ -128,16 +129,16 @@ public class MeFragment extends Fragment {
         });
 
 
-//        //toItemSoldActivity
-//        mTextMeInfo = getView().findViewById(R.id.txt_me_info);
-//        mTextMeInfo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Intent meInfo = new Intent(getActivity(), MeInfoActivity.class);
-//                startActivity(meInfo);
-//            }
-//        });
+        //toItemSoldActivity
+        mTextMeInfo = getView().findViewById(R.id.txt_me_sold);
+        mTextMeInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent meInfo = new Intent(getActivity(), ItemSoldActivity.class);
+                startActivity(meInfo);
+            }
+        });
 
         //toFavoriteActivity
         mTextFavorite = getView().findViewById(R.id.txt_me_fav);

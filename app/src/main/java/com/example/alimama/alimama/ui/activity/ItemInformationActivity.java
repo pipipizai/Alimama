@@ -117,6 +117,27 @@ public class ItemInformationActivity extends BaseActvity {
         });
 
         /**
+         * pay and add item to sale record
+         */
+//        mItemInfoPayment.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //这两个语句你可以分别屏蔽运行程序看看是什么效果
+//
+//                //这是把itemid（不是对象）放进数据库
+////               mDatabaseUserFavorite.child(String.valueOf(itemID)).setValue(itemID);
+//
+//                //这是把整个item对象放进数据库
+//                if(itemPublishedUserName.equals(username)) {
+//                    Toast.makeText(ItemInformationActivity.this, "Can not save your item", Toast.LENGTH_LONG).show();
+//                }else {
+//                    mDatabaseUserFavorite.child(String.valueOf(itemID)).setValue(item);
+//                }
+//            }
+//        });
+
+
+        /**
          * add item to my cart
          */
 //        mItemInfoAddCart.setOnClickListener(new View.OnClickListener() {

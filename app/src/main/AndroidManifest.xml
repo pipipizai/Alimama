@@ -24,6 +24,7 @@
         <activity android:name=".ui.activity.ShoppingHistoryActivity" />
         <activity android:name=".ui.activity.ItemInformationActivity" />
         <activity android:name=".ui.activity.PaymentActivity" />
+        <activity android:name=".ui.activity.ItemSoldActivity" />
         <activity
             android:name=".ui.activity.MeInfoActivity"
             android:label="@string/title_activity_me_info"
