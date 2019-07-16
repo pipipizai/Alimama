@@ -34,6 +34,7 @@ public class CategoriesFragment extends Fragment {
 
     private DatabaseReference mCategoriesNameDatabaseRef;
     private DatabaseReference mCategoriesDatabaseRef;
+    private DatabaseReference mUserProfileImageDatabaseRef;
 
     @Nullable
     @Override
@@ -78,6 +79,7 @@ public class CategoriesFragment extends Fragment {
 
                         mCategoriesDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Categories").child(catcategoriesName);
 
+
                         FirebaseRecyclerOptions<Item> options =
                                 new FirebaseRecyclerOptions.Builder<Item>()
                                         .setQuery(mCategoriesDatabaseRef, Item.class)
@@ -87,8 +89,13 @@ public class CategoriesFragment extends Fragment {
                             @Override
                             protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull Item model) {
 
+                                //mUserProfileImageDatabaseRef = FirebaseDatabase.getInstance().getReference().child("User").child(model.getUserName());
+                               // String profile_image = String.valueOf(mUserProfileImageDatabaseRef.child("icon"));
                                 Glide.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.item_image);
-                                holder.item_name.setText(model.getName());
+
+                                Glide.with(getContext()).load(model.getUserProfileImage()).into(holder.user_profile_image);
+                                holder.published_user_name.setText(model.getUserName());
+                                holder.item_description.setText(model.getDescription());
                                 holder.item_price.setText(model.getPrice());
                             }
 
@@ -146,16 +153,22 @@ public class CategoriesFragment extends Fragment {
 
         private LinearLayout root;
         private ImageView item_image;
-        private TextView item_name;
+        private ImageView user_profile_image;
+        private TextView published_user_name;
         private TextView item_price;
+        private TextView item_description;
+
 
 
         private ItemViewHolder(View itemView) {
             super(itemView);
 //            root = itemView.findViewById(R.id.cat);
             item_image = itemView.findViewById(R.id.categories_item_image);
-            item_name = itemView.findViewById(R.id.categories_item_name);
+            published_user_name = itemView.findViewById(R.id.categories_user_name);
             item_price = itemView.findViewById(R.id.categories_item_price);
+            item_description = itemView.findViewById(R.id.categories_item_description);
+           // item_description = itemView.findViewById(R.id.categories_item_description);
+            user_profile_image = itemView.findViewById(R.id.categories_user_profile_image);
 
         }
 

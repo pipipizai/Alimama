@@ -222,6 +222,15 @@ public class MainFragment extends Fragment {
 
     }
 
+//    @Override
+//    public void onResume() {
+//        // TODO Auto-generated method stub
+//        super.onResume();
+//        mItemList.setLayoutManager(new GridLayoutManager(getContext(),2));
+//
+//    }
+
+
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
 
         private LinearLayout root;
@@ -280,7 +289,7 @@ public class MainFragment extends Fragment {
 
         mItemList = getView().findViewById(R.id.item_list);
         mItemList.setHasFixedSize(true);
-        mItemList.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+        mItemList.setLayoutManager(new GridLayoutManager(getContext(),2));
 
         //initialize searchButton & EditText(search content is in it)
         //R.id.button_search button_search is id of mSearchButton in fragment_main layout
