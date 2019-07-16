@@ -18,6 +18,7 @@ import android.graphics.Typeface;
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.bean.Item;
+import com.example.alimama.alimama.bean.Notification;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -25,6 +26,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class PaymentActivity extends BaseActvity {
 
@@ -35,7 +38,7 @@ public class PaymentActivity extends BaseActvity {
     private TextView mItemName;
     private TextView mItemPrice;
     private TextView mItemDescription;
-    private Button mItemInfoAddShoppingHistory;
+    private Button mPay;
     private Button mItemInfoAddCart;
 
 
@@ -48,16 +51,19 @@ public class PaymentActivity extends BaseActvity {
     private String itemDescription;
     private String itemPublishedUserName;
     private String userProfileImage;
+    private Notification notification;
 
 
     private DatabaseReference mDatabaseUserShoppingHistory;
-    private DatabaseReference mDatabaseUserCart;
+    private DatabaseReference mDatabaseNotification;
     private DatabaseReference mDatabaseItems;
 
     private long shoppingHistoryItemsAmount=0;
     private long cartItemsAmount=0;
     private long userID=0;
+    private long notificationAmount=0;
     private String username;
+    private String message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +106,7 @@ public class PaymentActivity extends BaseActvity {
         /**
          * add item to my shopping history
          //         */
-        mItemInfoAddShoppingHistory.setOnClickListener(new View.OnClickListener() {
+        mPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //这两个语句你可以分别屏蔽运行程序看看是什么效果
@@ -110,6 +116,7 @@ public class PaymentActivity extends BaseActvity {
 
                 //这是把整个item对象放进数据库
                 mDatabaseUserShoppingHistory.child(String.valueOf(itemID)).setValue(item);
+                sendNotification();
             }
         });
 //
@@ -180,6 +187,8 @@ public class PaymentActivity extends BaseActvity {
 
 
         //get database reference
+
+        mDatabaseNotification = FirebaseDatabase.getInstance().getReference().child("Notifications");
         mDatabaseUserShoppingHistory = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("shopping history");
 //        mDatabaseUserCart = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("cart items");
 
@@ -218,6 +227,37 @@ public class PaymentActivity extends BaseActvity {
             }
         });
 
+        mDatabaseNotification.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    notificationAmount = (dataSnapshot.getChildrenCount());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    private void sendNotification(){
+        HashMap<String, Object> hashMap = new HashMap<>();
+
+        message= "Your item "+itemName+" is bought by "+ username +"."+'\n'
+                + " Please go and taught to" + username;
+
+        hashMap.put("buyer",username);
+        hashMap.put("publishedItemUsername",itemPublishedUserName);
+        hashMap.put("itemName",itemName);
+        hashMap.put("message",message);
+
+
+        mDatabaseNotification.push().setValue(hashMap);
+        //notification = new Notification(username,itemName,itemPublishedUserName);
+      //  mDatabaseNotification.child(String.valueOf(notificationAmount+1)).setValue(notification);
     }
 
     private void initView() {
@@ -228,7 +268,10 @@ public class PaymentActivity extends BaseActvity {
         mItemPrice = findViewById(R.id.payment2_price);
         mItemDescription = findViewById(R.id.payment2_description);
 //        mItemInfoAddCart = findViewById(R.id.item_info_add_cart);
-        mItemInfoAddShoppingHistory = findViewById(R.id.payment);
+        mPay = findViewById(R.id.payment);
+
+
+
     }
 
 

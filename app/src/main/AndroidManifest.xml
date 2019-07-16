@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".fragment.MessageFragment"></activity>
+        <activity android:name=".ui.activity.NotificationActivity"></activity>
+        <activity android:name=".fragment.MessageFragment" />
         <activity android:name=".ui.activity.MessageActivity" />
         <activity
             android:name=".ui.activity.SearchActivity"
@@ -52,6 +53,7 @@
         <activity android:name=".ui.activity.CartActivity" />
         <activity android:name=".ui.activity.MyPublishActivity" />
         <activity android:name=".ui.activity.RegisterActivity" />
+        <activity android:name=".ui.activity.NotificationActivityold" />
     </application>
 
 </manifest>

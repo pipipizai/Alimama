@@ -96,7 +96,6 @@ public class MeFragment extends Fragment {
 
         mUserIcon = getView().findViewById(R.id.me_icon);
 
-
         displayUserIcon();
 
 

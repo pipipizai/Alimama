@@ -58,6 +58,58 @@
 
     <!--</ScrollView>-->
 
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:myxmlns="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:background="#FFFFFF"
+        >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="70dp"
+            android:background="#90909090"
+            />
+
+        <ImageView
+            android:id="@+id/message_notification_image"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/logo"
+            android:layout_marginLeft="15dp"
+            />
+
+        <TextView
+            android:id="@+id/message_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NOTIFICATION"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/message_notification_image"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="16dp"/>
+
+        <!--<TextView-->
+        <!--android:id="@+id/message_username"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_toRightOf="@+id/message_profile_image"-->
+        <!--android:layout_marginLeft="5dp"-->
+        <!--android:text="Hello, I want to buy this thing"-->
+        <!--android:textSize="12sp"-->
+        <!--android:padding="8dp"-->
+        <!--android:background="@drawable/background_left"-->
+        <!--android:singleLine="true"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:maxLength="40"-->
+        <!--/>-->
+
+    </RelativeLayout>
+
 
     <ScrollView
         android:id="@+id/layout_message_users"

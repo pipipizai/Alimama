@@ -1,6 +1,7 @@
 package com.example.alimama.alimama.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.provider.ContactsContract;
@@ -19,7 +20,9 @@ import android.widget.TextView;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.adapter.UserAdapter;
 import com.example.alimama.alimama.bean.Chat;
+import com.example.alimama.alimama.bean.Notification;
 import com.example.alimama.alimama.bean.User;
+import com.example.alimama.alimama.ui.activity.NotificationActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,6 +38,7 @@ public class MessageFragment extends Fragment {
     private RecyclerView mUserMessageRecyclerView;
 
     private String username;
+    private TextView message_notification;
     private UserAdapter userAdapter;
     private List<User> mUsers;
 
@@ -86,7 +90,14 @@ public class MessageFragment extends Fragment {
             }
         });
 
+        message_notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                Intent toNotificationActovoty = new Intent(getActivity(), NotificationActivity.class);
+                startActivity(toNotificationActovoty);
+            }
+        });
 
     }
 
@@ -146,6 +157,8 @@ public class MessageFragment extends Fragment {
 
         mDatabaseChatsReference = FirebaseDatabase.getInstance().getReference("Chats");
         mDatabaseUsersReference = FirebaseDatabase.getInstance().getReference("Users");
+
+        message_notification = getView().findViewById(R.id.message_notification);
 
         //1、获取Preferences
         SharedPreferences preferences=getActivity().getSharedPreferences("userinfo", Context.MODE_PRIVATE);
