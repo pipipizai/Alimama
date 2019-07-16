@@ -34,8 +34,9 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MainMenuViewHolder mainMenuViewHolder, int i) {
 
-        Menu menue = menus.get(i);
-        mainMenuViewHolder.mImgMenuIcon.setImageResource(menue.ioon);
+        Menu menu = menus.get(i);
+        mainMenuViewHolder.mImgMenuIcon.setImageResource(menu.ioon);
+        mainMenuViewHolder.mTextMenuName.setText(menu.menuName);
     }
 
     @Override
@@ -53,5 +54,8 @@ class MainMenuViewHolder extends RecyclerView.ViewHolder {
     public MainMenuViewHolder(@NonNull View itemView) {
         super(itemView);
         mImgMenuIcon = itemView.findViewById(R.id.img_icon);
+        mTextMenuName = itemView.findViewById(R.id.txt_icon);
+
+
     }
 }
