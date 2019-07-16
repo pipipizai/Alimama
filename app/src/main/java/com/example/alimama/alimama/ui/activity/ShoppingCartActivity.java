@@ -240,6 +240,7 @@ public class ShoppingCartActivity extends BaseActvity {
         userID = preferences.getLong("userid",0);
         username=preferences.getString("username", null);
 
+       //需要更改一下 读取的表 "shopping cart"
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("favorite items");
 
         setTitle("Shopping Cart");
