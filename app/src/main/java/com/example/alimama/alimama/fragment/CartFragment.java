@@ -118,14 +118,17 @@ public class CartFragment extends Fragment {
         private ImageView item_image;
         private TextView item_name;
         private TextView item_price;
+        private TextView item_description;
 
 
         private ItemViewHolder(View itemView) {
             super(itemView);
+
             root = itemView.findViewById(R.id.cart_items);
-            item_image = itemView.findViewById(R.id.id_iv_image);
-            item_name = itemView.findViewById(R.id.id_tv_name);
-            item_price = itemView.findViewById(R.id.id_tv_price);
+            item_image = itemView.findViewById(R.id.cart_item_image);
+            item_name = itemView.findViewById(R.id.cart_item_name);
+            item_price = itemView.findViewById(R.id.cart_item_price);
+            item_description = itemView.findViewById(R.id.cart_item_description);
 
         }
 

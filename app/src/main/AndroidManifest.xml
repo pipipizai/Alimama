@@ -20,6 +20,7 @@
             android:label="@string/title_activity_search"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.activity.FavoriteActivity" />
+        <activity android:name=".ui.activity.ShoppingCartActivity" />
         <activity android:name=".ui.activity.ShoppingHistoryActivity" />
         <activity android:name=".ui.activity.ItemInformationActivity" />
         <activity android:name=".ui.activity.PaymentActivity" />
