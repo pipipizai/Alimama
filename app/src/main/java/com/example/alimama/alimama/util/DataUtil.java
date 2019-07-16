@@ -35,11 +35,11 @@ public class DataUtil {
      * @param icons
      * @return
      */
-    public static List<Menu> getMainMenu(int icons[]) {
+    public static List<Menu> getMainMenu(int icons[],String[] names) {
         List<Menu> menus = new ArrayList<>();
 
         for (int i = 0; i < icons.length; i++) {
-            Menu menu = new Menu(icons[i]);
+            Menu menu = new Menu(icons[i],names[i]);
             menus.add(menu);
         }
 

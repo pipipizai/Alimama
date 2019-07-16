@@ -165,7 +165,6 @@ public class ItemInformationActivity extends BaseActvity {
 
                     startActivity(intent);
                 }
-
             }
         });
     }

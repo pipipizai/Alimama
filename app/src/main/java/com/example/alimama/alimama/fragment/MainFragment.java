@@ -56,10 +56,15 @@ public class MainFragment extends Fragment {
             R.mipmap.header_pic_ad1};
 
     //main fragment menu icon
-    protected int[] menuIcons = {R.mipmap.main_menu_book,
-            R.mipmap.main_menu_home,
-            R.mipmap.main_menu_food,
-            R.mipmap.main_menu_electronic_product};
+    protected int[] menuIcons = {R.mipmap.main_menu_food,
+            R.mipmap.main_menu_cloth,
+            R.mipmap.main_menu_commonly,
+            R.mipmap.main_menu_cosmetic,
+            R.mipmap.main_menu_digital,
+            R.mipmap.main_menu_jewelry,
+            R.mipmap.main_menu_drug,
+            R.mipmap.main_menu_book};
+    protected String[] menus;
     protected ViewPager mVPagerHeaderAd;//主页头部广告
     protected RecyclerView mRecycleViewMenu;//主页主菜单
 
@@ -103,7 +108,7 @@ public class MainFragment extends Fragment {
          * SET MENU ICON
          */
         mRecycleViewMenu.setLayoutManager(new GridLayoutManager(getActivity(), 4));
-        MainMenuAdapter mainMenuAdapter = new MainMenuAdapter(getActivity(), DataUtil.getMainMenu(menuIcons));
+        MainMenuAdapter mainMenuAdapter = new MainMenuAdapter(getActivity(), DataUtil.getMainMenu(menuIcons,menus));
         mRecycleViewMenu.setAdapter(mainMenuAdapter);
 
         /**
@@ -217,6 +222,15 @@ public class MainFragment extends Fragment {
 
     }
 
+//    @Override
+//    public void onResume() {
+//        // TODO Auto-generated method stub
+//        super.onResume();
+//        mItemList.setLayoutManager(new GridLayoutManager(getContext(),2));
+//
+//    }
+
+
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
 
         private LinearLayout root;
@@ -271,10 +285,11 @@ public class MainFragment extends Fragment {
 
         mVPagerHeaderAd = (ViewPager) getView().findViewById(R.id.viewpager_main_header_ad);
         mRecycleViewMenu = (RecyclerView) getView().findViewById(R.id.recycleview_main_menu);
+        menus = this.getActivity().getResources().getStringArray(R.array.main_menu);
 
         mItemList = getView().findViewById(R.id.item_list);
         mItemList.setHasFixedSize(true);
-        mItemList.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+        mItemList.setLayoutManager(new GridLayoutManager(getContext(),2));
 
         //initialize searchButton & EditText(search content is in it)
         //R.id.button_search button_search is id of mSearchButton in fragment_main layout

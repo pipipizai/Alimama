@@ -193,7 +193,7 @@ public class PublishActivity extends BaseActvity {
         //2、取出数据
         final long userID = preferences.getLong("userid",0);
         final String username = preferences.getString("username",null);
-
+        final String userIcon = preferences.getString("userIcon",null);
         final String price_value = mPublishItemPrice.getText().toString().trim();
         final String name_value = mPublishItemName.getText().toString().trim();
         final String description_value = mPublishItemDscription.getText().toString().trim();
@@ -282,6 +282,7 @@ public class PublishActivity extends BaseActvity {
                                   item.setImage(downloadUri.toString());
                                   item.setUserName(username);
                                   item.setItemID(itemsNumber+1);
+                                  item.setUserProfileImage(userIcon);
 
                                 mDatabaseCategories.child(catrgory).addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
