@@ -17,31 +17,28 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
             <ImageButton
                 android:id="@+id/btn_publish_image"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                app:srcCompat="@mipmap/add_image" />
-
-
+                app:srcCompat="@drawable/insert_img"
+                android:background="#ffff" />
 
             <EditText
                 android:id="@+id/publish_item_name"
                 android:layout_below="@id/btn_publish_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/input_outline"
                 android:padding="15dp"
-                android:layout_marginTop="20dp"
+                android:background="@drawable/input_outline"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:inputType="textPersonName"
-                android:hint="Item Name" />
+                android:hint="Item Name/Brand/Type" />
 
             <EditText
                 android:id="@+id/publish_item_price"
@@ -67,7 +64,7 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:inputType="textMultiLine"
-                android:hint="Item Description...." />
+                android:hint="Item Description/What reason you want to transfer /the feeling of using." />
 
             <TextView
                 android:id="@+id/publish_item_categories"
@@ -79,9 +76,11 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
-
+                android:textSize="17sp"
                 android:hint="Categries" />
             <!--android:inputType="textMultiLine"-->
+
+
 
             <Button
                 android:id="@+id/btn_publish"
@@ -95,7 +94,7 @@
                 android:text="Publish"
                 android:textAllCaps="false"
                 android:textSize="25sp"
-                android:background="#f4f5f7" />
+                android:background="@drawable/primary_color" />
 
         </RelativeLayout>
     </ScrollView>
