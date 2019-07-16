@@ -43,6 +43,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:17.0.0'
     implementation 'com.firebaseui:firebase-ui-database:5.0.0'
 
+
     // This is for Glide dependency
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'

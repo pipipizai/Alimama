@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="10dp"
-    android:background="#FFFFFF"
+    android:layout_marginTop="5dp"
+    android:background="#FFEC8B"
    >
 
     <View
@@ -19,22 +20,23 @@
 
     <ImageView
         android:id="@+id/message_profile_image"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:src="@drawable/logo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="15dp"
-        />
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/message_username"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="SWE1609022"
-    android:textSize="17dp"
+    android:textSize="25dp"
     android:textStyle="bold"
     android:layout_toRightOf="@id/message_profile_image"
-    android:layout_marginLeft="25dp"
+    android:layout_marginLeft="45dp"
         android:layout_marginTop="16dp"/>
+
 
     <!--<TextView-->
         <!--android:id="@+id/message_username"-->
@@ -50,5 +52,4 @@
         <!--android:layout_marginTop="15dp"-->
         <!--android:maxLength="40"-->
         <!--/>-->
-
 </RelativeLayout>
