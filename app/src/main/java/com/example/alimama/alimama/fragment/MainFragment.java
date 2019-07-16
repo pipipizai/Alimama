@@ -166,7 +166,7 @@ public class MainFragment extends Fragment {
 
         FirebaseRecyclerAdapter<Item, ItemViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Item, ItemViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull Item model) {
+            protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull final Item model) {
 
 //                Picasso.get().load(model.getImage()).into(holder.publish_image);
 //                holder.setImage(getA,model.getImage);
@@ -176,25 +176,19 @@ public class MainFragment extends Fragment {
                 holder.publish_price.setText(model.getPrice());
                 holder.publish_description.setText(model.getDescription());
 
-                final long itemID=model.getItemID();
-                final String itemPublishedUserName=model.getUserName();
-                final String itemImage=model.getImage();
-                final String itemName=model.getName();
-                final String itemPrice=model.getPrice();
-                final String itemDescription=model.getDescription();
-
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
                         Intent intent = new Intent(getActivity(), ItemInformationActivity.class);
                         Bundle bundle = new Bundle();
-                        bundle.putLong("item id",itemID);
-                        bundle.putString("image",itemImage);
-                        bundle.putString("name",itemName);
-                        bundle.putString("price",itemPrice);
-                        bundle.putString("description",itemDescription);
-                        bundle.putString("itemPublishedUserName",itemPublishedUserName);
+                        bundle.putLong("item id",model.getItemID());
+                        bundle.putString("image",model.getImage());
+                        bundle.putString("name",model.getName());
+                        bundle.putString("price",model.getPrice());
+                        bundle.putString("description",model.getDescription());
+                        bundle.putString("itemPublishedUserName",model.getUserName());
+                        bundle.putString("userProfileImage",model.getUserProfileImage());
                         intent.putExtras(bundle);
 
 //                        intent.putExtra((String) ItemInformationActivity.ExtraData, itemID);

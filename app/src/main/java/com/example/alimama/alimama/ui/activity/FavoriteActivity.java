@@ -67,12 +67,31 @@ public class FavoriteActivity extends BaseActvity {
 
         final FirebaseRecyclerAdapter<Item, ItemViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Item, ItemViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull Item model) {
+            protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull final Item model) {
 
                 Glide.with(FavoriteActivity.this).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.item_image);
                 holder.item_name.setText(model.getName());
                 holder.item_price.setText(model.getPrice());
                 holder.item_description.setText(model.getDescription());
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent(FavoriteActivity.this, ItemInformationActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putLong("item id",model.getItemID());
+                        bundle.putString("image", model.getImage());
+                        bundle.putString("name",model.getName());
+                        bundle.putString("price",model.getPrice());
+                        bundle.putString("description",model.getDescription());
+                        bundle.putString("itemPublishedUserName",model.getDescription());
+                        bundle.putString("userProfileImage",model.getUserProfileImage());
+                        intent.putExtras(bundle);
+
+                        startActivity(intent);
+                    }
+                });
             }
 
             @NonNull

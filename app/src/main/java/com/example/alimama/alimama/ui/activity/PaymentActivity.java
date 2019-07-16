@@ -47,6 +47,7 @@ public class PaymentActivity extends BaseActvity {
     private String itemPrice;
     private String itemDescription;
     private String itemPublishedUserName;
+    private String userProfileImage;
 
 
     private DatabaseReference mDatabaseUserShoppingHistory;
@@ -94,6 +95,7 @@ public class PaymentActivity extends BaseActvity {
 //        item.setUserID(itemPublishedUserID);
         item.setUserName(itemPublishedUserName);
         item.setItemID(itemID);
+        item.setUserProfileImage(userProfileImage);
 
         /**
          * add item to my shopping history
@@ -144,6 +146,8 @@ public class PaymentActivity extends BaseActvity {
         itemPrice = getIntent.getStringExtra("itemPrice");
         itemDescription = getIntent.getStringExtra("itemDescription");
         itemPublishedUserName = getIntent.getStringExtra("itemPublishedUserName");
+        userProfileImage = getIntent.getStringExtra("userProfileImage");
+
 
 
 

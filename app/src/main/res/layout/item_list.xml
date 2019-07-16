@@ -86,9 +86,10 @@
                 android:id="@+id/categories_item_image"
                 android:layout_width="160dp"
                 android:layout_height="200dp"
-               />/ android:background="@drawable/ipad"
+
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"/>
+            //android:background="@drawable/ipad"
 
             <LinearLayout
                 android:layout_width="match_parent"

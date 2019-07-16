@@ -318,7 +318,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:paddingTop="10dp"
-                        android:text="Order Record"
+                        android:text="Shopping History"
                         android:textSize="25sp" />
 
                     <View

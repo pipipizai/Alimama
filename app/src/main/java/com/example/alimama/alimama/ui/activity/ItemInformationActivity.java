@@ -47,6 +47,7 @@ public class ItemInformationActivity extends BaseActvity {
     private String itemName;
     private String itemPrice;
     private String itemDescription;
+    private String userProfileImage;
 
     private DatabaseReference mDatabaseUserCart;
     private DatabaseReference mDatabaseUserFavorite;
@@ -93,6 +94,7 @@ public class ItemInformationActivity extends BaseActvity {
         item.setImage(ItemImage);
         item.setUserName(itemPublishedUserName);
         item.setItemID(itemID);
+        item.setUserProfileImage(userProfileImage);
 
         /**
          * add item to my favotite
@@ -162,6 +164,7 @@ public class ItemInformationActivity extends BaseActvity {
                     intent.putExtra("ItemImage", ItemImage);
                     intent.putExtra("itemDescription", itemDescription);
                     intent.putExtra("itemPublishedUserName", itemPublishedUserName);
+                    intent.putExtra("userProfileImage",userProfileImage);
 
                     startActivity(intent);
                 }
@@ -199,6 +202,7 @@ public class ItemInformationActivity extends BaseActvity {
         itemPrice=bundle.getString("price");
         itemDescription=bundle.getString("description");
         itemPublishedUserName=bundle.getString("itemPublishedUserName");
+        userProfileImage= bundle.getString("userProfileImage");
 
         //1、获取Preferences
         // 相当于本地缓存: userinfo里面有用户名/密码/用户id （地址和contact直接从数据库读取就好）
