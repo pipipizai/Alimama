@@ -52,4 +52,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+        <declare-styleable name="RingsImageView">
+            <attr name="border_width" format="dimension" />
+            <attr name="border_color" format="color" />
+        </declare-styleable>
+
 </resources>
