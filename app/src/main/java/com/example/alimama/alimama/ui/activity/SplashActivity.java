@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.alimama.alimama.R;
+import me.wangyuwei.particleview.ParticleView;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -21,15 +22,20 @@ public class SplashActivity extends AppCompatActivity {
         }
     };
 
+    ParticleView mPvGithub;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        mPvGithub = (ParticleView) findViewById(R.id.pv_github);
+        mPvGithub.startAnim();
+        mHandler.postDelayed(mRunnableToLogin,5000);
 
-        initView();
+        /*initView();
         initEvent();
 
-        mHandler.postDelayed(mRunnableToLogin,3000);
+        mHandler.postDelayed(mRunnableToLogin,3000);*/
     }
 
     private void initEvent() {
@@ -45,7 +51,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void initView(){
-        mBtnSkip = (Button) findViewById(R.id.id_btn_skip);
+        /*mBtnSkip = (Button) findViewById(R.id.id_btn_skip);*/
     }
 
     private void toLoginActivity(){

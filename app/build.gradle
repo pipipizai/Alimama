@@ -51,3 +51,18 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
+
+repositories {
+    maven {
+        url 'https://dl.bintray.com/wangyuwei/maven'
+    }
+    maven {url 'https://jitpack.io' }
+}
+
+dependencies {
+    api 'me.wangyuwei:ParticleView:1.0.4'
+}
+
+dependencies {
+    api 'com.github.ibrahimsn98:android-particles:1.7'
+}

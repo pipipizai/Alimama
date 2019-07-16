@@ -1,34 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pv="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alimama.alimama.ui.activity.SplashActivity"
-    >
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/id_btn_skip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginRight="32dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/btn_bg_skip"
-        android:paddingBottom="4dp"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:paddingTop="4dp"
-        android:text="跳过"
-        android:minWidth="0dp"
-        android:minHeight="0dp"
-        android:textColor="#ffffff"
-        android:textSize="14sp" />
+    <me.wangyuwei.particleview.ParticleView
+        android:id="@+id/pv_github"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#0867AB"
+        pv:pv_host_text="Ali"
+        pv:pv_particle_text="mama"
+        pv:pv_text_anim_time="1200"
+        pv:pv_spread_anim_time="700"
+        pv:pv_host_text_anim_time="1200"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/bg_splash"
-        android:layout_gravity="center"/>
 
-</FrameLayout>
+</LinearLayout>
