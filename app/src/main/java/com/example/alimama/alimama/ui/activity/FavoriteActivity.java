@@ -109,7 +109,11 @@ public class FavoriteActivity extends BaseActvity {
 //                }else{
 //                    toFavoriteActivity();
 //                }
-                deleteDialog = new DeleteDialog(FavoriteActivity.this);
+
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                        mCartList.getLayoutParams());
+
+                deleteDialog = new DeleteDialog(FavoriteActivity.this,params);
 
                 deleteDialog.setTitle("Alert");
                 deleteDialog.setMessage("Are you sure to delete");
@@ -156,29 +160,30 @@ public class FavoriteActivity extends BaseActvity {
 
     }
 
-    private void confirmDelete() {
-
-        deleteDialog = new DeleteDialog(FavoriteActivity.this);
-
-        deleteDialog.setTitle("Alert");
-        deleteDialog.setMessage("Are you sure to delete");
-        deleteDialog.setYesOnclickListener("YES", new DeleteDialog.onYesOnclickListener() {
-            @Override
-            public void onYesClick() {
-                deleteConfirm=true;
-            }
-        });
-        deleteDialog.setNoOnclickListener("NO", new DeleteDialog.onNoOnclickListener() {
-            @Override
-            public void onNoClick() {
-                deleteConfirm=false;
-            }
-        });
-
-        deleteDialog.show();
-
-
-    }
+//    private void confirmDelete() {
+//
+//
+//        deleteDialog = new DeleteDialog(FavoriteActivity.this);
+//
+//        deleteDialog.setTitle("Alert");
+//        deleteDialog.setMessage("Are you sure to delete");
+//        deleteDialog.setYesOnclickListener("YES", new DeleteDialog.onYesOnclickListener() {
+//            @Override
+//            public void onYesClick() {
+//                deleteConfirm=true;
+//            }
+//        });
+//        deleteDialog.setNoOnclickListener("NO", new DeleteDialog.onNoOnclickListener() {
+//            @Override
+//            public void onNoClick() {
+//                deleteConfirm=false;
+//            }
+//        });
+//
+//        deleteDialog.show();
+//
+//
+//    }
 
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
@@ -206,6 +211,10 @@ public class FavoriteActivity extends BaseActvity {
         mCartList = this.findViewById(R.id.favorite_items);
         mCartList.setHasFixedSize(true);
         mCartList.setLayoutManager(new LinearLayoutManager(this));
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                mCartList.getLayoutParams());
+
 
         //1、获取Preferences
         SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);

@@ -4,7 +4,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -24,10 +26,19 @@ public class DeleteDialog extends Dialog{
     private String messageString;//从外界设置的消息文本
     //确定文本和取消文本的显示内容
     private String yesString, noString;
+    private Context context;
+    private ViewGroup.LayoutParams params;
 
     private onNoOnclickListener noOnclickListener;//取消按钮被点击了的监听器
     private onYesOnclickListener yesOnclickListener;//确定按钮被点击了的监听器
 
+
+    public DeleteDialog(Context context, ViewGroup.LayoutParams params) {
+        super(context, R.style.DeleteDialog);
+        this.context = context;
+        this.params = params;
+
+    }
     /**
      * 设置取消按钮的显示内容和监听
      *
@@ -54,15 +65,12 @@ public class DeleteDialog extends Dialog{
         this.yesOnclickListener = onYesOnclickListener;
     }
 
-    public DeleteDialog(Context context) {
-        super(context, R.style.DeleteDialog);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_delete_confirm);
-     //  addContentView(R.id.layout_delete_dialog,R.layout.favorite_list);
+      //  setContentView(R.layout.dialog_delete_confirm);
+        View view =  LayoutInflater.from(context).inflate(R.layout.dialog_delete_confirm, null);
+        addContentView(view,params);
 
         //按空白处不能取消动画
         setCanceledOnTouchOutside(false);
@@ -76,14 +84,7 @@ public class DeleteDialog extends Dialog{
 
     }
 
-    private void addContentView(int dialog_delete_confirm) {
-        //初始化界面控件
-        initView();
-        //初始化界面数据
-        initData();
-        //初始化界面控件的事件
-        initEvent();
-    }
+
 
     /**
      * 初始化界面的确定和取消监听器
