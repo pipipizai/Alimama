@@ -24,7 +24,7 @@ import com.example.alimama.alimama.ui.activity.FavoriteActivity;
 import com.example.alimama.alimama.ui.activity.LoginActivity;
 import com.example.alimama.alimama.ui.activity.MeInfoActivity;
 import com.example.alimama.alimama.ui.activity.MyPublishActivity;
-import com.example.alimama.alimama.ui.activity.ShoppingCartActivity;
+import com.example.alimama.alimama.ui.activity.ShoppingHistoryActivity;
 import com.example.alimama.alimama.ui.activity.ShoppingHistoryActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -122,7 +122,7 @@ public class MeFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Intent meInfo = new Intent(getActivity(), ShoppingCartActivity.class);
+                Intent meInfo = new Intent(getActivity(), ShoppingHistoryActivity.class);
                 startActivity(meInfo);
             }
         });
