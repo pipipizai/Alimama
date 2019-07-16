@@ -27,6 +27,8 @@
                 app:srcCompat="@drawable/insert_img"
                 android:background="#ffff" />
 
+            <!-- fjdkfjds-->
+
             <EditText
                 android:id="@+id/publish_item_name"
                 android:layout_below="@id/btn_publish_image"
