@@ -22,7 +22,8 @@
             android:gravity="center"
             android:text="Categories"
             android:textColor="#ffffff"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:background="@drawable/primary_color"/>
     </RelativeLayout>
 
     <!-- ListView -->

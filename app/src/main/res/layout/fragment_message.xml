@@ -31,10 +31,13 @@
             android:id="@+id/cart_head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:gravity="center"
             android:text="Message"
             android:textColor="#ffffff"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:background="@drawable/primary_color"/>
 
 
     </RelativeLayout>
