@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
-        android:background="#efb336">
+        android:background="@drawable/primary_color">
 
         <!--// 删除选中的物品 android:id="@+id/btn_del"-->
 

@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/categories_name"
         android:layout_width="match_parent"
-        android:layout_height="120px"
+        android:layout_height="180px"
         android:gravity="center"
         android:text="categories"
         android:textColor="#efb336"
