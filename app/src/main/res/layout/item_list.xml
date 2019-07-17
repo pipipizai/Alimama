@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/cart_list"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="7dp">
+    android:layout_margin="7dp"
+    android:id="@+id/cart_list">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="250dp"
         android:background="@drawable/list_background"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/categories_user_profile_image"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="10dp"
             android:scaleType="centerCrop"
             android:src="@drawable/logo" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="15dp"
-            android:orientation="vertical"
-            android:theme="@style/font">
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <!--<LinearLayout-->
                 <!--android:layout_width="wrap_content"-->
@@ -42,29 +40,35 @@
                     android:id="@+id/categories_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:maxLines="2"
                     android:text="SWE1609022"
-                    android:textSize="15dp"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="80dp">
-                    <!--<TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+
+
+                    >
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="RM"
                         android:textColor="#FF0000"
-                        android:textSize="15sp" />-->
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/categories_item_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="RM1800"
-                        android:textColor="#DC143C"
-                        android:textSize="15sp" />
+                        android:text="1800"
+                        android:textColor="#FF0000"
+                        android:textSize="20sp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -72,23 +76,31 @@
 
             <TextView
                 android:id="@+id/categories_item_description"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:gravity="center"
                 android:maxLength="50"
                 android:maxLines="2"
-                android:text="My Ipad 2018 9.7inch 280g and today is a good day"
-                android:textSize="15dp"
-                android:theme="@style/font"/>
+                android:text="Ipad 2018 9.7inch 280g today is a goo day and this "
+                android:textSize="18dp" />
 
             <ImageView
                 android:id="@+id/categories_item_image"
                 android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:src="@drawable/ipad" />/ android:background="@drawable/ipad"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="15dp"/>
-            <!--android:background="@drawable/ipad"-->
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
