@@ -26,7 +26,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="40dp"
                 android:background="#ffffff"
-                app:srcCompat="@mipmap/add_image" />
+                app:srcCompat="@drawable/add_img" />
+            <!-- TODAY-->
 
 
 
@@ -95,7 +96,7 @@
                 android:text="Publish"
                 android:textAllCaps="false"
                 android:textSize="25sp"
-                android:background="#f4f5f7" />
+                android:background="@drawable/primary_color" />
 
         </RelativeLayout>
     </ScrollView>
