@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FBFBFB">
+    android:background="#dedede">
+    //android:background="#FBFBFB"
     <!-- 我来组成头部! -->
 
     <include layout="@layout/common_toolbar"></include>
@@ -174,6 +175,17 @@
                 />
             //android:textStyle="bold"
 
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/item_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/txt_guess_you_like"
+                android:layout_marginBottom="60dp"
+
+                >
+            </android.support.v7.widget.RecyclerView>
+
         </RelativeLayout>
 
     </ScrollView>
@@ -223,6 +235,29 @@
                     android:text="Contact" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/item_info_add_cart"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/addtocart_icon"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/txt_add_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="Cart" />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="120dp"
@@ -269,7 +304,8 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center">
+                android:gravity="center"
+                android:background="#ffffff">
 
                 <Button
                     android:id="@+id/item_info_payment"
