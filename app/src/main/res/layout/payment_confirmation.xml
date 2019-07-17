@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <EditText
+            <TextView
                 android:id="@+id/payment_name"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
@@ -26,7 +26,7 @@
                 android:paddingLeft="8dp"
                 android:textColorHint="#000000"/>
 
-            <EditText
+            <TextView
                 android:id="@+id/payment_phone"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
@@ -38,7 +38,7 @@
                 android:paddingLeft="8dp"
                 android:textColorHint="#000000" />
         </LinearLayout>
-        <EditText
+        <TextView
             android:id="@+id/payment_address"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -149,7 +149,7 @@
             //  android:background="@drawable/favorite_item2"
 
             <ImageView
-                android:id="@+id/payment2_image"
+                android:id="@+id/payment_item_image"
                 android:layout_width="200dp"
                 android:layout_height="133dp"
                 android:layout_marginLeft="15dp"
@@ -165,7 +165,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/payment2_name"
+                    android:id="@+id/payment_item_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Alienware 17"
@@ -173,14 +173,14 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/payment2_description"
+                    android:id="@+id/payment_item_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="17-inch, GTX-1080"
                     android:textSize="15dp" />
 
                 <TextView
-                    android:id="@+id/payment2_price"
+                    android:id="@+id/payment_item_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -213,26 +213,6 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:orientation="horizontal">
-
-            <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginLeft="15dp"-->
-            <!--android:textSize="25dp"-->
-            <!--android:gravity="center"-->
-            <!--android:textStyle="bold"-->
-            <!--android:textColor="#000000"-->
-            <!--android:text="Total:"/>-->
-
-            <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginLeft="15dp"-->
-            <!--android:textSize="25dp"-->
-            <!--android:gravity="center"-->
-            <!--android:textStyle="bold"-->
-            <!--android:textColor="#DC143C"-->
-            <!--android:text="RM 9999.99"/>-->
 
             <LinearLayout
                 android:layout_width="match_parent"

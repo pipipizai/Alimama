@@ -10,30 +10,19 @@ public class User {
     private String password;
     private String username;
     private String icon;
+    private String phone;
+    private String address;
 
-
-    public User(String password, String username, String icon) {
-       // this.id = id;
+    public User(String password, String username, String icon, String phone, String address) {
         this.password = password;
         this.username = username;
         this.icon = icon;
-    }
-
-    public User(String password, String username) {
-        this.password = password;
-        this.username = username;
+        this.phone = phone;
+        this.address = address;
     }
 
     public User() {
     }
-
-//    public long getId() {
-//        return id;
-//    }
-
-//    public void setId(long id) {
-//        this.id = id;
-//    }
 
     public String getPassword() {
         return password;
@@ -57,5 +46,21 @@ public class User {
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

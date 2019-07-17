@@ -41,6 +41,8 @@ public class RegisterActivity extends BaseActvity {
     private EditText mEtUsername;
     private EditText mEtPassword;
     private EditText mEtRepassword;
+    private EditText mEtPhone;
+    private EditText mEtAddress;
     private Button mBtnRegister;
 //    private FirebaseAuth mAuth;
     private DatabaseReference userRef;
@@ -49,6 +51,8 @@ public class RegisterActivity extends BaseActvity {
     private User user;
     long totlaNumberUsers=0;
     private ImageButton mUserIcon;
+    private String phone;
+    private String address;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,9 +94,17 @@ public class RegisterActivity extends BaseActvity {
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                phone = mEtPhone.getText().toString();
+                address = mEtAddress.getText().toString();
+
                 if(mImageUri==null){
                     Toast.makeText(RegisterActivity.this, "Please add profile image", Toast.LENGTH_LONG).show();
-                }else {
+                }else if(phone==null){
+                    Toast.makeText(RegisterActivity.this, "Please add phone", Toast.LENGTH_LONG).show();
+                }else if(address==null){
+                    Toast.makeText(RegisterActivity.this, "Please add address", Toast.LENGTH_LONG).show();
+                }
+                else {
                     userRegister();
                 }
 
@@ -151,9 +163,10 @@ public class RegisterActivity extends BaseActvity {
                                         user.setPassword(password);
                                   //      user.setId(totlaNumberUsers+1);
                                         user.setIcon(downloadUri.toString());
+                                        user.setAddress(address);
+                                        user.setPhone(phone);
 
                                         userRef.child(username).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()){
@@ -204,6 +217,8 @@ public class RegisterActivity extends BaseActvity {
         mEtUsername = findViewById(R.id.register_edt_username);
         mEtPassword = findViewById(R.id.register_edt_password);
         mEtRepassword = findViewById(R.id.register_edt_repassword);
+        mEtPhone = findViewById(R.id.register_phone);
+        mEtAddress = findViewById(R.id.register_address);
         mBtnRegister = findViewById(R.id.btn_register);
         mUserIcon = findViewById(R.id.btn_user_icon);
 //        mAuth = FirebaseAuth.getInstance();

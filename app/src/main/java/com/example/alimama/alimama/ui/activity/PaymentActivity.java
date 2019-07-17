@@ -38,6 +38,9 @@ public class PaymentActivity extends BaseActvity {
     private TextView mItemName;
     private TextView mItemPrice;
     private TextView mItemDescription;
+    private TextView mTextViewUsername;
+    private TextView mTextViewPhone;
+    private TextView mTextViewAddress;
     private Button mPay;
     private Button mItemInfoAddCart;
 
@@ -57,6 +60,7 @@ public class PaymentActivity extends BaseActvity {
     private DatabaseReference mDatabaseUserShoppingHistory;
     private DatabaseReference mDatabaseNotification;
     private DatabaseReference mDatabaseItems;
+    private DatabaseReference mDatabaseUsers;
 
     private long shoppingHistoryItemsAmount=0;
     private long cartItemsAmount=0;
@@ -79,9 +83,9 @@ public class PaymentActivity extends BaseActvity {
         TextView textView5 = findViewById(R.id.choice2);
         TextView textView6 = findViewById(R.id.choice3);
         TextView textView7 = findViewById(R.id.choice4);
-        TextView textView8 = findViewById(R.id.payment2_name);
-        TextView textView9 = findViewById(R.id.payment2_description);
-        TextView textView10 = findViewById(R.id.payment2_price);
+        TextView textView8 = findViewById(R.id.payment_item_name);
+        TextView textView9 = findViewById(R.id.payment_item_description);
+        TextView textView10 = findViewById(R.id.payment_item_price);
         TextView textView11 = findViewById(R.id.payment);
         Typeface tf1= Typeface.createFromAsset(getAssets(), "PTSans-Regular.ttf");
         textView1.setTypeface(tf1);
@@ -96,13 +100,12 @@ public class PaymentActivity extends BaseActvity {
         textView10.setTypeface(tf1);
         textView11.setTypeface(tf1);
 
-        getItemInformation();
+        getInformation();
 
-        displayItemInfomation();
+        displayInfomation();
 
         setUpToolbar();
         setTitle("Payment");
-
 
         //create a item object
         final Item item = new Item();
@@ -118,7 +121,7 @@ public class PaymentActivity extends BaseActvity {
 
         /**
          * add item to my shopping history
-         //         */
+         */
         mPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,34 +132,30 @@ public class PaymentActivity extends BaseActvity {
 
                 //这是把整个item对象放进数据库
                 mDatabaseUserShoppingHistory.child(String.valueOf(itemID)).setValue(item);
+                mDatabaseUsers.child(username).child("shopping history").child(String.valueOf(itemID)).removeValue();
+                mDatabaseUsers.child(username).child("favorite").child(String.valueOf(itemID)).removeValue();
+                mDatabaseUsers.child(username).child(String.valueOf(itemID)).removeValue();
+
                 sendNotification();
             }
         });
-//
-//        /**
-//         * add item to my cart
-//         */
-//        mItemInfoAddCart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //mDatabaseUserCart.child(String.valueOf("item "+(cartItemsNumber +1)+" id ")).setValue(itemID);
-//                mDatabaseUserCart.child(String.valueOf(itemID)).setValue(item);
-//            }
-//        });
-//
 
     }
 
-    private void displayItemInfomation() {
+    private void displayInfomation() {
 
         Glide.with(this).load(ItemImage).placeholder(R.drawable.default_item_image).into(mItemImage);
         mItemName.setText(itemName);
         mItemPrice.setText(itemPrice);
         mItemDescription.setText(itemDescription);
+        mTextViewUsername.setText(username);
+        //mTextViewAddress.setText();
+
+
     }
 
 
-    private void getItemInformation() {
+    private void getInformation() {
 
         Intent getIntent = getIntent();
 
@@ -168,27 +167,6 @@ public class PaymentActivity extends BaseActvity {
         itemPublishedUserName = getIntent.getStringExtra("itemPublishedUserName");
         userProfileImage = getIntent.getStringExtra("userProfileImage");
 
-
-
-
-//        //get the transffered data
-//        Bundle bundle = this.getIntent().getExtras();
-//        if (bundle != null){ //防止直接启动MainActivity时空指针闪退
-//
-//            itemID = bundle.getLong("item id");
-////            ItemIDString = String.valueOf(itemID);
-//        }
-//
-//        ItemImage=bundle.getString("image");
-//        itemName=bundle.getString("name");
-//        itemPrice=bundle.getString("price");
-//        itemDescription=bundle.getString("description");
-//
-////        itemPublishedUserID=bundle.getLong("itemPublishedUserID");
-//
-//        itemPublishedUserName=bundle.getString("itemPublishedUserName");
-
-
         //1、获取Preferences
         // 相当于本地缓存: userinfo里面有用户名/密码/用户id （地址和contact直接从数据库读取就好）
         SharedPreferences preferences=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
@@ -197,34 +175,16 @@ public class PaymentActivity extends BaseActvity {
         userID = preferences.getLong("userid",0);
         username=preferences.getString("username", null);
 
-
+      //  userPhone =
 
         //get database reference
-
+        mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users");
         mDatabaseNotification = FirebaseDatabase.getInstance().getReference().child("Notifications");
         mDatabaseUserShoppingHistory = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("shopping history");
 //        mDatabaseUserCart = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("cart items");
 
         /**
-         * Get total number of cart items
-         */
-//
-//        mDatabaseUserCart.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if(dataSnapshot.exists()){
-//                    cartItemsAmount = (dataSnapshot.getChildrenCount());
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-
-        /**
-         * Get total number of favorite items
+         * Get total number of Buy items
          */
         mDatabaseUserShoppingHistory.addValueEventListener(new ValueEventListener() {
             @Override
@@ -240,33 +200,36 @@ public class PaymentActivity extends BaseActvity {
             }
         });
 
-        mDatabaseNotification.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-                    notificationAmount = (dataSnapshot.getChildrenCount());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+//        /**
+//         * Get total number of Buy items
+//         */
+//
+//        mDatabaseNotification.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if(dataSnapshot.exists()){
+//                    notificationAmount = (dataSnapshot.getChildrenCount());
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
     }
 
     private void sendNotification(){
         HashMap<String, Object> hashMap = new HashMap<>();
 
-        message= "Your item "+itemName+" is bought by "+ username +"."+'\n'
-                + " Please go and taught to" + username;
+        message= "Your item '"+itemName+"' is bought by "+ username +"."+'\n'
+                + " Please go and talk to" + username;
 
         hashMap.put("buyer",username);
         hashMap.put("publishedItemUsername",itemPublishedUserName);
         hashMap.put("itemName",itemName);
         hashMap.put("message",message);
-
 
         mDatabaseNotification.push().setValue(hashMap);
         //notification = new Notification(username,itemName,itemPublishedUserName);
@@ -276,16 +239,13 @@ public class PaymentActivity extends BaseActvity {
     private void initView() {
 
         setUpToolbar();
-        mItemImage = findViewById(R.id.payment2_image);
-        mItemName = findViewById(R.id.payment2_name);
-        mItemPrice = findViewById(R.id.payment2_price);
-        mItemDescription = findViewById(R.id.payment2_description);
-//        mItemInfoAddCart = findViewById(R.id.item_info_add_cart);
+        mTextViewUsername = findViewById(R.id.payment_name);
+        mTextViewPhone = findViewById(R.id.payment_phone);
+        mTextViewAddress = findViewById(R.id.payment_address);
+        mItemImage = findViewById(R.id.payment_item_image);
+        mItemName = findViewById(R.id.payment_item_name);
+        mItemPrice = findViewById(R.id.payment_item_price);
+        mItemDescription = findViewById(R.id.payment_item_description);
         mPay = findViewById(R.id.payment);
-
-
-
     }
-
-
 }
