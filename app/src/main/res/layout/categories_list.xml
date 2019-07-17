@@ -13,7 +13,7 @@
         android:layout_height="180px"
         android:gravity="center"
         android:text="categories"
-        android:textColor="#efb336"
+        android:textColor="#EE9A00"
         android:textSize="22sp" />
 
 </android.support.v7.widget.CardView>

@@ -9,16 +9,28 @@
     <RelativeLayout
         android:id="@+id/layout_me_header"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:background="@drawable/head_background">
+        android:layout_height="167dp"
+        android:background="@drawable/primary_color">
 
         <ImageView
             android:id="@+id/me_icon"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="50dp" />
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/me_head_icon"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="SWE1609022"
+            android:layout_below="@id/me_icon"
+            android:layout_marginTop="-24dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="144dp" />
+
         <!--android:background="@mipmap/login_btn"-->
 
     </RelativeLayout>
@@ -47,7 +59,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@drawable/setting_icon" />
+                    android:background="@drawable/me_my_information" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -60,9 +72,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:paddingTop="10dp"
+                        android:paddingTop="5dp"
                         android:text="My Information"
-                        android:textSize="25sp" />
+                        android:textSize="23sp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -70,7 +82,7 @@
                         android:layout_below="@id/txt_me_info"
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="10dp"
-                        android:background="#ffffff"></View>
+                        android:background="#d8dde1"></View>
                 </RelativeLayout>
 
             </LinearLayout>
@@ -84,10 +96,11 @@
                 <ImageView
                     android:layout_width="46dp"
                     android:layout_height="46dp"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@drawable/cart_icon" />
+                    android:background="@drawable/me_shopping_cart" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -102,7 +115,7 @@
                         android:layout_marginLeft="5dp"
                         android:paddingTop="10dp"
                         android:text="Shopping Cart"
-                        android:textSize="25sp" />
+                        android:textSize="23sp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -110,7 +123,7 @@
                         android:layout_below="@id/txt_cart"
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="10dp"
-                        android:background="#ffffff"></View>
+                        android:background="#d8dde1"></View>
                 </RelativeLayout>
             </LinearLayout>
 
@@ -127,7 +140,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@drawable/favorite_icon" />
+                    android:background="@drawable/me_my_favorite" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -142,7 +155,7 @@
                         android:layout_marginLeft="5dp"
                         android:paddingTop="10dp"
                         android:text="My Favorite"
-                        android:textSize="25sp" />
+                        android:textSize="23sp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -150,7 +163,7 @@
                         android:layout_below="@id/txt_me_fav"
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="10dp"
-                        android:background="#ffffff"></View>
+                        android:background="#d8dde1"></View>
                 </RelativeLayout>
             </LinearLayout>
 
@@ -166,7 +179,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@drawable/publish_icon" />
+                    android:background="@drawable/me_my_publish" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -181,7 +194,7 @@
                         android:layout_marginLeft="5dp"
                         android:paddingTop="10dp"
                         android:text="My Published"
-                        android:textSize="25sp" />
+                        android:textSize="23sp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -189,7 +202,7 @@
                         android:layout_below="@id/txt_me_pub"
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="10dp"
-                        android:background="#ffffff"></View>
+                        android:background="#d8dde1"></View>
                 </RelativeLayout>
             </LinearLayout>
 
@@ -206,7 +219,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@drawable/sold_icon" />
+                    android:background="@drawable/me_item_sold" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -221,7 +234,7 @@
                         android:layout_marginLeft="5dp"
                         android:paddingTop="10dp"
                         android:text="Item Sold"
-                        android:textSize="25sp" />
+                        android:textSize="23sp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -229,7 +242,7 @@
                         android:layout_below="@id/txt_me_sold"
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="10dp"
-                        android:background="#ffffff"></View>
+                        android:background="#d8dde1"></View>
                 </RelativeLayout>
             </LinearLayout>
 
@@ -248,7 +261,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@drawable/record_icon" />
+                    android:background="@drawable/me_shopping_history" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -263,7 +276,7 @@
                         android:layout_marginLeft="5dp"
                         android:paddingTop="10dp"
                         android:text="Shopping History"
-                        android:textSize="25sp" />
+                        android:textSize="23sp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -271,7 +284,7 @@
                         android:layout_below="@id/txt_me_rec"
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="10dp"
-                        android:background="#ffffff"></View>
+                        android:background="#d8dde1"></View>
                 </RelativeLayout>
             </LinearLayout>
 
@@ -287,7 +300,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@drawable/logout_icon" />
+                    android:background="@drawable/me_logout" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -302,7 +315,7 @@
                         android:layout_marginLeft="5dp"
                         android:paddingTop="10dp"
                         android:text="Log out"
-                        android:textSize="25sp" />
+                        android:textSize="23sp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -310,7 +323,7 @@
                         android:layout_below="@id/txt_me_log_out"
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="10dp"
-                        android:background="#ffffff"></View>
+                        android:background="#d8dde1"></View>
                 </RelativeLayout>
             </LinearLayout>
 
