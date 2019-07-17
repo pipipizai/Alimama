@@ -109,6 +109,7 @@
         fancy:fb_defaultColor="#efb336"
         fancy:fb_focusColor="#ff838b"
         fancy:fb_iconPosition="left"
+        fancy:fb_fontIconResource="@string/icon_user"
         fancy:fb_radius="30dp"
         fancy:fb_text="Login"
         fancy:fb_textColor="#FFFFFF" />
