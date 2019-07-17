@@ -22,11 +22,11 @@
                 android:id="@+id/btn_publish_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
                 android:layout_marginTop="40dp"
                 android:background="#ffffff"
-                app:srcCompat="@mipmap/add_image" />
+                app:srcCompat="@drawable/publish_img" />
 
 
 
@@ -38,10 +38,11 @@
                 android:background="@drawable/input_outline"
                 android:padding="15dp"
                 android:layout_marginTop="40dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
                 android:inputType="textPersonName"
-                android:hint="Item Name" />
+                android:hint="Item Name"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/publish_item_price"
@@ -51,10 +52,11 @@
                 android:background="@drawable/input_outline"
                 android:padding="15dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
                 android:inputType="numberDecimal"
-                android:hint="Item Price" />
+                android:hint="Item Price"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/publish_item_description"
@@ -64,10 +66,11 @@
                 android:background="@drawable/input_outline"
                 android:padding="15dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
                 android:inputType="textMultiLine"
-                android:hint="Item Description" />
+                android:hint="Item Description"
+                android:textSize="20sp"/>
 
             <TextView
                 android:id="@+id/publish_item_categories"
@@ -77,9 +80,9 @@
                 android:background="@drawable/input_outline"
                 android:padding="15dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="20sp"
                 android:hint="Categries" />
             <!--android:inputType="textMultiLine"-->
 
@@ -95,7 +98,7 @@
                 android:text="Publish"
                 android:textAllCaps="false"
                 android:textSize="25sp"
-                android:background="#f4f5f7" />
+                android:background="@drawable/register_button" />
 
         </RelativeLayout>
     </ScrollView>
