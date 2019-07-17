@@ -22,15 +22,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import mehdi.sakout.fancybuttons.FancyButton;
 
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText mEtUsername;
     private EditText mEtPassword;
-    private FancyButton mBtnLogin;
-    private FancyButton mBtnRegister;
+    private Button mBtnLogin;
+    private Button mBtnRegister;
     private DatabaseReference loginRef;
 
     @Override
@@ -46,14 +45,14 @@ public class LoginActivity extends AppCompatActivity {
         TextView textView1 = findViewById(R.id.login_head);
         TextView textView2 = findViewById(R.id.edt_uesrname);
         TextView textView3 = findViewById(R.id.edt_password);
-       // TextView textView4 = findViewById(R.id.btn_login);
-       // TextView textView5 = findViewById(R.id.btn_register);
+        TextView textView4 = findViewById(R.id.btn_login);
+        TextView textView5 = findViewById(R.id.btn_register);
         Typeface tf1= Typeface.createFromAsset(getAssets(), "PTSans-Regular.ttf");
         textView1.setTypeface(tf1);
         textView2.setTypeface(tf1);
         textView3.setTypeface(tf1);
-       // textView4.setTypeface(tf1);
-       // textView5.setTypeface(tf1);
+        textView4.setTypeface(tf1);
+        textView5.setTypeface(tf1);
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
