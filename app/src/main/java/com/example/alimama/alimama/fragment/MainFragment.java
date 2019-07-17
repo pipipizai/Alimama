@@ -137,8 +137,7 @@ public class MainFragment extends Fragment {
 
                 //get the content of EditTextView(search content is in it)
                 final String searchContent = mEditTextseachContent.getText().toString();
-                
-                
+
                 Intent search = new Intent(getActivity(), SearchActivity.class);
                
                 //the data need to transfer to search activity
