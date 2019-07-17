@@ -10,68 +10,186 @@
 
     <include layout="@layout/common_toolbar"></include>
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <ImageButton
-            android:id="@+id/btn_user_icon"
-            android:layout_gravity="center"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="40dp"
-            android:background="#f3f5f7"
-            app:srcCompat="@drawable/addimg" />
-
-        <EditText
-            android:id="@+id/register_edt_username"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="40dp"
-            android:background="#ffffff"
-            android:inputType="text"
-            android:hint="Student ID"
-            android:paddingLeft="8dp"
-            android:textColorHint="#000000"/>
-        <EditText
-            android:id="@+id/register_edt_password"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="4dp"
-            android:background="#ffffff"
-            android:inputType="textWebPassword"
-            android:hint="Password"
-            android:paddingLeft="8dp"
-            android:textColorHint="#000000"/>
-        <EditText
-            android:id="@+id/register_edt_repassword"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="4dp"
-            android:background="#ffffff"
-            android:inputType="textWebPassword"
-            android:hint="Repassword"
-            android:paddingLeft="8dp"
-            android:textColorHint="#000000"/>
-
-        <Button
-            android:id="@+id/btn_register"
+        android:layout_height="wrap_content">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="100dp"
-            android:layout_marginLeft="100dp"
-            android:textAllCaps="false"
-            android:text="Register"
-            android:textSize="25sp"
-            android:background="@drawable/primary_color" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/btn_user_icon"
 
-</ScrollView>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                app:srcCompat="@drawable/tupian"
+                android:background="@null"
+                android:layout_marginBottom="5dp"/>
+
+            <EditText
+                android:id="@+id/register_edt_username"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="40dp"
+                android:background="#ffffff"
+                android:textSize="20sp"
+                android:inputType="text"
+                android:hint="Student ID"
+                android:paddingLeft="8dp"
+                android:gravity="center"
+              />
+            <EditText
+                android:id="@+id/register_edt_password"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="#ffffff"
+                android:inputType="textWebPassword"
+                android:hint="Password"
+                android:paddingLeft="8dp"
+                android:textSize="20sp"
+                android:gravity="center"
+                />
+            <EditText
+                android:id="@+id/register_edt_repassword"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="#ffffff"
+                android:inputType="textWebPassword"
+                android:hint="Repassword"
+                android:paddingLeft="8dp"
+                android:textSize="20sp"
+                android:gravity="center"
+                />
+
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginLeft="100dp"
+                android:textAllCaps="false"
+                android:text="Register"
+                android:textColor="#696969"
+                android:textSize="25sp"
+                android:background="@drawable/primary_color"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </LinearLayout>
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical"-->
+    <!--android:background="#f3f5f7"-->
+    <!--tools:context="com.example.alimama.alimama.ui.activity.RegisterActivity">-->
+
+    <!--<include layout="@layout/common_toolbar"></include>-->
+
+<!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_below="@+id/layout_login_header">-->
+        <!--<ImageButton-->
+            <!--android:id="@+id/btn_user_icon"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_width="200dp"-->
+            <!--android:layout_height="200dp"-->
+            <!--android:layout_marginTop="40dp"-->
+            <!--android:background="#f3f5f7"-->
+            <!--app:srcCompat="@drawable/addimg" />-->
+    <!--</LinearLayout>-->
+        <!--<EditText-->
+            <!--android:id="@+id/register_edt_username"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="25sp"-->
+            <!--android:background="@null"-->
+            <!--android:layout_marginTop="40dp"-->
+            <!--android:inputType="text"-->
+            <!--android:hint="Student ID"-->
+            <!--android:paddingLeft="8dp"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:gravity="center"-->
+            <!--/>-->
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="#d8dde1"-->
+            <!--android:layout_below="@id/register_edt_username"-->
+            <!--android:layout_marginTop="10dp">-->
+        <!--</View>-->
+        <!--<EditText-->
+            <!--android:id="@+id/register_edt_password"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="25sp"-->
+            <!--android:background="@null"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:inputType="textWebPassword"-->
+            <!--android:hint="Password"-->
+            <!--android:paddingLeft="8dp"-->
+            <!--android:gravity="center"/>-->
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="#d8dde1"-->
+            <!--android:layout_below="@id/register_edt_password"-->
+            <!--android:layout_marginTop="10dp">-->
+        <!--</View>-->
+        <!--<EditText-->
+            <!--android:id="@+id/register_edt_repassword"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:background="@null"-->
+            <!--android:inputType="textWebPassword"-->
+            <!--android:hint="Repassword"-->
+            <!--android:paddingLeft="8dp"-->
+            <!--android:textSize="25sp"-->
+            <!--android:gravity="center"/>-->
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="#d8dde1"-->
+            <!--android:layout_below="@id/register_edt_repassword"-->
+            <!--android:layout_marginTop="10dp">-->
+        <!--</View>-->
+        <!--<Button-->
+            <!--android:id="@+id/btn_register"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="50dp"-->
+            <!--android:layout_marginRight="100dp"-->
+            <!--android:layout_marginLeft="100dp"-->
+            <!--android:textAllCaps="false"-->
+            <!--android:text="Register"-->
+            <!--android:textSize="25sp"-->
+            <!--android:gravity="center"-->
+            <!--android:background="@drawable/primary_color" />-->
+
+
+
+<!--</ScrollView>-->
+
+
+<!--</LinearLayout>-->

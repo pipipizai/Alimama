@@ -96,11 +96,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Log in"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:layout_below="@id/layout_login_password"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         style="@style/Button_Large_Orange"
-        android:background="#f4f5f7"
+        android:background="@drawable/primary_color"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
 
@@ -113,9 +113,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:background="#f4f5f7"
+        android:background="@drawable/primary_color"
         android:text="Register"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <!--<Button
         android:id="@+id/btn_forget_pwd"
