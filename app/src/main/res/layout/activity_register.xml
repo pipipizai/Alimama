@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="50dp">
+            android:paddingBottom="50dp"
+            android:background="#F5F5F5">
 
             <ImageButton
                 android:id="@+id/btn_user_icon"
@@ -32,22 +33,25 @@
 
             <EditText
                 android:id="@+id/register_edt_username"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/border"
-                android:textSize="20sp"
-                android:inputType="text"
-                android:hint="Student ID"
-                android:paddingLeft="8dp"
+               android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/register_background"
                 android:gravity="center"
-              />
+                android:hint="Student ID"
+                android:inputType="text"
+                android:paddingLeft="8dp"
+                android:textSize="20sp"
+
+                />
             <EditText
                 android:id="@+id/register_edt_password"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="60dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="4dp"
-                android:background="#ffffff"
+                android:background="@drawable/register_background"
                 android:inputType="textWebPassword"
                 android:hint="Password"
                 android:paddingLeft="8dp"
@@ -56,10 +60,11 @@
                 />
             <EditText
                 android:id="@+id/register_edt_repassword"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="60dp"
+               android:layout_gravity="center"
                 android:layout_marginTop="4dp"
-                android:background="#ffffff"
+                android:background="@drawable/register_background"
                 android:inputType="textWebPassword"
                 android:hint="Repassword"
                 android:paddingLeft="8dp"
@@ -68,10 +73,11 @@
                 />
             <EditText
             android:id="@+id/register_phone"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
             android:layout_marginTop="4dp"
-            android:background="#ffffff"
+                android:background="@drawable/register_background"
             android:inputType="phone"
             android:hint="Phone Number"
             android:paddingLeft="8dp"
@@ -80,29 +86,29 @@
             />
             <EditText
                 android:id="@+id/register_address"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
-                android:background="#ffffff"
+                android:background="@drawable/register_background"
                 android:inputType="text"
                 android:hint="Address"
                 android:paddingLeft="8dp"
                 android:textSize="20sp"
                 android:gravity="center"
+                android:layout_gravity="center"
                 />
 
             <Button
                 android:id="@+id/btn_register"
-                android:layout_width="match_parent"
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="100dp"
-                android:layout_marginLeft="100dp"
+                android:layout_marginTop="35dp"
+                android:layout_gravity="center"
                 android:textAllCaps="false"
                 android:text="Register"
                 android:textColor="#696969"
                 android:textSize="25sp"
-                android:background="@drawable/primary_color"
+                android:background="#f4f5f7"
                 android:gravity="center" />
 
         </LinearLayout>
