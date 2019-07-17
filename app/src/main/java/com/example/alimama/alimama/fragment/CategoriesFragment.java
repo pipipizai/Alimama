@@ -87,7 +87,7 @@ public class CategoriesFragment extends Fragment {
 
                         FirebaseRecyclerAdapter<Item, ItemViewHolder> itemListRecyclerAdapter = new FirebaseRecyclerAdapter<Item, ItemViewHolder>(options) {
                             @Override
-                            protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull Item model) {
+                            protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull final Item model) {
 
                                 //mUserProfileImageDatabaseRef = FirebaseDatabase.getInstance().getReference().child("User").child(model.getUserName());
                                // String profile_image = String.valueOf(mUserProfileImageDatabaseRef.child("icon"));
@@ -97,6 +97,26 @@ public class CategoriesFragment extends Fragment {
                                 holder.published_user_name.setText(model.getUserName());
                                 holder.item_description.setText(model.getDescription());
                                 holder.item_price.setText(model.getPrice());
+
+                                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+
+                                        Intent intent = new Intent(getActivity(), ItemInformationActivity.class);
+                                        Bundle bundle = new Bundle();
+                                        bundle.putLong("item id",model.getItemID());
+                                        bundle.putString("image",model.getImage());
+                                        bundle.putString("name",model.getName());
+                                        bundle.putString("price",model.getPrice());
+                                        bundle.putString("description",model.getDescription());
+                                        bundle.putString("itemPublishedUserName",model.getUserName());
+                                        bundle.putString("userProfileImage",model.getUserProfileImage());
+                                        intent.putExtras(bundle);
+
+//                        intent.putExtra((String) ItemInformationActivity.ExtraData, itemID);
+                                        startActivity(intent);
+                                    }
+                                });
                             }
 
                             @NonNull

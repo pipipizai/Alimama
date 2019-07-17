@@ -6,7 +6,11 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -18,6 +22,8 @@ import android.graphics.Typeface;
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.bean.Item;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -41,6 +47,8 @@ public class ItemInformationActivity extends BaseActvity {
     private ImageButton mItemInfoAddCart;
     private ImageButton mUserContactButton;
     private Button mItemInfoPayment;
+    private DatabaseReference mDatabaseItemsRef;
+    private RecyclerView mItemList;
 
 
     private long itemID;
@@ -151,13 +159,13 @@ public class ItemInformationActivity extends BaseActvity {
         /**
          * add item to my cart
          */
-//        mItemInfoAddCart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //mDatabaseUserCart.child(String.valueOf("item "+(cartItemsNumber +1)+" id ")).setValue(itemID);
-//                mDatabaseUserCart.child(String.valueOf(itemID)).setValue(item);
-//            }
-//        });
+        mItemInfoAddCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //mDatabaseUserCart.child(String.valueOf("item "+(cartItemsNumber +1)+" id ")).setValue(itemID);
+                mDatabaseUserCart.child(String.valueOf(itemID)).setValue(item);
+            }
+        });
 
         /**
          * chat with seller
@@ -202,6 +210,87 @@ public class ItemInformationActivity extends BaseActvity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        FirebaseRecyclerOptions<Item> options =
+                new FirebaseRecyclerOptions.Builder<Item>()
+                        .setQuery(mDatabaseItemsRef, Item.class)
+                        .build();
+
+        FirebaseRecyclerAdapter<Item, ItemViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Item, ItemViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull final Item model) {
+
+//                Picasso.get().load(model.getImage()).into(holder.publish_image);
+//                holder.setImage(getA,model.getImage);
+//                Picasso.with(getContext()).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
+                Glide.with(ItemInformationActivity.this).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.publish_image);
+                holder.publish_name.setText(model.getName());
+                holder.publish_price.setText(model.getPrice());
+                holder.publish_description.setText(model.getDescription());
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent(ItemInformationActivity.this, ItemInformationActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putLong("item id",model.getItemID());
+                        bundle.putString("image",model.getImage());
+                        bundle.putString("name",model.getName());
+                        bundle.putString("price",model.getPrice());
+                        bundle.putString("description",model.getDescription());
+                        bundle.putString("itemPublishedUserName",model.getUserName());
+                        bundle.putString("userProfileImage",model.getUserProfileImage());
+                        intent.putExtras(bundle);
+
+//                        intent.putExtra((String) ItemInformationActivity.ExtraData, itemID);
+                        startActivity(intent);
+                    }
+                });
+
+            }
+
+            @NonNull
+            @Override
+            public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+                //for item_row
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_row, viewGroup, false);
+                ItemViewHolder viewHolder = new ItemViewHolder(view);
+                return viewHolder;
+            }
+
+
+        };
+
+        mItemList.setAdapter(firebaseRecyclerAdapter);
+
+        firebaseRecyclerAdapter.startListening();
+
+    }
+
+    public static class ItemViewHolder extends RecyclerView.ViewHolder {
+
+        private LinearLayout root;
+        private ImageView publish_image;
+        private TextView publish_name;
+        private TextView publish_price;
+        private TextView publish_description;
+
+
+        private ItemViewHolder(View itemView) {
+            super(itemView);
+            root = itemView.findViewById(R.id.item_list);
+            publish_image = itemView.findViewById(R.id.item_image);
+            publish_name = itemView.findViewById(R.id.item_name);
+            publish_price = itemView.findViewById(R.id.item_price);
+            publish_description = itemView.findViewById(R.id.item_description);
+
+        }
     }
 
 
@@ -296,12 +385,18 @@ public class ItemInformationActivity extends BaseActvity {
       //  mItemName = findViewById(R.id.item_info_Name);
         mItemPrice = findViewById(R.id.item_info_price);
         mItemDescription = findViewById(R.id.item_info_description);
-  //      mItemInfoAddCart = findViewById(R.id.item_info_add_cart);
+        mItemInfoAddCart = findViewById(R.id.item_info_add_cart);
         mItemInfoAddFavotie = findViewById(R.id.item_info_add_favorite);
         mUserContactButton = findViewById(R.id.image_contact_user);
         mItemInfoPayment = findViewById(R.id.item_info_payment);
         mPublishedUserProfile = findViewById(R.id.item_info_published_user_profile);
         mItemPublishedUserName = findViewById(R.id.item_info_published_user_name);
+
+        mDatabaseItemsRef = FirebaseDatabase.getInstance().getReference().child("Items");
+
+        mItemList = findViewById(R.id.item_list);
+        mItemList.setHasFixedSize(true);
+        mItemList.setLayoutManager(new GridLayoutManager(this,2));
 
     }
 
