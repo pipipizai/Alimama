@@ -31,7 +31,9 @@ public class ItemInformationActivity extends BaseActvity {
 //    public static Object ExtraData;
 
     private TextView mItemID;
+    private TextView mItemPublishedUserName;
     private ImageView mItemImage;
+    private ImageView mPublishedUserProfile;
     private TextView mItemName;
     private TextView mItemPrice;
     private TextView mItemDescription;
@@ -204,9 +206,13 @@ public class ItemInformationActivity extends BaseActvity {
     private void displayItemInfomation() {
 
         Glide.with(this).load(ItemImage).placeholder(R.drawable.default_item_image).into(mItemImage);
-        mItemName.setText(itemName);
+        Glide.with(this).load(userProfileImage).placeholder(R.drawable.default_item_image).into(mPublishedUserProfile);
+       // mItemName.setText(itemName);
         mItemPrice.setText(itemPrice);
         mItemDescription.setText(itemDescription);
+        mItemPublishedUserName.setText(itemPublishedUserName);
+
+
     }
 
     private void getItemInformation() {
@@ -279,13 +285,15 @@ public class ItemInformationActivity extends BaseActvity {
 
         setUpToolbar();
         mItemImage = findViewById(R.id.item_info_image);
-        mItemName = findViewById(R.id.item_info_Name);
+      //  mItemName = findViewById(R.id.item_info_Name);
         mItemPrice = findViewById(R.id.item_info_price);
         mItemDescription = findViewById(R.id.item_info_description);
       //  mItemInfoAddCart = findViewById(R.id.item_info_add_cart);
         mItemInfoAddFavotie = findViewById(R.id.item_info_add_favorite);
         mUserContactButton = findViewById(R.id.image_contact_user);
         mItemInfoPayment = findViewById(R.id.item_info_payment);
+        mPublishedUserProfile = findViewById(R.id.item_info_published_user_profile);
+        mItemPublishedUserName = findViewById(R.id.item_info_published_user_name);
 
     }
 

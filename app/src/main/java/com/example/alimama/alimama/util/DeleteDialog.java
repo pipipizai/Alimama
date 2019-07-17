@@ -14,7 +14,7 @@ import com.example.alimama.alimama.R;
 
 /**
  * 创建自定义的dialog，主要学习其实现原理
- * Created by chengguo on 2016/3/22.
+ *
  */
 public class DeleteDialog extends Dialog{
 
