@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.graphics.Typeface;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
@@ -64,29 +65,25 @@ public class MeInfoActivity extends BaseActvity{
         setUpToolbar();
         setTitle("My Information");
 
-
-
         initView();
         initEvent();
 
         getMeInformation();
         displayMeInfomation();
 
-        TextView textView1 = findViewById(R.id.me_info_id);
+     //   TextView textView1 = findViewById(R.id.me_info_id);
         TextView textView2 = findViewById(R.id.me_info_username);
         TextView textView3 = findViewById(R.id.me_infor_password);
         TextView textView4 = findViewById(R.id.me_info_adrress);
         TextView textView5 = findViewById(R.id.me_info_contact);
         TextView textView6 = findViewById(R.id.btn_save);
         Typeface tf1= Typeface.createFromAsset(getAssets(), "PTSans-Regular.ttf");
-        textView1.setTypeface(tf1);
+     //   textView1.setTypeface(tf1);
         textView2.setTypeface(tf1);
         textView3.setTypeface(tf1);
         textView4.setTypeface(tf1);
         textView5.setTypeface(tf1);
         textView6.setTypeface(tf1);
-
-
 
 
         /**
@@ -102,7 +99,6 @@ public class MeInfoActivity extends BaseActvity{
                 address = mAddress.getText().toString();
                 contact = mContact.getText().toString();
 
-
                 //这是把信息放进数据库U
                 //mDatabaseUserInfo = FirebaseDatabase.getInstance().getReference().child("Users").child(username);
                 mDatabaseUserInfo.child("username").setValue(username);
@@ -110,14 +106,11 @@ public class MeInfoActivity extends BaseActvity{
                 mDatabaseUserInfo.child(String.valueOf("address")).setValue(address);
                 mDatabaseUserInfo.child(String.valueOf("contact")).setValue(contact);
 
+                Toast.makeText(MeInfoActivity.this, "Save successfully", Toast.LENGTH_LONG).show();
+
             }
         });
-
-
-
     }
-
-
 
     private void displayMeInfomation() {
 
@@ -139,8 +132,9 @@ public class MeInfoActivity extends BaseActvity{
 
         username = mUsername.getText().toString();
         password = mPassword.getText().toString();
-        address = mAddress.getText().toString();
-        contact = mContact.getText().toString();
+        address = String.valueOf(mDatabaseUserInfo.child("address").getKey());
+        contact = String.valueOf(mDatabaseUserInfo.child("contact").getKey());
+      //  contact = mContact.getText().toString();
 
 
 
@@ -197,7 +191,7 @@ public class MeInfoActivity extends BaseActvity{
         //然后在存之前要有一个判断数据库里的数据是否为空的值（数据库里的addr contact 一开始是空的）
 
 
-        mUserID.setText(userID);
+    //    mUserID.setText(userID);
         mUsername.setText(username);
         mPassword.setText(password);
 
@@ -212,7 +206,7 @@ public class MeInfoActivity extends BaseActvity{
 
     private void initView() {
 
-        mUserID = findViewById(R.id.me_info_id);
+      //  mUserID = findViewById(R.id.me_info_id);
         mUsername = findViewById(R.id.me_info_username);
         mPassword = findViewById(R.id.me_infor_password);
         mAddress = findViewById(R.id.me_info_adrress);
@@ -230,8 +224,8 @@ public class MeInfoActivity extends BaseActvity{
 
         userIcon=preferences.getString("userIcon", null);
 
-        address=preferences.getString("address", "Edit address");
-        contact=preferences.getString("contact", "Edit contact");
+        address=preferences.getString("address", "No address");
+        contact=preferences.getString("contact", "No contact");
 
 
         //get database reference
