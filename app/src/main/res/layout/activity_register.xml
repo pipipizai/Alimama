@@ -8,7 +8,7 @@
     android:background="#f3f5f7"
     tools:context="com.example.alimama.alimama.ui.activity.RegisterActivity">
 
-    <include layout="@layout/common_toolbar"></include>
+    <include layout="@layout/register_toolbar"></include>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,17 +16,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="50dp">
 
             <ImageButton
                 android:id="@+id/btn_user_icon"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
-                app:srcCompat="@drawable/tupian"
+                app:srcCompat="@drawable/register_img"
                 android:background="@null"
                 android:layout_marginBottom="5dp"/>
 
@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="40dp"
-                android:background="#ffffff"
+                android:background="@drawable/border"
                 android:textSize="20sp"
                 android:inputType="text"
                 android:hint="Student ID"
@@ -66,12 +66,36 @@
                 android:textSize="20sp"
                 android:gravity="center"
                 />
+            <EditText
+            android:id="@+id/register_phone"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="4dp"
+            android:background="#ffffff"
+            android:inputType="phone"
+            android:hint="Phone Number"
+            android:paddingLeft="8dp"
+            android:textSize="20sp"
+            android:gravity="center"
+            />
+            <EditText
+                android:id="@+id/register_address"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="#ffffff"
+                android:inputType="text"
+                android:hint="Address"
+                android:paddingLeft="8dp"
+                android:textSize="20sp"
+                android:gravity="center"
+                />
 
             <Button
                 android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="100dp"
                 android:layout_marginLeft="100dp"
                 android:textAllCaps="false"
@@ -79,7 +103,7 @@
                 android:textColor="#696969"
                 android:textSize="25sp"
                 android:background="@drawable/primary_color"
-                android:gravity="center"/>
+                android:gravity="center" />
 
         </LinearLayout>
 

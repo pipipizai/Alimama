@@ -55,7 +55,7 @@ public class RegisterActivity extends BaseActvity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        setUpToolbar();
+     //   setUpToolbar();
         initView();
         initEvent();
 
@@ -70,7 +70,7 @@ public class RegisterActivity extends BaseActvity {
         textView3.setTypeface(tf1);
         textView4.setTypeface(tf1);
 
-        setTitle("Register");
+       // setTitle("Register");
 
 
     }
