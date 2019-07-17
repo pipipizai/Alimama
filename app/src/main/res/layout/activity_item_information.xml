@@ -248,21 +248,26 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:orientation="horizontal">
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:background="#ffffff">
 
             <LinearLayout
 
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:background="#ffffff"
+                android:background="#f3f5f7"
                 android:gravity="center">
 
                 <ImageButton
                     android:id="@+id/image_contact_user"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:background="@drawable/connect_icon"
                     android:gravity="center" />
 
@@ -273,21 +278,25 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:gravity="center"
-                    android:text="Contact\nthe Seller" />
+                    android:text="Contact" />
             </LinearLayout>
 
 
             <LinearLayout
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:background="#ffffff"
+                android:background="#f3f5f7"
                 android:gravity="center">
 
                 <ImageButton
                     android:id="@+id/item_info_add_favorite"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:background="@drawable/addtofavorite_icon"
                     android:gravity="center" />
 
@@ -297,7 +306,34 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:gravity="center"
-                    android:text="Add to\nFavorite" />
+                    android:text="Save" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:background="#f3f5f7"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/item_info_add_cart"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/cart_icon"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/txt_add_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="Cart" />
             </LinearLayout>
 
             <!--<RelativeLayout-->
@@ -319,8 +355,12 @@
 
 
             <RelativeLayout
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:gravity="center">
 
@@ -330,9 +370,9 @@
                     android:layout_height="match_parent"
                     android:background="#FFA500"
                     android:gravity="center"
-                    android:text="Pay"
+                    android:text="Buy It Now"
                     android:textAllCaps="false"
-                    android:textSize="25dp" />
+                    android:textSize="20dp" />
             </RelativeLayout>
 
 
