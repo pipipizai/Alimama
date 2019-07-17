@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#F5F5F5"
+    android:layout_height="match_parent">
+    //android:background="#dedede"
+    <!-- 我来组成头部! -->
+
+    <include layout="@layout/common_toolbar"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/id_toolbar"
+        android:layout_marginTop="0dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <LinearLayout
+                android:id="@+id/layout_payment_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:elevation="4dp"
+                android:background="@drawable/corners"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp">
+
+                <LinearLayout
+                    android:id="@+id/payment_user_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/payment_user_image"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginRight="13dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:textStyle="bold"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/payment_info_user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:textColor="#000000"
+
+                            android:paddingTop="10dp"
+                            android:text="Buyer Name"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/payment_info_user_contact"
+                            android:layout_below="@id/payment_info_user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:textColor="#000000"
+
+                            android:paddingTop="10dp"
+                            android:text="Contact number"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/payment_info_user_address"
+                            android:layout_below="@id/payment_info_user_contact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:textColor="#000000"
+
+                            android:paddingTop="10dp"
+                            android:text="Address"
+                            android:textSize="20sp" />
+
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/payment_info_user_address"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="10dp"
+                            android:background="#ffffff"></View>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/item_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/publisher_info"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/item_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+                        // android:layout_marginTop="2dp"
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Item name"
+                            android:layout_marginRight="50dp"
+                            android:textColor="#DC143C"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$"
+                            android:textColor="#DC143C"
+                            android:textSize="18dp"
+                            android:layout_gravity="center"
+                            />
+                        //android:textStyle="bold"
+
+                        <TextView
+                            android:id="@+id/item_info_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="7000.00"
+                            android:textColor="#DC143C"
+                            android:textSize="23dp" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/item_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/item_price"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="vertical">
+
+                        <!--<TextView-->
+                        <!--android:id="@+id/item_info_Name"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="Apple MacBook Pro"-->
+                        <!--android:textSize="25dp"-->
+                        <!--android:textStyle="bold" />-->
+
+                        <TextView
+                            android:id="@+id/item_info_description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000000"
+                            android:text="14-inch Retina, Touch Bar, 2.7GHz Quad-Core Intel Core i7, 8GB RAM, 256GB SSD, Space Gray (Latest Model)"
+                            android:textSize="20dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/item_info_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_below="@id/item_description"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginBottom="30dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="18dp" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:height="100dp"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dedede"></View>
+
+
+        //底部
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/image_contact_user"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/connect_icon"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/conncet_seller"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="Contact" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#d8dde1"></View>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -18,7 +18,7 @@ public class ConfirmDialog extends AppCompatDialogFragment {
 
 
         builder.setTitle("^ ^")
-                .setMessage("Login Successful！")
+                .setMessage("Wrong Username/Password！")
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
