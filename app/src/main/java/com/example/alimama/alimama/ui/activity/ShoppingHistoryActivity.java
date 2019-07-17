@@ -34,7 +34,11 @@ public class ShoppingHistoryActivity extends BaseActvity {
     private DeleteDialog deleteDialog;
 
     private long userID=0;
+    private long itemID=0;
     private String username;
+    private String phone;
+    private String userIcon;
+    private String address;
 
     private DatabaseReference mDatabaseRef;
 
@@ -81,17 +85,41 @@ public class ShoppingHistoryActivity extends BaseActvity {
                     @Override
                     public void onClick(View v) {
 
-                        Intent intent = new Intent(ShoppingHistoryActivity.this, ItemInformationActivity.class);
+//                        Intent intent = new Intent(ShoppingHistoryActivity.this, ItemInformationActivity.class);
+//                        Bundle bundle = new Bundle();
+//                        bundle.putLong("item id",model.getItemID());
+//                        bundle.putString("image", model.getImage());
+//                        bundle.putString("name",model.getName());
+//                        bundle.putString("price",model.getPrice());
+//                        bundle.putString("description",model.getDescription());
+//                        bundle.putString("itemPublishedUserName",model.getDescription());
+//                        bundle.putString("userProfileImage",model.getUserProfileImage());
+//
+//
+//                        intent.putExtras(bundle);
+//
+//                        startActivity(intent);
+
+                        Intent intent = new Intent(ShoppingHistoryActivity.this,PaymentInformationActivity.class);
+                    //    String reference = "shopping history";
+                        //the data need to transfer to search activity
                         Bundle bundle = new Bundle();
-                        bundle.putLong("item id",model.getItemID());
-                        bundle.putString("image", model.getImage());
+
+                        bundle.putString("address",address);
+                        bundle.putString("buyer",username);
+                        bundle.putString("buyerProfileImage",userIcon);
+                        bundle.putString("description",model.getDescription());
+                        bundle.putString("image",model.getImage());
+                        bundle.putLong("item id",itemID);
+                        bundle.putString("phone",phone);
                         bundle.putString("name",model.getName());
                         bundle.putString("price",model.getPrice());
-                        bundle.putString("description",model.getDescription());
-                        bundle.putString("itemPublishedUserName",model.getDescription());
-                        bundle.putString("userProfileImage",model.getUserProfileImage());
-                        intent.putExtras(bundle);
+                        bundle.putString("seller",model.getUserName());
+                        bundle.putString("sellerProfileImage",model.getUserProfileImage());
 
+                      //  bundle.putString("itemPublishedUserName",model.getUserName());
+
+                        intent.putExtras(bundle);
                         startActivity(intent);
                     }
                 });
@@ -225,6 +253,9 @@ public class ShoppingHistoryActivity extends BaseActvity {
         //2、取出数据
         userID = preferences.getLong("userid",0);
         username=preferences.getString("username", null);
+        phone=preferences.getString("phone", null);
+        address=preferences.getString("address", null);
+        userIcon =preferences.getString("userIcon", null);
 
         //改一下读取的表"shopping history"
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("shopping history");

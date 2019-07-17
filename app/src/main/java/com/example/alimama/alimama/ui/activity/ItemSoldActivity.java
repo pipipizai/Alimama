@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.bean.Item;
+import com.example.alimama.alimama.bean.Payment;
 import com.example.alimama.alimama.util.DeleteDialog;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -58,14 +59,14 @@ public class ItemSoldActivity extends BaseActvity {
         super.onStart();
 
 
-        FirebaseRecyclerOptions<Item> options =
-                new FirebaseRecyclerOptions.Builder<Item>()
-                        .setQuery(mDatabaseRef, Item.class)
+        FirebaseRecyclerOptions<Payment> options =
+                new FirebaseRecyclerOptions.Builder<Payment>()
+                        .setQuery(mDatabaseRef, Payment.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Item, ItemViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Item, ItemViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Payment, ItemViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Payment, ItemViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull final Item model) {
+            protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull final Payment model) {
 
                 Glide.with(ItemSoldActivity.this).load(model.getImage()).placeholder(R.drawable.default_item_image).into(holder.item_image);
                 holder.item_name.setText(model.getName());
@@ -76,15 +77,22 @@ public class ItemSoldActivity extends BaseActvity {
                     @Override
                     public void onClick(View v) {
 
-                        Intent intent = new Intent(ItemSoldActivity.this, ItemInformationActivity.class);
+                        Intent intent = new Intent(ItemSoldActivity.this, PaymentInformationActivity.class);
                         Bundle bundle = new Bundle();
+
+
+                        bundle.putString("address",model.getAddress());
+                        bundle.putString("buyer",model.getBuyer());
+                        bundle.putString("buyerProfileImage",model.getBuyerProfileImage());
+                        bundle.putString("description",model.getDescription());
+                        bundle.putString("image",model.getImage());
                         bundle.putLong("item id",model.getItemID());
-                        bundle.putString("image", model.getImage());
+                        bundle.putString("phone",model.getPhone());
                         bundle.putString("name",model.getName());
                         bundle.putString("price",model.getPrice());
-                        bundle.putString("description",model.getDescription());
-                        bundle.putString("itemPublishedUserName",model.getDescription());
-                        bundle.putString("userProfileImage",model.getUserProfileImage());
+                        bundle.putString("seller",model.getSeller());
+                        bundle.putString("sellerProfileImage",model.getSellerProfileImage());
+
                         intent.putExtras(bundle);
 
                         startActivity(intent);
@@ -239,7 +247,7 @@ public class ItemSoldActivity extends BaseActvity {
         userID = preferences.getLong("userid",0);
         username=preferences.getString("username", null);
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("favorite items");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("sold items");
 
         setTitle("Item Sold");
     }

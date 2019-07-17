@@ -131,6 +131,7 @@ public class ItemInformationActivity extends BaseActvity {
                     Toast.makeText(ItemInformationActivity.this, "Can not save your item", Toast.LENGTH_LONG).show();
                 }else {
                     mDatabaseUserFavorite.child(String.valueOf(itemID)).setValue(item);
+                    Toast.makeText(ItemInformationActivity.this, "Successfully save", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -164,6 +165,7 @@ public class ItemInformationActivity extends BaseActvity {
             public void onClick(View view) {
                 //mDatabaseUserCart.child(String.valueOf("item "+(cartItemsNumber +1)+" id ")).setValue(itemID);
                 mDatabaseUserCart.child(String.valueOf(itemID)).setValue(item);
+                Toast.makeText(ItemInformationActivity.this, "Successfully add cart", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -178,7 +180,7 @@ public class ItemInformationActivity extends BaseActvity {
                     Toast.makeText(ItemInformationActivity.this, "You can not talk to yourself", Toast.LENGTH_LONG).show();
                 }else {
                     Intent intent = new Intent(ItemInformationActivity.this, MessageActivity.class);
-                    intent.putExtra("itemPublishedUserName", itemPublishedUserName);
+                    intent.putExtra("talkTo", itemPublishedUserName);
                     intent.putExtra("username", username);
                     startActivity(intent);
 
@@ -293,10 +295,7 @@ public class ItemInformationActivity extends BaseActvity {
         }
     }
 
-
-
    private void toMessageActivity() {
-
 
     }
 
@@ -308,8 +307,6 @@ public class ItemInformationActivity extends BaseActvity {
         mItemPrice.setText(itemPrice);
         mItemDescription.setText(itemDescription);
         mItemPublishedUserName.setText(itemPublishedUserName);
-
-
     }
 
     private void getItemInformation() {

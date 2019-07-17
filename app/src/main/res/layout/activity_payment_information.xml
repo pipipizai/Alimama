@@ -39,7 +39,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/payment_user_image"
+                        android:id="@+id/payment_info_user_image"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_marginLeft="13dp"
@@ -84,7 +84,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:textColor="#000000"
-
                             android:paddingTop="10dp"
                             android:text="Address"
                             android:textSize="20sp" />
@@ -104,18 +103,17 @@
 
 
                 <RelativeLayout
-                    android:id="@+id/item_info"
+                    android:id="@+id/payment_info_item_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/publisher_info"
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:id="@+id/item_price"
+                        android:id="@+id/payment_info_item_price"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-
                         android:layout_marginRight="15dp"
                         android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
@@ -123,6 +121,7 @@
 
 
                         <TextView
+                            android:id="@+id/payment_info_item_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Item name"
@@ -141,7 +140,7 @@
                         //android:textStyle="bold"
 
                         <TextView
-                            android:id="@+id/item_info_price"
+                            android:id="@+id/payment_info_item_info_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="7000.00"
@@ -152,10 +151,10 @@
 
 
                     <LinearLayout
-                        android:id="@+id/item_description"
+                        android:id="@+id/payment_info_item_description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/item_price"
+                        android:layout_below="@id/payment_info_item_price"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="15dp"
@@ -171,7 +170,7 @@
                         <!--android:textStyle="bold" />-->
 
                         <TextView
-                            android:id="@+id/item_info_description"
+                            android:id="@+id/payment_info_item_info_description"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="#000000"
@@ -181,17 +180,16 @@
                     </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/item_info_image"
+                        android:id="@+id/payment_info_item_info_image"
                         android:layout_width="match_parent"
                         android:layout_height="300dp"
-                        android:layout_below="@id/item_description"
+                        android:layout_below="@id/payment_info_item_description"
                         android:layout_marginLeft="18dp"
                         android:layout_marginBottom="30dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginRight="18dp" />
 
                 </RelativeLayout>
-
 
             </LinearLayout>
 
@@ -228,14 +226,14 @@
                 android:gravity="center">
 
                 <ImageButton
-                    android:id="@+id/image_contact_user"
+                    android:id="@+id/payment_info_image_contact_user"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/connect_icon"
                     android:gravity="center" />
 
                 <TextView
-                    android:id="@+id/conncet_seller"
+                    android:id="@+id/payment_info_conncet_seller"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -249,6 +247,7 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="#d8dde1"></View>
+
     </LinearLayout>
 
 </RelativeLayout>

@@ -139,8 +139,46 @@ public class PaymentActivity extends BaseActvity {
              //   mDatabaseUsers.child(username).child(String.valueOf(itemID)).removeValue();
 
                 sendNotification();
+                Toast.makeText(PaymentActivity.this, "Successfully pay", Toast.LENGTH_LONG).show();
+                toPaymentInformationActivity();
+                finish();
             }
         });
+
+    }
+
+    private void toPaymentInformationActivity(){
+
+//        Intent intent = new Intent(PaymentActivity.this,PaymentInformationActivity.class);
+////        intent.putExtra("reference","shopping history");
+////        intent.putExtra("itemID", itemID);
+//        String reference = "shopping history";
+//        //the data need to transfer to search activity
+//        Bundle bundle = new Bundle();
+//        bundle.putString("reference",reference);
+//        bundle.putLong("itemID",itemID);
+//
+//        intent.putExtras(bundle);
+//        startActivity(intent);
+
+        Intent intent = new Intent(PaymentActivity.this, PaymentInformationActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("address",address);
+        bundle.putString("buyer",username);
+        bundle.putString("buyerProfileImage",userIcon);
+        bundle.putString("description",item.getDescription());
+        bundle.putString("image",item.getImage());
+        bundle.putLong("item id",itemID);
+        bundle.putString("phone",phone);
+        bundle.putString("name",item.getName());
+        bundle.putString("price",item.getPrice());
+        bundle.putString("seller",item.getUserName());
+        bundle.putString("sellerProfileImage",item.getUserProfileImage());
+        bundle.putString("itemPublishedUserName",item.getUserName());
+        intent.putExtras(bundle);
+
+        startActivity(intent);
+
 
     }
 

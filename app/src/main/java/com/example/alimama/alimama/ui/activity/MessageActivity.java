@@ -35,7 +35,8 @@ public class MessageActivity extends BaseActvity {
     private DatabaseReference itemPublishedUserNamereference;
 
     private String username;
-    private String itemPublishedUserName;
+   // private String itemPublishedUserName;
+    private String talkTo;
 
     private ImageButton btn_send;
     private EditText text_send;
@@ -62,7 +63,7 @@ public class MessageActivity extends BaseActvity {
             public void onClick(View v) {
                 String msg = text_send.getText().toString();
                 if(!msg.equals("")){
-                    sendMessage(username,itemPublishedUserName,msg);
+                    sendMessage(username,talkTo,msg);
                     text_send.setText("");
                 }else {
                     Toast.makeText(MessageActivity.this, "You can't send empty message", Toast.LENGTH_LONG).show();
@@ -76,17 +77,7 @@ public class MessageActivity extends BaseActvity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     User user = dataSnapshot.getValue(User.class);
 
-//                    if (user.getIcon().equals("default")) {
-//                        profle_image.setImageResource(R.mipmap.ic_launcher);
-//                    } else {
-//
-//                        Glide.with(MessageActivity.this).load(user.getIcon()).into(profle_image);
-//                    }
-
-                    readMessage(username, itemPublishedUserName, user.getIcon());
-
-//                messageAapter.start
-
+                    readMessage(username, talkTo, user.getIcon());
                 }
 
                 @Override
@@ -134,24 +125,22 @@ public class MessageActivity extends BaseActvity {
         hashMap.put("message",message);
 
         reference.child("Chats").push().setValue(hashMap);
-
-
-
     }
 
     private void getChattingInformation() {
 
         Intent getIntent = getIntent();
-        itemPublishedUserName = getIntent.getStringExtra("itemPublishedUserName");
+       // itemPublishedUserName = getIntent.getStringExtra("itemPublishedUserName");
+        talkTo = getIntent.getStringExtra("talkTo");
         username = getIntent.getStringExtra("username");
-
+        itemPublishedUserNamereference = FirebaseDatabase.getInstance().getReference("Users").child(talkTo);
     }
 
     private void initView() {
         setUpToolbar();
-        setTitle(itemPublishedUserName);
+        setTitle(talkTo);
 
-        itemPublishedUserNamereference = FirebaseDatabase.getInstance().getReference("Users").child(itemPublishedUserName);
+        //itemPublishedUserNamereference = FirebaseDatabase.getInstance().getReference("Users").child(talkTo);
         chatsReference = FirebaseDatabase.getInstance().getReference("Chats");
 
         profle_image = findViewById(R.id.profile_image);
