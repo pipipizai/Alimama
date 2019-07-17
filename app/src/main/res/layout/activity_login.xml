@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto">
 
     <!--<EditText-->
         <!--android:layout_width="match_parent"-->
@@ -91,7 +92,49 @@
         </View>
     </RelativeLayout>
 
-    <Button
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/btn_login"
+        style="@style/Button_Large_Orange"
+        android:layout_width="216dp"
+        android:layout_height="51dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="288dp"
+        android:layout_marginRight="100dp"
+        android:paddingLeft="60dp"
+        android:paddingTop="10dp"
+        android:paddingRight="60dp"
+        android:paddingBottom="10dp"
+        fancy:fb_borderColor="#FFFFFF"
+        fancy:fb_borderWidth="1dp"
+        fancy:fb_defaultColor="#efb336"
+        fancy:fb_focusColor="#ff838b"
+        fancy:fb_iconPosition="left"
+        fancy:fb_radius="30dp"
+        fancy:fb_text="Login"
+        fancy:fb_textColor="#FFFFFF" />
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/btn_register"
+        style="@style/Button_Large_Orange"
+        android:layout_width="216dp"
+        android:layout_height="51dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginRight="100dp"
+        android:paddingLeft="60dp"
+        android:paddingTop="10dp"
+        android:paddingRight="60dp"
+        android:paddingBottom="10dp"
+        fancy:fb_borderColor="#FFFFFF"
+        fancy:fb_borderWidth="1dp"
+        fancy:fb_defaultColor="#efb336"
+        fancy:fb_focusColor="#ff838b"
+        fancy:fb_iconPosition="left"
+        fancy:fb_radius="30dp"
+        fancy:fb_text="Register"
+        fancy:fb_textColor="#FFFFFF"></mehdi.sakout.fancybuttons.FancyButton>
+
+    <!--<Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -115,7 +158,7 @@
         android:layout_marginRight="20dp"
         android:background="#f4f5f7"
         android:text="Register"
-        android:textSize="20sp" />
+        android:textSize="20sp" />-->
 
     <!--<Button
         android:id="@+id/btn_forget_pwd"
