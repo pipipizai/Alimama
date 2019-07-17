@@ -26,7 +26,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:theme="@style/font">
 
             <TextView
                 android:id="@+id/favorite_item_name"

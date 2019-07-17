@@ -72,6 +72,30 @@ public class PaymentActivity extends BaseActvity {
 
         initView();
 
+        TextView textView1 = findViewById(R.id.payment_name);
+        TextView textView2 = findViewById(R.id.payment_phone);
+        TextView textView3 = findViewById(R.id.payment_address);
+        TextView textView4 = findViewById(R.id.choice1);
+        TextView textView5 = findViewById(R.id.choice2);
+        TextView textView6 = findViewById(R.id.choice3);
+        TextView textView7 = findViewById(R.id.choice4);
+        TextView textView8 = findViewById(R.id.payment2_name);
+        TextView textView9 = findViewById(R.id.payment2_description);
+        TextView textView10 = findViewById(R.id.payment2_price);
+        TextView textView11 = findViewById(R.id.payment);
+        Typeface tf1= Typeface.createFromAsset(getAssets(), "PTSans-Regular.ttf");
+        textView1.setTypeface(tf1);
+        textView2.setTypeface(tf1);
+        textView3.setTypeface(tf1);
+        textView4.setTypeface(tf1);
+        textView5.setTypeface(tf1);
+        textView6.setTypeface(tf1);
+        textView7.setTypeface(tf1);
+        textView8.setTypeface(tf1);
+        textView9.setTypeface(tf1);
+        textView10.setTypeface(tf1);
+        textView11.setTypeface(tf1);
+
         getItemInformation();
 
         displayItemInfomation();
@@ -79,17 +103,6 @@ public class PaymentActivity extends BaseActvity {
         setUpToolbar();
         setTitle("Payment");
 
-        //字体
-        TextView textView1 = findViewById(R.id.payment);
-//        TextView textView2 = findViewById(R.id.item_info_add_cart);
-//        TextView textView3 = findViewById(R.id.conncet_seller);
-
-        Typeface tf1= Typeface.createFromAsset(getAssets(), "againts.otf");
-
-        textView1.setTypeface(tf1);
-
-//        textView2.setTypeface(tf1);
-//        textView3.setTypeface(tf1);
 
         //create a item object
         final Item item = new Item();

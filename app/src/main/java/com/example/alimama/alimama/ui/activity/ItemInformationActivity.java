@@ -38,7 +38,7 @@ public class ItemInformationActivity extends BaseActvity {
     private TextView mItemPrice;
     private TextView mItemDescription;
     private ImageButton mItemInfoAddFavotie;
-    private Button mItemInfoAddCart;
+    private ImageButton mItemInfoAddCart;
     private ImageButton mUserContactButton;
     private Button mItemInfoPayment;
 
@@ -78,15 +78,23 @@ public class ItemInformationActivity extends BaseActvity {
 
         //字体
         TextView textView1 = findViewById(R.id.txt_add_favorite);
-     //   TextView textView2 = findViewById(R.id.item_info_add_cart);
+        TextView textView2 = findViewById(R.id.txt_add_cart);
         TextView textView3 = findViewById(R.id.conncet_seller);
         TextView textView4 = findViewById(R.id.item_info_payment);
+        TextView textView5 = findViewById(R.id.item_info_price);
+        TextView textView6 = findViewById(R.id.item_info_Name);
+        TextView textView7 = findViewById(R.id.item_info_description);
+        TextView textView8 = findViewById(R.id.txt_guess_you_like);
 
         Typeface tf1= Typeface.createFromAsset(getAssets(), "PTSans-Regular.ttf");
         textView1.setTypeface(tf1);
-    //    textView2.setTypeface(tf1);
+        textView2.setTypeface(tf1);
         textView3.setTypeface(tf1);
         textView4.setTypeface(tf1);
+        textView5.setTypeface(tf1);
+        textView6.setTypeface(tf1);
+        textView7.setTypeface(tf1);
+        textView8.setTypeface(tf1);
 
         //create a item object
         final Item item = new Item();
@@ -288,7 +296,7 @@ public class ItemInformationActivity extends BaseActvity {
       //  mItemName = findViewById(R.id.item_info_Name);
         mItemPrice = findViewById(R.id.item_info_price);
         mItemDescription = findViewById(R.id.item_info_description);
-      //  mItemInfoAddCart = findViewById(R.id.item_info_add_cart);
+        mItemInfoAddCart = findViewById(R.id.item_info_add_cart);
         mItemInfoAddFavotie = findViewById(R.id.item_info_add_favorite);
         mUserContactButton = findViewById(R.id.image_contact_user);
         mItemInfoPayment = findViewById(R.id.item_info_payment);
