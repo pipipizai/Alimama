@@ -11,16 +11,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.TextView;
-import android.content.Context;
 import android.graphics.Typeface;
 
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.bean.User;
+import com.example.alimama.alimama.util.ConfirmDialog;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -63,6 +64,21 @@ public class LoginActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+
+
+//        mBtnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openDialog();
+//            }
+//
+//            });
+
+    }
+
+    public void openDialog() {
+        ConfirmDialog dialog = new ConfirmDialog();
+        dialog.show(getSupportFragmentManager(), "example dialog");
     }
 
     private void initEvent() {
@@ -113,7 +129,7 @@ public class LoginActivity extends AppCompatActivity {
                                 toMainActivity();
                                 finish();
                             } else {
-
+                                openDialog();// dialog
                                 Toast.makeText(LoginActivity.this, "The password is incorrect", Toast.LENGTH_LONG).show();
                             }
                         }
