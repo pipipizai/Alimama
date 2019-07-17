@@ -62,7 +62,7 @@ public class NotificationActivity extends BaseActvity {
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                     Notification notification = snapshot.getValue(Notification.class);
 
-                    if(notification.getBuyer().equals(username)){
+                    if(notification.getPublishedItemUsername().equals(username)){
                         mNotificationList.add(notification);
                     }
                 }

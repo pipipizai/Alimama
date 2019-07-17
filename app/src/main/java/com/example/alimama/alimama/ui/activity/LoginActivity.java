@@ -102,8 +102,10 @@ public class LoginActivity extends AppCompatActivity {
                                 //3、存放数据
                                 editor.putString("username", username);
                                 editor.putString("password", password);
-                               // editor.putLong("userid",userid);
                                 editor.putString("userIcon",userIcon);
+                                editor.putString("phone",user.getPhone());
+                                editor.putString("address",user.getAddress());
+
 
                                 //4、完成提交
                                 editor.commit();

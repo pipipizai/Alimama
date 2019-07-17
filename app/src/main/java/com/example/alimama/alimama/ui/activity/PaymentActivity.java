@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.bean.Item;
 import com.example.alimama.alimama.bean.Notification;
+import com.example.alimama.alimama.bean.Payment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -68,6 +69,11 @@ public class PaymentActivity extends BaseActvity {
     private long notificationAmount=0;
     private String username;
     private String message;
+    private String phone;
+    private String address;
+    private String userIcon;
+    private Item item;
+    private Payment payment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,17 +113,7 @@ public class PaymentActivity extends BaseActvity {
         setUpToolbar();
         setTitle("Payment");
 
-        //create a item object
-        final Item item = new Item();
-        //set value in this item object(more detail look into Class Item)
-        item.setName(itemName);
-        item.setPrice(itemPrice);
-        item.setDescription(itemDescription);
-        item.setImage(ItemImage);
-//        item.setUserID(itemPublishedUserID);
-        item.setUserName(itemPublishedUserName);
-        item.setItemID(itemID);
-        item.setUserProfileImage(userProfileImage);
+        createObject();
 
         /**
          * add item to my shopping history
@@ -131,15 +127,39 @@ public class PaymentActivity extends BaseActvity {
 //               mDatabaseUserFavorite.child(String.valueOf(itemID)).setValue(itemID);
 
                 //这是把整个item对象放进数据库
-                mDatabaseUserShoppingHistory.child(String.valueOf(itemID)).setValue(item);
-                mDatabaseUsers.child(username).child("shopping history").child(String.valueOf(itemID)).removeValue();
-                mDatabaseUsers.child(username).child("favorite").child(String.valueOf(itemID)).removeValue();
-                mDatabaseUsers.child(username).child(String.valueOf(itemID)).removeValue();
+                mDatabaseUserShoppingHistory.child(String.valueOf(itemID)).setValue(payment);
+
+                mDatabaseUsers.child(itemPublishedUserName).child("sold items").child(String.valueOf(itemID)).setValue(payment);
+
+                mDatabaseUsers.child(username).child("cart items").child(String.valueOf(itemID)).removeValue();
+                mDatabaseUsers.child(username).child("favorite items").child(String.valueOf(itemID)).removeValue();
+
+                mDatabaseUsers.child(itemPublishedUserName).child("published items").child(String.valueOf(itemID)).removeValue();
+
+             //   mDatabaseUsers.child(username).child(String.valueOf(itemID)).removeValue();
 
                 sendNotification();
             }
         });
 
+    }
+
+    private void createObject(){
+        //create a item object
+        item = new Item();
+        //set value in this item object(more detail look into Class Item)
+        item.setName(itemName);
+        item.setPrice(itemPrice);
+        item.setDescription(itemDescription);
+        item.setImage(ItemImage);
+//        item.setUserID(itemPublishedUserID);
+        item.setUserName(itemPublishedUserName);
+        item.setItemID(itemID);
+        item.setUserProfileImage(userProfileImage);
+
+        payment = new Payment(itemName,itemPrice,itemDescription,
+                ItemImage,username,itemPublishedUserName,
+                itemID,userIcon,userProfileImage,phone,address);
     }
 
     private void displayInfomation() {
@@ -150,6 +170,11 @@ public class PaymentActivity extends BaseActvity {
         mItemDescription.setText(itemDescription);
         mTextViewUsername.setText(username);
         //mTextViewAddress.setText();
+        mTextViewUsername.setText(username);
+        mTextViewPhone.setText(phone);
+        mTextViewAddress.setText(address);
+
+
 
 
     }
@@ -174,6 +199,9 @@ public class PaymentActivity extends BaseActvity {
         //2、取出数据 用户id和用户名
         userID = preferences.getLong("userid",0);
         username=preferences.getString("username", null);
+        phone=preferences.getString("phone", null);
+        address=preferences.getString("address", null);
+        userIcon =preferences.getString("userIcon", null);
 
       //  userPhone =
 
