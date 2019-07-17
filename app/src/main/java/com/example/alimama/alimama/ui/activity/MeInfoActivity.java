@@ -129,7 +129,6 @@ public class MeInfoActivity extends BaseActvity{
             userID2 = bundle.getLong("id");
             UserIDString = String.valueOf(userID2);
         }
-
         username = mUsername.getText().toString();
         password = mPassword.getText().toString();
         address = String.valueOf(mDatabaseUserInfo.child("address").getKey());
@@ -223,10 +222,8 @@ public class MeInfoActivity extends BaseActvity{
         password=preferences.getString("password", "No password");
 
         userIcon=preferences.getString("userIcon", null);
-
-        address=preferences.getString("address", "No address");
-        contact=preferences.getString("contact", "No contact");
-
+//        address=preferences.getString("address", "No address");
+//        contact=preferences.getString("contact", "No contact");
 
         //get database reference
         mDatabaseUserInfo = FirebaseDatabase.getInstance().getReference().child("Users").child(username);

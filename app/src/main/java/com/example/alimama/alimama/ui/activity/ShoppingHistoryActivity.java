@@ -45,7 +45,7 @@ public class ShoppingHistoryActivity extends BaseActvity {
 
         initView();
         setUpToolbar();
-        setTitle("Order Record");
+        setTitle("shopping history");
     }
 
 
