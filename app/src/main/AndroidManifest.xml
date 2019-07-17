@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.NotificationActivity"></activity>
+        <activity android:name=".ui.activity.PaymentInformationActivity"></activity>
+        <activity android:name=".ui.activity.NotificationActivity" />
         <activity android:name=".fragment.MessageFragment" />
         <activity android:name=".ui.activity.MessageActivity" />
         <activity
@@ -26,7 +27,6 @@
         <activity android:name=".ui.activity.PaymentActivity" />
         <activity android:name=".ui.activity.ItemSoldActivity" />
         <activity android:name=".util.ConfirmDialog" />
-
         <activity
             android:name=".ui.activity.MeInfoActivity"
             android:label="@string/title_activity_me_info"
