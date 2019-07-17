@@ -7,14 +7,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="208dp"
         android:background="@drawable/list_background"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/categories_user_profile_image"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="10dp"
@@ -23,7 +23,7 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="196dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:orientation="vertical">
@@ -40,11 +40,11 @@
                     android:id="@+id/categories_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:maxLines="2"
                     android:text="SWE1609022"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -60,7 +60,8 @@
                         android:layout_height="wrap_content"
                         android:text="RM"
                         android:textColor="#FF0000"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:layout_marginTop="-6dp"/>
 
                     <TextView
                         android:id="@+id/categories_item_price"
@@ -68,7 +69,8 @@
                         android:layout_height="wrap_content"
                         android:text="1800"
                         android:textColor="#FF0000"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:layout_marginTop="-6dp"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -78,8 +80,7 @@
                 android:id="@+id/categories_item_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
+                android:layout_marginTop="6dp"
                 android:maxLength="50"
                 android:maxLines="2"
                 android:text="Ipad 2018 9.7inch 280g today is a goo day and this "
@@ -87,11 +88,12 @@
 
             <ImageView
                 android:id="@+id/categories_item_image"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="6dp"
                 android:src="@drawable/ipad"
-                android:layout_marginTop="10dp"
-               android:layout_gravity="center_horizontal"/>
+                android:layout_marginBottom="5dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
