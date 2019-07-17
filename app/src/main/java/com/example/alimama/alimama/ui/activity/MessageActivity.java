@@ -63,6 +63,7 @@ public class MessageActivity extends BaseActvity {
                 String msg = text_send.getText().toString();
                 if(!msg.equals("")){
                     sendMessage(username,itemPublishedUserName,msg);
+                    text_send.setText("");
                 }else {
                     Toast.makeText(MessageActivity.this, "You can't send empty message", Toast.LENGTH_LONG).show();
                 }
@@ -133,6 +134,7 @@ public class MessageActivity extends BaseActvity {
         hashMap.put("message",message);
 
         reference.child("Chats").push().setValue(hashMap);
+
 
 
     }

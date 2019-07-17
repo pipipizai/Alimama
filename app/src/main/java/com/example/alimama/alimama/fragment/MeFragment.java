@@ -48,6 +48,7 @@ public class MeFragment extends Fragment {
     protected TextView mTextLogOut;
     protected TextView mTextShoppingCart;
     protected TextView mTextItemSold;
+    protected TextView mTextUsername;
     private ImageView mUserIcon;
     private long userID=0;
     private String username;
@@ -101,9 +102,10 @@ public class MeFragment extends Fragment {
         userIcon=preferences.getString("userIcon", null);
 
 
-        mUserIcon = getView().findViewById(R.id.me_icon);
 
-        displayUserIcon();
+        mUserIcon = getView().findViewById(R.id.me_icon);
+        mTextUsername = getView().findViewById(R.id.me_username);
+        displayInformation();
 
 
         //toMeInfoActivity
@@ -191,12 +193,13 @@ public class MeFragment extends Fragment {
 
 
 
-    public void displayUserIcon(){
+    public void displayInformation(){
 
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(username);
 
         Glide.with(this).load(userIcon).placeholder(R.drawable.default_item_image).into(mUserIcon);
+        mTextUsername.setText(username);
 
     }
 }

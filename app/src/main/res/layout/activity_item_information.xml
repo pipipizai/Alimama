@@ -30,9 +30,9 @@
                 android:orientation="vertical"
                 android:elevation="4dp"
                 android:background="@drawable/corners"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="13dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp">
+                android:layout_marginLeft="13dp">
             <LinearLayout
                 android:id="@+id/publisher_info"
                 android:layout_width="match_parent"
@@ -320,7 +320,8 @@
                     android:layout_height="100dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="15dp"
-                    android:background="#FFA500"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/item_information_buy_it_now"
                     android:gravity="center"
                     android:text="Buy it now"
                     android:textAllCaps="false"
