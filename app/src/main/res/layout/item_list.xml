@@ -50,18 +50,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="100dp">
-                    <!--<TextView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="RM"
                         android:textColor="#FF0000"
-                        android:textSize="15sp" />-->
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/categories_item_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="RM1800"
+                        android:text="1800"
                         android:textColor="#DC143C"
                         android:textSize="15sp" />
                 </LinearLayout>

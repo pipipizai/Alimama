@@ -33,7 +33,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
-        android:background="@mipmap/search"/>
+        android:background="@drawable/search2"/>
 
     <!--发布 -->
     <!--<LinearLayout-->
@@ -64,7 +64,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@mipmap/message" />
+            android:src="@drawable/message" />
 
 
     </LinearLayout>

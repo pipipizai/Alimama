@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activity.MessageActivity"
-    android:background="@color/colorbackground">
+    android:background="#E8E8E8">
     <include layout="@layout/common_toolbar">
 
 
