@@ -1,4 +1,4 @@
-package com.example.alimama.alimama.bean;
+package com.example.alimama.alimama.entity;
 
 public class Payment {
 

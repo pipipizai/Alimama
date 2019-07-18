@@ -12,10 +12,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
-import com.example.alimama.alimama.bean.User;
+import com.example.alimama.alimama.entity.User;
 import com.example.alimama.alimama.ui.activity.MessageActivity;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 

@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.graphics.Typeface;
 
 import com.example.alimama.alimama.R;
-import com.example.alimama.alimama.bean.User;
+import com.example.alimama.alimama.entity.User;
 import com.example.alimama.alimama.util.ConfirmDialog;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

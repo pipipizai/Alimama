@@ -2,7 +2,6 @@ package com.example.alimama.alimama.ui.activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,15 +9,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.adapter.MessageAdapter;
-import com.example.alimama.alimama.bean.Chat;
-import com.example.alimama.alimama.bean.User;
+import com.example.alimama.alimama.entity.Chat;
+import com.example.alimama.alimama.entity.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

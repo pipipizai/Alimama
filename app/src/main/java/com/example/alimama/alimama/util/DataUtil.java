@@ -1,7 +1,6 @@
 package com.example.alimama.alimama.util;
 
 import android.content.Context;
-import android.media.Image;
 import android.widget.ImageView;
 
 import com.example.alimama.alimama.entity.Menu;

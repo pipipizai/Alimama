@@ -1,12 +1,9 @@
 package com.example.alimama.alimama.ui.activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,8 +13,7 @@ import android.widget.TextView;
 import android.graphics.Typeface;
 
 import com.example.alimama.alimama.R;
-import com.example.alimama.alimama.bean.Item;
-import com.example.alimama.alimama.bean.User;
+import com.example.alimama.alimama.entity.User;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;

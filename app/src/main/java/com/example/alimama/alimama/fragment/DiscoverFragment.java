@@ -1,6 +1,5 @@
 package com.example.alimama.alimama.fragment;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,24 +13,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.graphics.Typeface;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
-import com.example.alimama.alimama.bean.Item;
+import com.example.alimama.alimama.entity.Item;
 import com.example.alimama.alimama.ui.activity.ItemInformationActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.firebase.ui.database.SnapshotParser;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.core.Context;
-import com.squareup.picasso.Picasso;
 
 /**
  * Created by LING on 6/5/2019.

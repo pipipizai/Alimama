@@ -7,10 +7,8 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -21,11 +19,8 @@ import android.widget.TextView;
 import android.graphics.Typeface;
 
 import com.example.alimama.alimama.R;
-import com.example.alimama.alimama.adapter.UserAdapter;
-import com.example.alimama.alimama.bean.CategoriesName;
-import com.example.alimama.alimama.bean.Chat;
-import com.example.alimama.alimama.bean.Item;
-import com.example.alimama.alimama.bean.User;
+import com.example.alimama.alimama.entity.CategoriesName;
+import com.example.alimama.alimama.entity.Item;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -41,9 +36,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class PublishActivity extends BaseActvity {
 

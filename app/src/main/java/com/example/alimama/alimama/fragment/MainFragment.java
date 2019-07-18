@@ -23,7 +23,7 @@ import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.adapter.MainHeaderAdAdapter;
 import com.example.alimama.alimama.adapter.MainMenuAdapter;
-import com.example.alimama.alimama.bean.Item;
+import com.example.alimama.alimama.entity.Item;
 import com.example.alimama.alimama.ui.activity.ItemInformationActivity;
 import com.example.alimama.alimama.ui.activity.SearchActivity;
 import com.example.alimama.alimama.util.DataUtil;

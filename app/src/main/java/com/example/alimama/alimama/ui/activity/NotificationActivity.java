@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.alimama.alimama.R;
 import com.example.alimama.alimama.adapter.NotificationAdapter;
-import com.example.alimama.alimama.bean.Notification;
+import com.example.alimama.alimama.entity.Notification;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

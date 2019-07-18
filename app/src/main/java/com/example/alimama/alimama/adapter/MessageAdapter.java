@@ -1,7 +1,6 @@
 package com.example.alimama.alimama.adapter;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,9 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
-import com.example.alimama.alimama.bean.Chat;
-import com.example.alimama.alimama.bean.User;
-import com.example.alimama.alimama.ui.activity.PublishActivity;
+import com.example.alimama.alimama.entity.Chat;
 
 import java.util.List;
 

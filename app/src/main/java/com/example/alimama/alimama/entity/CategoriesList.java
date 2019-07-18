@@ -1,8 +1,4 @@
-package com.example.alimama.alimama.bean;
-
-import java.util.ArrayList;
-import android.widget.TextView;
-import android.graphics.Typeface;
+package com.example.alimama.alimama.entity;
 
 public class CategoriesList {
 

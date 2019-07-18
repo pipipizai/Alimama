@@ -11,13 +11,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
-import com.example.alimama.alimama.bean.Item;
-import com.example.alimama.alimama.fragment.CartFragment;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.example.alimama.alimama.entity.Item;
 
 import java.util.List;
-
-import static java.security.AccessController.getContext;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ItemViewHolder>  {
 

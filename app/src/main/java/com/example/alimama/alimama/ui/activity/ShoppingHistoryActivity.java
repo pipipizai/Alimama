@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,8 +18,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
-import com.example.alimama.alimama.bean.Item;
-import com.example.alimama.alimama.fragment.CartFragment;
+import com.example.alimama.alimama.entity.Item;
 import com.example.alimama.alimama.util.DeleteDialog;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;

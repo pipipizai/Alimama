@@ -1,4 +1,4 @@
-package com.example.alimama.alimama.bean;
+package com.example.alimama.alimama.entity;
 
 /**test
  * Created by LING on 6/6/2019.

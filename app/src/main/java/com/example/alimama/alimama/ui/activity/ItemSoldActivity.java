@@ -18,8 +18,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
-import com.example.alimama.alimama.bean.Item;
-import com.example.alimama.alimama.bean.Payment;
+import com.example.alimama.alimama.entity.Payment;
 import com.example.alimama.alimama.util.DeleteDialog;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;

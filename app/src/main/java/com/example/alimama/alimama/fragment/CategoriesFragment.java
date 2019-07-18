@@ -17,14 +17,13 @@ import android.graphics.Typeface;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
-import com.example.alimama.alimama.bean.Item;
-import com.example.alimama.alimama.bean.CategoriesList;
+import com.example.alimama.alimama.entity.Item;
+import com.example.alimama.alimama.entity.CategoriesList;
 import com.example.alimama.alimama.ui.activity.ItemInformationActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.core.Context;
 
 public class CategoriesFragment extends Fragment {
 
