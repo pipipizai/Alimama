@@ -63,7 +63,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             public void onClick(View v) {
 
                 Intent intent = new Intent(mContext, MessageActivity.class);
-                intent.putExtra("itemPublishedUserName",user.getUsername());
+               // intent.putExtra("itemPublishedUserName",user.getUsername());
+                intent.putExtra("talkTo",user.getUsername());
                 intent.putExtra("username",myUserName);
                 mContext.startActivity(intent);
 
