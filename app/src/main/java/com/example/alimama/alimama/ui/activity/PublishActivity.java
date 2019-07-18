@@ -60,7 +60,7 @@ public class PublishActivity extends BaseActvity {
     private DatabaseReference mDatabaseCategories;
 
     private long itemsNumber;
-    private long publishedItemNumber;
+   // private long publishedItemNumber;
     private long categoriesItemNumber;
     private List<String> categoriesList;
     private String catrgory=null;
@@ -209,19 +209,19 @@ public class PublishActivity extends BaseActvity {
 
 
 
-        mDatabaseUsers.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-                    publishedItemNumber = (dataSnapshot.getChildrenCount());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+//        mDatabaseUsers.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if(dataSnapshot.exists()){
+//                    publishedItemNumber = (dataSnapshot.getChildrenCount());
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
 
         if (!TextUtils.isEmpty(price_value) && !TextUtils.isEmpty(name_value)
@@ -296,8 +296,7 @@ public class PublishActivity extends BaseActvity {
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
 
-
-                                            mDatabaseUsers.child(String.valueOf(publishedItemNumber+1)).setValue(item);
+                                            mDatabaseUsers.child(String.valueOf(itemsNumber)).setValue(item);
                                             mDatabaseCategories.child(catrgory).child(String.valueOf(categoriesItemNumber+1)).setValue(item);
                                             Toast.makeText(PublishActivity.this, "Successfully publish!", Toast.LENGTH_LONG).show();
 
