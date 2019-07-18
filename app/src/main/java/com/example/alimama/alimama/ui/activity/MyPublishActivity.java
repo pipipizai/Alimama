@@ -81,7 +81,7 @@ public class MyPublishActivity extends BaseActvity {
                         bundle.putString("name",model.getName());
                         bundle.putString("price",model.getPrice());
                         bundle.putString("description",model.getDescription());
-                        bundle.putString("itemPublishedUserName",model.getDescription());
+                        bundle.putString("itemPublishedUserName",model.getUserName());
                         bundle.putString("userProfileImage",model.getUserProfileImage());
 
                         intent.putExtras(bundle);

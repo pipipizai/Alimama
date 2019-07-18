@@ -447,7 +447,7 @@
                     android:textSize="15dp" />
 
                 <TextView
-                    android:id="@+id/amount"
+                    android:id="@+id/paymemt_confirm_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"

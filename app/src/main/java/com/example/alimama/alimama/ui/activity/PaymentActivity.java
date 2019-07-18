@@ -51,6 +51,7 @@ public class PaymentActivity extends BaseActvity {
     private String itemDescription;
     private String itemPublishedUserName;
     private String userProfileImage;
+    private TextView paymemt_confirm_amount;
     private Notification notification;
 
 
@@ -191,6 +192,7 @@ public class PaymentActivity extends BaseActvity {
         item.setItemID(itemID);
         item.setUserProfileImage(userProfileImage);
 
+
         payment = new Payment(itemName,itemPrice,itemDescription,
                 ItemImage,username,itemPublishedUserName,
                 itemID,userIcon,userProfileImage,phone,address);
@@ -207,6 +209,7 @@ public class PaymentActivity extends BaseActvity {
         mTextViewUsername.setText(username);
         mTextViewPhone.setText(phone);
         mTextViewAddress.setText(address);
+        paymemt_confirm_amount.setText(itemPrice);
 
 
 
@@ -309,5 +312,7 @@ public class PaymentActivity extends BaseActvity {
         mItemPrice = findViewById(R.id.payment_item_price);
         mItemDescription = findViewById(R.id.payment_item_description);
         mPay = findViewById(R.id.payment);
+
+        paymemt_confirm_amount= findViewById(R.id.paymemt_confirm_amount);
     }
 }
