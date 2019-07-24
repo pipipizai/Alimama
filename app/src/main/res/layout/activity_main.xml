@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main_container"
     tools:context="com.example.alimama.alimama.ui.activity.MainActivity">
 
     <!-- 内容 -->
     <RelativeLayout
         android:id="@+id/container_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
     </RelativeLayout>
 
     <!-- 功能菜单  -->
@@ -71,7 +73,7 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@mipmap/pubulish"/>
+                android:src="@drawable/main_icon_publish_selector"/>
         </LinearLayout>
 
         <LinearLayout

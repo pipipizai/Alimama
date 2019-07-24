@@ -46,7 +46,7 @@ public class SearchActivity extends BaseActvity {
 
         textViewSeachContent = findViewById(R.id.activity_search_content);
         //show the transferred data
-        textViewSeachContent.setText(searchContent);
+        textViewSeachContent.setText("Search Content : "+searchContent);
 
         readItems(searchContent);
 

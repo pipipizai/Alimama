@@ -135,10 +135,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mHomeImageView.setVisibility(View.VISIBLE);
                 this.getSupportFragmentManager()
                         .beginTransaction()
-                        .show(mMainFragment)
-                        .hide(mCaregoriesFragment)
-                        .hide(mMessageFragment)
-                        .hide(mMeFragment)
+                        .replace(R.id.container_content, new MainFragment())
+//                        .show(mMainFragment)
+//                        .hide(mCaregoriesFragment)
+//                        .hide(mMessageFragment)
+//                        .hide(mMeFragment)
                         .commit();
                 break;
             case R.id.menu_categories: //分类
@@ -149,10 +150,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mCategoriesImageView.setVisibility(View.VISIBLE);
                 this.getSupportFragmentManager()
                         .beginTransaction()
-                        .hide(mMainFragment)
-                        .show(mCaregoriesFragment)
-                        .hide(mMessageFragment)
-                        .hide(mMeFragment)
+                        .replace(R.id.container_content, new CategoriesFragment())
+//                        .hide(mMainFragment)
+//                        .show(mCaregoriesFragment)
+//                        .hide(mMessageFragment)
+//                        .hide(mMeFragment)
                         .commit();
                 break;
 //            case R.id.menu_discover: //发现
@@ -186,11 +188,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mMessageImageView.setVisibility(View.VISIBLE);
                 this.getSupportFragmentManager()
                         .beginTransaction()
-                        .hide(mMainFragment)
-                        .hide(mCaregoriesFragment)
-//                        .hide(mDiscoverFragment)
-                        .show(mMessageFragment)
-                        .hide(mMeFragment)
+                        .replace(R.id.container_content, new MessageFragment())
+//                        .hide(mMainFragment)
+//                        .hide(mCaregoriesFragment)
+////                        .hide(mDiscoverFragment)
+//                        .show(mMessageFragment)
+//                        .hide(mMeFragment)
                         .commit();
                 break;
             case R.id.menu_me: //我
@@ -201,11 +204,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mMeImageView.setVisibility(View.VISIBLE);
                 this.getSupportFragmentManager()
                         .beginTransaction()
-                        .hide(mMainFragment)
-                        .hide(mCaregoriesFragment)
-//                        .hide(mDiscoverFragment)
-                        .hide(mMessageFragment)
-                        .show(mMeFragment)
+                        .replace(R.id.container_content, new MeFragment())
+//                        .hide(mMainFragment)
+//                        .hide(mCaregoriesFragment)
+////                        .hide(mDiscoverFragment)
+//                        .hide(mMessageFragment)
+//                        .show(mMeFragment)
                         .commit();
                 break;
         }

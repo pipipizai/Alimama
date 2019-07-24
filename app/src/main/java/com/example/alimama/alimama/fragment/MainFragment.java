@@ -1,6 +1,7 @@
 package com.example.alimama.alimama.fragment;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -43,7 +45,7 @@ import com.google.firebase.storage.StorageReference;
 public class MainFragment extends Fragment {
 
     public static final int GALLERY_INTENT = 2;
-    private Button mPublishButton;
+    private ImageButton mMessageButton;
     private Button mSearchButton;
 
     private EditText mEditTextseachContent;
@@ -71,6 +73,11 @@ public class MainFragment extends Fragment {
     private DatabaseReference mDatabaseRef;
     private RecyclerView mItemList; //猜你喜欢
     private StorageReference mStorage;
+
+    protected ImageView mHomeImageView;
+    protected ImageView mCategoriesImageView;
+    protected ImageView mMessageImageView;
+    protected ImageView mMeImageView;
 
 
     @Nullable
@@ -123,6 +130,32 @@ public class MainFragment extends Fragment {
 //
 //            }
 //        });
+
+        /**
+         * MESSAGE FUNCTION
+         */
+
+        mMessageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCategoriesImageView.getDrawable().setLevel(1);
+                mMessageImageView.getDrawable().setLevel(2);
+                mMeImageView.getDrawable().setLevel(1);
+                mHomeImageView.getDrawable().setLevel(1);
+                mMessageImageView.setVisibility(View.VISIBLE);
+
+
+                    getFragmentManager()
+                          .beginTransaction()//将当前fragment加入到返回栈中
+                          .replace(R.id.container_content, new MessageFragment())
+                            .addToBackStack(null)
+                            .commit();
+
+
+
+            }
+        });
+
 
         /**
          * SEARCH FUNCTION
@@ -282,9 +315,15 @@ public class MainFragment extends Fragment {
         mItemList.setHasFixedSize(true);
         mItemList.setLayoutManager(new GridLayoutManager(getContext(),2));
 
+        mHomeImageView = getActivity().findViewById(R.id.menu_icon_home);
+        mCategoriesImageView = getActivity().findViewById(R.id.menu_icon_categories);
+        mMessageImageView = getActivity().findViewById(R.id.menu_icon_message);
+        mMeImageView = getActivity().findViewById(R.id.menu_icon_me);
+
         //initialize searchButton & EditText(search content is in it)
         //R.id.button_search button_search is id of mSearchButton in fragment_main layout
         mSearchButton = getView().findViewById(R.id.button_search);
+        mMessageButton = getView().findViewById(R.id.main_header__message);
         mEditTextseachContent = getView().findViewById(R.id.main_search_content);
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Items");
