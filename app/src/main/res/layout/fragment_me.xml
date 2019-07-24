@@ -75,7 +75,10 @@
                         android:layout_marginLeft="5dp"
                         android:paddingTop="5dp"
                         android:text="My Information"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        android:textColor="@drawable/text_color_change"
+                        android:clickable="true"
+                        android:focusable="true" />
 
                     <View
                         android:layout_width="match_parent"
@@ -116,7 +119,10 @@
                         android:layout_marginLeft="5dp"
                         android:paddingTop="10dp"
                         android:text="Shopping Cart"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        android:textColor="@drawable/text_color_change"
+                        android:clickable="true"
+                        android:focusable="true"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -156,7 +162,10 @@
                         android:layout_marginLeft="5dp"
                         android:paddingTop="10dp"
                         android:text="My Favorite"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        android:textColor="@drawable/text_color_change"
+                        android:clickable="true"
+                        android:focusable="true"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -195,7 +204,10 @@
                         android:layout_marginLeft="5dp"
                         android:paddingTop="10dp"
                         android:text="My Published"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        android:textColor="@drawable/text_color_change"
+                        android:clickable="true"
+                        android:focusable="true"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -235,7 +247,10 @@
                         android:layout_marginLeft="5dp"
                         android:paddingTop="10dp"
                         android:text="Item Sold"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        android:textColor="@drawable/text_color_change"
+                        android:clickable="true"
+                        android:focusable="true"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -277,7 +292,10 @@
                         android:layout_marginLeft="5dp"
                         android:paddingTop="10dp"
                         android:text="Shopping History"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        android:textColor="@drawable/text_color_change"
+                        android:clickable="true"
+                        android:focusable="true"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -316,7 +334,10 @@
                         android:layout_marginLeft="5dp"
                         android:paddingTop="10dp"
                         android:text="Log out"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        android:textColor="@drawable/text_color_change"
+                        android:clickable="true"
+                        android:focusable="true"/>
 
                     <View
                         android:layout_width="match_parent"
