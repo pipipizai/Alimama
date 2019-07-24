@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -99,12 +100,38 @@ public class PublishActivity extends BaseActvity {
             }
         });
 
-        mPublishButton.setOnClickListener(new View.OnClickListener() {
+        mPublishButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-                startPublish();
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        if (v.getId() == R.id.btn_publish) {
+                            mPublishButton.setScaleX((float) 0.9);
+                            mPublishButton.setScaleY((float) 0.9);
+                        }
+                        break;
+
+
+                    case MotionEvent.ACTION_UP:
+                        if (v.getId() == R.id.btn_publish) {
+                            mPublishButton.setScaleX(1);
+                            mPublishButton.setScaleY(1);
+                        }
+
+                        startPublish();
+                        break;
+
+                }
+                return false;
             }
+
         });
+//
+//            @Override
+//            public void onClick(View view) {
+//                startPublish();
+//            }
+
 
         mPublishCategories.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -190,6 +217,8 @@ public class PublishActivity extends BaseActvity {
         final String name_value = mPublishItemName.getText().toString().trim();
         final String description_value = mPublishItemDscription.getText().toString().trim();
 
+
+
         mDatabaseItems = FirebaseDatabase.getInstance().getReference().child("Items");
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users").child(username).child("published items");
 
@@ -206,22 +235,6 @@ public class PublishActivity extends BaseActvity {
 
             }
         });
-
-
-
-//        mDatabaseUsers.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if(dataSnapshot.exists()){
-//                    publishedItemNumber = (dataSnapshot.getChildrenCount());
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
 
 
         if (!TextUtils.isEmpty(price_value) && !TextUtils.isEmpty(name_value)

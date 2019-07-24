@@ -7,9 +7,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -192,7 +194,7 @@ public class MainFragment extends Fragment {
 
         FirebaseRecyclerAdapter<Item, ItemViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Item, ItemViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull ItemViewHolder holder, int position, @NonNull final Item model) {
+            protected void onBindViewHolder(@NonNull final ItemViewHolder holder, int position, @NonNull final Item model) {
 
 //                Picasso.get().load(model.getImage()).into(holder.publish_image);
 //                holder.setImage(getA,model.getImage);
@@ -202,27 +204,70 @@ public class MainFragment extends Fragment {
                 holder.publish_price.setText(model.getPrice());
                 holder.publish_description.setText(model.getDescription());
 
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                holder.root.setOnTouchListener(new View.OnTouchListener() {
                     @Override
-                    public void onClick(View v) {
+                    public boolean onTouch(View v, MotionEvent event) {
 
-                        Intent intent = new Intent(getActivity(), ItemInformationActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putLong("item id",model.getItemID());
-                        bundle.putString("image",model.getImage());
-                        bundle.putString("name",model.getName());
-                        bundle.putString("price",model.getPrice());
-                        bundle.putString("description",model.getDescription());
-                        bundle.putString("itemPublishedUserName",model.getUserName());
-                        bundle.putString("userProfileImage",model.getUserProfileImage());
-                        intent.putExtras(bundle);
+                        switch (event.getAction()) {
+                            case MotionEvent.ACTION_DOWN: {
+                                if (v.getId() == R.id.layout_item_row) {
+                                    holder.root.setScaleX((float) 0.95);
+                                    holder.root.setScaleY((float) 0.95);
+                                }
 
-//                        intent.putExtra((String) ItemInformationActivity.ExtraData, itemID);
-                        startActivity(intent);
+                                Intent intent = new Intent(getActivity(), ItemInformationActivity.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putLong("item id",model.getItemID());
+                                bundle.putString("image",model.getImage());
+                                bundle.putString("name",model.getName());
+                                bundle.putString("price",model.getPrice());
+                                bundle.putString("description",model.getDescription());
+                                bundle.putString("itemPublishedUserName",model.getUserName());
+                                bundle.putString("userProfileImage",model.getUserProfileImage());
+                                intent.putExtras(bundle);
+
+                                startActivity(intent);
+
+                                break;
+                            }
+
+                            case MotionEvent.ACTION_UP: {
+                                if (v.getId() == R.id.layout_item_row) {
+                                    holder.root.setScaleX(1);
+                                    holder.root.setScaleY(1);
+                                }
+
+
+                                break;
+                            }
+
+                        }
+
+                        return false;
                     }
                 });
-
             }
+    //    };
+//                    @Override
+//                    public void onClick(View v) {
+//
+//                        Intent intent = new Intent(getActivity(), ItemInformationActivity.class);
+//                        Bundle bundle = new Bundle();
+//                        bundle.putLong("item id",model.getItemID());
+//                        bundle.putString("image",model.getImage());
+//                        bundle.putString("name",model.getName());
+//                        bundle.putString("price",model.getPrice());
+//                        bundle.putString("description",model.getDescription());
+//                        bundle.putString("itemPublishedUserName",model.getUserName());
+//                        bundle.putString("userProfileImage",model.getUserProfileImage());
+//                        intent.putExtras(bundle);
+//
+////                        intent.putExtra((String) ItemInformationActivity.ExtraData, itemID);
+//                        startActivity(intent);
+//                    }
+
+
+          //  }
 
             @NonNull
             @Override
@@ -253,7 +298,7 @@ public class MainFragment extends Fragment {
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        private LinearLayout root;
+        private CardView root;
         private ImageView publish_image;
         private TextView publish_name;
         private TextView publish_price;
@@ -262,7 +307,8 @@ public class MainFragment extends Fragment {
 
         private ItemViewHolder(View itemView) {
             super(itemView);
-            root = itemView.findViewById(R.id.item_list);
+          //  root = itemView.findViewById(R.id.layout_item_row);
+            root = itemView.findViewById(R.id.layout_item_row);
             publish_image = itemView.findViewById(R.id.item_image);
             publish_name = itemView.findViewById(R.id.item_name);
             publish_price = itemView.findViewById(R.id.item_price);

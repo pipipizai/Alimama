@@ -119,7 +119,6 @@ public class RegisterActivity extends BaseActvity {
                         } else {
                             userRegister();
                         }
-
                         break;
                     }
                 }
@@ -127,28 +126,6 @@ public class RegisterActivity extends BaseActvity {
             }
         });
         }
-//
-//            @Override
-//            public void onClick(View view) {
-//                phone = mEtPhone.getText().toString();
-//                address = mEtAddress.getText().toString();
-//
-//                if(mImageUri==null){
-//                    Toast.makeText(RegisterActivity.this, "Please add profile image", Toast.LENGTH_LONG).show();
-//                }else if(phone==null){
-//                    Toast.makeText(RegisterActivity.this, "Please add phone", Toast.LENGTH_LONG).show();
-//                }else if(address==null){
-//                    Toast.makeText(RegisterActivity.this, "Please add address", Toast.LENGTH_LONG).show();
-//                }
-//                else {
-//                    userRegister();
-//                }
-//
-//
-//            }
-            //});
-
-  //  });
 
     public void userRegister(){
 
