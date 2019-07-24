@@ -112,6 +112,7 @@ public class ItemInformationActivity extends BaseActvity {
         item.setItemID(itemID);
         item.setUserProfileImage(userProfileImage);
 
+
         /**
          * add item to my favotite
          */
@@ -267,7 +268,6 @@ public class ItemInformationActivity extends BaseActvity {
 
         private ItemViewHolder(View itemView) {
             super(itemView);
-            root = itemView.findViewById(R.id.item_list);
             publish_image = itemView.findViewById(R.id.item_image);
             publish_name = itemView.findViewById(R.id.item_name);
             publish_price = itemView.findViewById(R.id.item_price);
