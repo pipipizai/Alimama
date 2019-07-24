@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.graphics.Typeface;
+import android.view.MotionEvent;
 
 import com.bumptech.glide.Glide;
 import com.example.alimama.alimama.R;
@@ -29,7 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ItemInformationActivity extends BaseActvity {
+public class ItemInformationActivity extends BaseActvity implements View.OnTouchListener {
 
 //    public static Object ExtraData;
 
@@ -47,6 +48,10 @@ public class ItemInformationActivity extends BaseActvity {
     private DatabaseReference mDatabaseItemsRef;
     private RecyclerView mItemList;
 
+    private Button event1;
+    private ImageButton event2;
+    private ImageButton event3;
+    private ImageButton event4;
 
     private long itemID;
     private String itemPublishedUserName;
@@ -194,6 +199,92 @@ public class ItemInformationActivity extends BaseActvity {
                 }
             }
         });
+
+        //点击事件
+        event1 = findViewById(R.id.item_info_payment);
+        event2 = findViewById(R.id.image_contact_user);
+        event3 = findViewById(R.id.item_info_add_cart);
+        event4 = findViewById(R.id.item_info_add_favorite);
+        event1.setOnTouchListener(this);
+        event2.setOnTouchListener(this);
+        event3.setOnTouchListener(this);
+        event4.setOnTouchListener(this);
+    }
+
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+
+
+        switch (motionEvent.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                if(view.getId() == R.id.item_info_payment){
+                    event1.setScaleX((float)0.90);
+                    event1.setScaleY((float)0.90);
+                }
+                break;
+
+
+            case MotionEvent.ACTION_UP:
+                if(view.getId() == R.id.item_info_payment){
+                    event1.setScaleX(1);
+                    event1.setScaleY(1);
+                }
+                break;
+        }
+
+        switch (motionEvent.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                if(view.getId() == R.id.image_contact_user){
+                    event2.setScaleX((float)0.90);
+                    event2.setScaleY((float)0.90);
+                }
+                break;
+
+
+            case MotionEvent.ACTION_UP:
+                if(view.getId() == R.id.image_contact_user){
+                    event2.setScaleX(1);
+                    event2.setScaleY(1);
+                }
+                break;
+        }
+
+        switch (motionEvent.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                if(view.getId() == R.id.item_info_add_cart){
+                    event3.setScaleX((float)0.90);
+                    event3.setScaleY((float)0.90);
+                }
+                break;
+
+
+            case MotionEvent.ACTION_UP:
+                if(view.getId() == R.id.item_info_add_cart){
+                    event3.setScaleX(1);
+                    event3.setScaleY(1);
+                }
+                break;
+        }
+
+        switch (motionEvent.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                if(view.getId() == R.id.item_info_add_favorite){
+                    event4.setScaleX((float)0.90);
+                    event4.setScaleY((float)0.90);
+                }
+                break;
+
+
+            case MotionEvent.ACTION_UP:
+                if(view.getId() == R.id.item_info_add_favorite){
+                    event4.setScaleX(1);
+                    event4.setScaleY(1);
+                }
+                break;
+        }
+
+
+        return false;
     }
 
     @Override
