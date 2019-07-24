@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.alimama.alimama.R;
@@ -32,7 +33,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected MessageFragment mMessageFragment = new MessageFragment();//Me
     protected MeFragment mMeFragment = new MeFragment();//Me
 
-
+    protected ImageView mHomeImageView;
+    protected ImageView mCategoriesImageView;
+    protected ImageView mMessageImageView;
+    protected ImageView mMeImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +110,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mMenuMe = (LinearLayout) this.findViewById(R.id.menu_me);
         mMenuPublish = (LinearLayout)findViewById(R.id.menu_publish);
 
+        mHomeImageView = findViewById(R.id.menu_icon_home);
+        mCategoriesImageView = findViewById(R.id.menu_icon_categories);
+        mMessageImageView = findViewById(R.id.menu_icon_message);
+        mMeImageView = findViewById(R.id.menu_icon_me);
+
         mMenuHome.setOnClickListener(this);
         mMenuCategories.setOnClickListener(this);
 //        mMenuDiscover.setOnClickListener(this);
@@ -119,6 +128,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.menu_home: //首页
+                mHomeImageView.getDrawable().setLevel(2);
+                mCategoriesImageView.getDrawable().setLevel(1);
+                mMessageImageView.getDrawable().setLevel(1);
+                mMeImageView.getDrawable().setLevel(1);
+                mHomeImageView.setVisibility(View.VISIBLE);
                 this.getSupportFragmentManager()
                         .beginTransaction()
                         .show(mMainFragment)
@@ -128,6 +142,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .commit();
                 break;
             case R.id.menu_categories: //分类
+                mHomeImageView.getDrawable().setLevel(1);
+                mCategoriesImageView.getDrawable().setLevel(2);
+                mMessageImageView.getDrawable().setLevel(1);
+                mMeImageView.getDrawable().setLevel(1);
+                mCategoriesImageView.setVisibility(View.VISIBLE);
                 this.getSupportFragmentManager()
                         .beginTransaction()
                         .hide(mMainFragment)
@@ -160,6 +179,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             case R.id.menu_cart: //购物车
+                mHomeImageView.getDrawable().setLevel(1);
+                mCategoriesImageView.getDrawable().setLevel(1);
+                mMessageImageView.getDrawable().setLevel(2);
+                mMeImageView.getDrawable().setLevel(1);
+                mMessageImageView.setVisibility(View.VISIBLE);
                 this.getSupportFragmentManager()
                         .beginTransaction()
                         .hide(mMainFragment)
@@ -170,6 +194,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .commit();
                 break;
             case R.id.menu_me: //我
+                mHomeImageView.getDrawable().setLevel(1);
+                mCategoriesImageView.getDrawable().setLevel(1);
+                mMessageImageView.getDrawable().setLevel(1);
+                mMeImageView.getDrawable().setLevel(2);
+                mMeImageView.setVisibility(View.VISIBLE);
                 this.getSupportFragmentManager()
                         .beginTransaction()
                         .hide(mMainFragment)

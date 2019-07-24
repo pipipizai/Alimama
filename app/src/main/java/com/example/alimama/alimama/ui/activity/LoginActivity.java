@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -87,69 +88,86 @@ public class LoginActivity extends AppCompatActivity {
 
         clearSharedPreferences();
 
-        mBtnLogin.setOnClickListener(new View.OnClickListener() {
+        mBtnLogin.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
+            public boolean onTouch(View view, MotionEvent event) {
                 // TODO 登录成功？
 
                 final String username = mEtUsername.getText().toString();
                 final String password = mEtPassword.getText().toString();
 
-
-//                loginRef = FirebaseDatabase.getInstance().getReference().child("Users");
-
-                if(loginRef.child(username)!=null){
-                    loginRef.child(username).addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            User user = dataSnapshot.getValue(User.class);
-                         //   long userid = user.getId();
-                            String userIcon = user.getIcon();
-
-                            if (password.equals(user.getPassword())){
-
-                                Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_LONG).show();
-
-                                //1、打开Preferences，名称为setting，如果存在则打开它，否则创建新的Preferences
-                                SharedPreferences preferences = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
-
-                                //2、让setting处于编辑状态
-                                SharedPreferences.Editor editor=preferences.edit();
-
-                                //3、存放数据
-                                editor.putString("username", username);
-                                editor.putString("password", password);
-                                editor.putString("userIcon",userIcon);
-                                editor.putString("phone",user.getPhone());
-                                editor.putString("address",user.getAddress());
-
-
-                                //4、完成提交
-                                editor.commit();
-
-                                toMainActivity();
-                                finish();
-                            } else {
-                                openDialog();// dialog
-                                Toast.makeText(LoginActivity.this, "The password is incorrect", Toast.LENGTH_LONG).show();
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
+                if(event.getAction()==MotionEvent.ACTION_DOWN){
+                    mBtnLogin.setBackgroundResource(R.drawable.btn_bg_orange);
                 }
 
+                if(event.getAction()==MotionEvent.ACTION_UP){
+
+                    mBtnLogin.setBackgroundResource(R.drawable.btn_bg_orange);
+
+                        if(loginRef.child(username)!=null){
+                        loginRef.child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                User user = dataSnapshot.getValue(User.class);
+                             //   long userid = user.getId();
+                                String userIcon = user.getIcon();
+
+                                if (password.equals(user.getPassword())){
+
+                                    Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_LONG).show();
+
+                                    //1、打开Preferences，名称为setting，如果存在则打开它，否则创建新的Preferences
+                                    SharedPreferences preferences = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+
+                                    //2、让setting处于编辑状态
+                                    SharedPreferences.Editor editor=preferences.edit();
+
+                                    //3、存放数据
+                                    editor.putString("username", username);
+                                    editor.putString("password", password);
+                                    editor.putString("userIcon",userIcon);
+                                    editor.putString("phone",user.getPhone());
+                                    editor.putString("address",user.getAddress());
+
+
+                                    //4、完成提交
+                                    editor.commit();
+
+                                    toMainActivity();
+                                    finish();
+                                } else {
+                                    openDialog();// dialog
+                                    Toast.makeText(LoginActivity.this, "The password is incorrect", Toast.LENGTH_LONG).show();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
+
+                }
+                return  false;
             }
         });
 
-        mBtnRegister.setOnClickListener(new View.OnClickListener() {
+        mBtnRegister.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-                toRegisterActivity();
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction()==MotionEvent.ACTION_DOWN){
+                    mBtnRegister.setBackgroundResource(R.drawable.btn_bg_orange);
+                }
+                if(event.getAction()==MotionEvent.ACTION_UP){
+                    mBtnRegister.setBackgroundResource(R.drawable.btn_bg_orange);
+                    toRegisterActivity();
+                }
+
+                return false;
             }
+
         });
     }
 

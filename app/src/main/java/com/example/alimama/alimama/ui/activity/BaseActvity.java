@@ -27,4 +27,15 @@ public class BaseActvity extends AppCompatActivity {
             }
         });
     }
+
+    protected void setUpRegisterToolbar() {
+        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.register_toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+    }
 }

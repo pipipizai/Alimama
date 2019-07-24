@@ -58,6 +58,7 @@ public class RegisterActivity extends BaseActvity {
      //   setUpToolbar();
         initView();
         initEvent();
+        setUpRegisterToolbar();
 
         //字体
         TextView textView1 = findViewById(R.id.register_edt_username);
