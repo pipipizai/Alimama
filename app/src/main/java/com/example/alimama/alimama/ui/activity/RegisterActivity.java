@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -88,29 +89,68 @@ public class RegisterActivity extends BaseActvity {
             }
         });
 
-        mBtnRegister.setOnClickListener(new View.OnClickListener() {
+        mBtnRegister.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-                phone = mEtPhone.getText().toString();
-                address = mEtAddress.getText().toString();
+            public boolean onTouch(View v, MotionEvent event) {
 
-                if(mImageUri==null){
-                    Toast.makeText(RegisterActivity.this, "Please add profile image", Toast.LENGTH_LONG).show();
-                }else if(phone==null){
-                    Toast.makeText(RegisterActivity.this, "Please add phone", Toast.LENGTH_LONG).show();
-                }else if(address==null){
-                    Toast.makeText(RegisterActivity.this, "Please add address", Toast.LENGTH_LONG).show();
+
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        if (v.getId() == R.id.btn_register) {
+                            mBtnRegister.setScaleX((float) 0.9);
+                            mBtnRegister.setScaleY((float) 0.9);
+                        }
+                    }
+                    break;
+
+                    case MotionEvent.ACTION_UP: {
+                        if (v.getId() == R.id.btn_register) {
+                            mBtnRegister.setScaleX(1);
+                            mBtnRegister.setScaleY(1);
+                        }
+                        phone = mEtPhone.getText().toString();
+                        address = mEtAddress.getText().toString();
+                        if (mImageUri == null) {
+                            Toast.makeText(RegisterActivity.this, "Please add profile image", Toast.LENGTH_LONG).show();
+                        } else if (phone == null) {
+                            Toast.makeText(RegisterActivity.this, "Please add phone", Toast.LENGTH_LONG).show();
+                        } else if (address == null) {
+                            Toast.makeText(RegisterActivity.this, "Please add address", Toast.LENGTH_LONG).show();
+                        } else {
+                            userRegister();
+                        }
+
+                        break;
+                    }
                 }
-                else {
-                    userRegister();
-                }
-
-
+                return false;
             }
         });
-    }
+        }
+//
+//            @Override
+//            public void onClick(View view) {
+//                phone = mEtPhone.getText().toString();
+//                address = mEtAddress.getText().toString();
+//
+//                if(mImageUri==null){
+//                    Toast.makeText(RegisterActivity.this, "Please add profile image", Toast.LENGTH_LONG).show();
+//                }else if(phone==null){
+//                    Toast.makeText(RegisterActivity.this, "Please add phone", Toast.LENGTH_LONG).show();
+//                }else if(address==null){
+//                    Toast.makeText(RegisterActivity.this, "Please add address", Toast.LENGTH_LONG).show();
+//                }
+//                else {
+//                    userRegister();
+//                }
+//
+//
+//            }
+            //});
 
-    private void userRegister() {
+  //  });
+
+    public void userRegister(){
 
         final String username = mEtUsername.getText().toString();
         final String password = mEtPassword.getText().toString();

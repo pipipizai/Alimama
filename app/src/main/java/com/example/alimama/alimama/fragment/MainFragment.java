@@ -144,15 +144,11 @@ public class MainFragment extends Fragment {
                 mHomeImageView.getDrawable().setLevel(1);
                 mMessageImageView.setVisibility(View.VISIBLE);
 
-
                     getFragmentManager()
                           .beginTransaction()//将当前fragment加入到返回栈中
                           .replace(R.id.container_content, new MessageFragment())
                             .addToBackStack(null)
                             .commit();
-
-
-
             }
         });
 
